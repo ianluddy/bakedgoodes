@@ -1,0 +1,21 @@
+{
+  "name": "bakedgoodes",
+  "version": "1.0.0",
+  "description": "Baked Goodes",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build && next export",
+    "start": "next start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^12.0.10",
+    "react": "^17.0.2",
+    "react-awesome-styled-grid": "^3.1.4",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.3"
+  }
+}
