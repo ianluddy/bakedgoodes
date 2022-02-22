@@ -4,7 +4,7 @@ import theme from '../themes/default';
 const PolaroidAnchor = styled.a`
   transition: all ${theme.transitionTime};
   box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
-  background: ${theme.white};
+  background: #ffffff;
   display: inline-block;
   margin: 1rem;
   padding: 15px 15px 30px;

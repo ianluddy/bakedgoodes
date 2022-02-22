@@ -6,8 +6,6 @@ import { ThemeProvider } from "styled-components";
 const name = 'Baked Goodes';
 export const siteTitle = 'Home baking from Dublin 8';
 
-console.log(theme);
-
 export default function App({ Component, pageProps }) {
   return (
     <>
@@ -15,10 +13,8 @@ export default function App({ Component, pageProps }) {
     <ThemeProvider theme={theme}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
-        <meta
-          name={name}
-          content="TODO"
-        />
+        <meta name="name" content={name} />
+        <meta name="color" content={theme.secondary} />        
         <meta
           property="og:image"
           content={`https://og-image.vercel.app/${encodeURI(

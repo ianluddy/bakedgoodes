@@ -3,8 +3,8 @@ import theme from '../themes/default';
 
 export const GlobalStyle = createGlobalStyle`
   body {
-    background-color: ${theme.pink};
-    color: ${theme.white};
+    background-color: ${theme.primary};
+    color: ${theme.text};
     font-family: ${theme.fontSource};
   }  
 `

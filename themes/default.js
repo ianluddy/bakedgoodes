@@ -1,26 +1,16 @@
 const theme = {
-  black: "#000000",
-  pink: "#c37389",
-  pink: "#D69FAE",
-  darkPink: "#BC627A",
-  white: "#EEEEEE",
-  black: "#000000",
-  offWhite: "#EDEECE",
-  grey: "#391821",
+  primary: "#D69FAE",
+  secondary: "#BC627A",
+  tertiary: "#EDEECE",
+  text: "#EEEEEE",
   fontSource: "'Source Serif 4', sans-serif",
   fontParisienne: "'Parisienne', cursive",
-  border: "2px solid white",
+  border: "3px solid",
+  fatBorder: "10px solid",
   transitionTime: "0.3s",
   opacity: "0.6",
   
   awesomegrid: {
-    // gutterWidth: {
-    //   xs: 0,
-    //   sm: 0,
-    //   md: 0,
-    //   lg: 0,
-    //   xl: 0,
-    // },
     columns: {
       xs: 12, // 4
       sm: 12, // 8
@@ -36,22 +26,22 @@ const theme = {
       xl: 0, // 1.5
     },    
     breakpoints: {
-      xs: 1,
+      xs: 24, // 375px
       sm: 30, // 480px
       md: 48, // 768px
       lg: 64, // 1120px
       xl: 90, // 1440px
     },    
   },
-  
   breakpoints: {
+    xs: "375px",
     sm: "480px",
     md: "768px",
     lg: "1120px",
     xl: "1440px"
-  },
-  
+  },  
   devices: {
+    xs: 'min-width: 375px',
     sm: 'min-width: 480px',
     md: 'min-width: 768px',
     lg: 'min-width: 1120px',

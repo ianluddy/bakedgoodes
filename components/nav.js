@@ -1,12 +1,17 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
-import { useRouter } from "next/router";
 import Socials from './socials';
-import Link from 'next/link';
+import NavAnchor from './navAnchor';
+import { PrimarySquiggle, SecondarySquiggle } from './squiggle';
 
 const NavWrapper = styled.div`
   text-align: center;
-  margin: 2rem 0;
+  margin: 4rem 0 1rem 0;
+  color: ${theme.text};
+  
+  @media (${theme.devices.md}) {
+    margin: 2rem 0;
+  }
 `
 const NavLinkWrapper = styled.div`
   text-align: center;
@@ -32,6 +37,7 @@ const NavLink = styled.div`
   text-align: center;
   flex-grow: 1;
   width: auto;
+
   @media (${theme.devices.md}) {
     width: 130px;
   }
@@ -40,44 +46,30 @@ const NavLink = styled.div`
   }
 `
 
-const NavAnchor = styled.a`
-  cursor: pointer;
-  font-size: 1rem;
-  text-transform: uppercase;  
-  transition: opacity ${theme.transitionTime};
-  font-weight: ${props => props.active ? 'bold' : 300 };
-  &:hover {
-    opacity: ${props => props.active ? 1 : theme.opacity };
-  }
-  &:after {
-    content: ${props => props.active ? "' • '" : "" };
-  }
-  &:before {
-    content: ${props => props.active ? "' • '" : "" };
-  }
+const SocialWrapper = styled.div`
+  display: none;
   @media (${theme.devices.md}) {
-    font-size: 1rem;
-  }
-  @media (${theme.devices.lg}) {
-    font-size: 1.2rem;
+    display: block;
   }
 `
 
-const Title = styled.h1`
+const Title = styled.div`
   flex-grow: 1;
-  text-shadow: 1.5px 1.5px ${theme.darkPink};
+  text-shadow: 1.5px 1.5px ${theme.secondary};
   font-family: ${theme.fontParisienne};
   margin: 0;
-  padding: 0.5rem 1rem;
-  font-size: 2.4rem;
-  line-height: 3rem;
-  color: ${theme.offWhite};
+  padding: 0;
+  font-size: 3rem;
+  font-weight: bold;
+  color: ${theme.tertiary};
   
-  @media (${theme.devices.sm}) {
-    font-size: 2.9rem;
-  }  
+  @media (${theme.devices.xs}) {
+    font-size: 3.7em;
+  }
   @media (${theme.devices.md}) {
+    padding: 0.5rem 1rem;
     font-size: 3.3rem;
+    line-height: 3rem;
   }
   @media (${theme.devices.lg}) {
     font-size: 4rem;
@@ -87,49 +79,46 @@ const Title = styled.h1`
 const Logo = styled.img`
   height: 90px;
   position: relative;
+  display: none;
+  align-self: center;
+  
   @media (${theme.devices.md}) {
+    display: inline-block;    
     height: 100px;
   }
   @media (${theme.devices.lg}) {
     height: 120px;
-  }  
-  /* top: 1rem; */
+  }
 `
+
 // TODO - use Image optimiser
 
 export default function () {  
-  const router = useRouter();
   return (
     <NavWrapper>
       <Logo src="images/cake.jpg"/>
       <NavLinkWrapper>
         <Nav>
           <NavLink>
-            <Link href="/">
-              <NavAnchor active={router.pathname == "/"}>Home</NavAnchor>
-            </Link>
+            <NavAnchor href="/">Home</NavAnchor>
           </NavLink>
-          <NavLink>
-            <Link href="/cakes">
-              <NavAnchor active={router.pathname == "/cakes"}>Cakes</NavAnchor>
-            </Link>
-          </NavLink>        
+          <NavLink>          
+            <NavAnchor href="/cakes">Cakes</NavAnchor>
+          </NavLink>
         </Nav>
-        <Title> Baked Goodes </Title>
+        <Title> 
+          Baked Goodes 
+        </Title>
         <Nav>
           <NavLink>
-            <Link href="/cupcakes">
-              <NavAnchor active={router.pathname == "/cupcakes"}>Cupcakes</NavAnchor>
-            </Link>
+            <NavAnchor href="/cupcakes">Cupcakes</NavAnchor>
           </NavLink>
           <NavLink>
-            <Link href="/weddings">
-              <NavAnchor active={router.pathname == "/weddings"}>Weddings</NavAnchor>
-            </Link>
+            <NavAnchor href="/weddings">Weddings</NavAnchor>
           </NavLink>
         </Nav>
       </NavLinkWrapper>
-      <Socials></Socials>
+      <PrimarySquiggle></PrimarySquiggle>
     </NavWrapper>
   )
 }

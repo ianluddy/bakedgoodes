@@ -1,80 +1,101 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
-import { useRouter } from "next/router";
-import Link from 'next/link';
+import { useState } from "react";
+import NavAnchor from './navAnchor';
 
 const Button = styled.div`
-  margin:0;
-  padding:0;
+  height: 26px;
+  width: 32px;
   position: absolute;
-  top: 40px;
-  right: 16px;
+  top: 25px;
+  right: 15px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  
+  cursor: pointer;
   
-  label{
-    display:flex;
-    flex-direction:column;
-    width:70px;
-    cursor:pointer;
+  .line {
+    display: block;
+    height: 4px;
+    width: 100%;
+    border-radius: 10px;
+    background: ${theme.text};
   }
 
-  label span{
-    background: ${theme.white};
-    border-radius:10px;
-    height:7px;
-    margin: 7px 0;
-    transition: .4s  cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  .line1 {
+    transform-origin: 0% 0%;
+    transition: transform 0.4s ease-in-out;
+    transform: ${props => props.active ? 'rotate(45deg)' : 'rotate(0deg)'};
   }
 
-  span:nth-of-type(1){
-    width:50%;    
+  .line2 {
+    transition: transform 0.2s ease-in-out;
+    transform: ${props => props.active ? 'scaleY(0)' : ''};
   }
 
-  span:nth-of-type(2){
-    width:100%;
+  .line3 {
+    transform-origin: 0% 100%;
+    transition: transform 0.4s ease-in-out;
+    transform: ${props => props.active ? 'rotate(-45deg)' : 'rotate(0deg)'};
   }
-
-  span:nth-of-type(3){
-    width:75%;   
-  }
-
-  input[type="checkbox"]{
-    display:none;
-  }
-
-  input[type="checkbox"]:checked ~ span:nth-of-type(1){
-    transform-origin:bottom;
-    transform:rotatez(45deg) translate(8px,0px)
-  }
-
-  input[type="checkbox"]:checked ~ span:nth-of-type(2){    
-    transform-origin:top;
-    transform:rotatez(-45deg)
-  }
-
-  input[type="checkbox"]:checked ~ span:nth-of-type(3){
-    transform-origin:bottom;
-    width:50%;
-    transform: translate(30px,-11px) rotatez(45deg);
-  }
-`;
+  
+  @media (${theme.devices.md}) {
+    display: none;
+  }  
+`
 
 const Menu = styled.div`
+  display: none;
+  position: fixed;
+  z-index: 1;  
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: ${theme.secondary};
+  transform: translate(-150%);
+  transform: ${props => props.active ? 'translate(0)' : 'translate(-150%)'};
+  display: flex;
+  flex-direction: row;
+  transition: transform 0.5s ease-in-out;
+  align-items: center;
 
-`;
+  > div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+  }
+  
+  @media (${theme.devices.md}) {
+    display: none;
+  }
+`
 
 export default function () {  
-  const router = useRouter();
+  const [active, setActive] = useState(false);
+  
+  const handleClick = () => {
+    document.body.style.overflow = active ? 'unset' : 'hidden';
+    setActive(!active);
+  }
+
   return (
     <>
-      <Button>
-        <label for="check">
-          <input type="checkbox" id="check"/>
-          <span></span>
-          <span></span>
-          <span></span>
-        </label>
+      <Button active={active} onClick={handleClick}>
+        <span className="line line1"></span>
+        <span className="line line2"></span>
+        <span className="line line3"></span>
       </Button>
-      <Menu></Menu>
+      <Menu active={active}>
+        <div onClick={handleClick}>
+          <NavAnchor href="/">Home</NavAnchor>
+          <NavAnchor href="/cakes">Cakes</NavAnchor>
+          <NavAnchor href="/cupcakes">Cupcakes</NavAnchor>
+          <NavAnchor href="/weddings">Weddings</NavAnchor>
+        </div>
+      </Menu>
     </>
   )
 }

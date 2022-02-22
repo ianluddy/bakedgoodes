@@ -5,7 +5,7 @@ const Anchor = styled.a`
   transition: opacity ${theme.transitionTime};
   text-decoration: none;
   cursor: pointer;
-  color: ${theme.white};
+  color: ${theme.text};
   opacity: 1;
   &:hover {
     opacity: ${theme.opacity};

@@ -5,8 +5,8 @@ import { Container, Row, Col } from 'react-awesome-styled-grid';
 function Home() {
   return (
     <Layout>
-    <h2>Home</h2>
-    
+    <h1>Home</h1>
+      
     <Container>
       <Row>
         <Col xs={12} md={7}>
