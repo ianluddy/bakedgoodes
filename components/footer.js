@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
-import Socials from './socials';
+import { FooterSocials } from './socials';
 import Anchor from './anchor';
 import { SecondarySquiggle } from './squiggle';
 
@@ -36,8 +36,8 @@ const Break = styled.div`
 export default function () {  
   return (
     <Footer>
-      <Break></Break>
-      <SecondarySquiggle></SecondarySquiggle>
+      <Break/>
+      <SecondarySquiggle/>
       <Signature>© {new Date().getFullYear()} Baked Goodes</Signature>
       <Signature>
         Baked in Inchicore, Dublin 8
@@ -45,7 +45,7 @@ export default function () {
       <Signature>
         <Anchor href="mailto:order@bakedgoodes.ie"> order@bakedgoodes.ie </Anchor>
       </Signature>
-      <Socials fill={theme.text}></Socials>
+      <FooterSocials/>
     </Footer>
   )
 }

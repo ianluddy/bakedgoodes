@@ -11,7 +11,7 @@ const NavAnchor = styled.a`
   transition: opacity ${theme.transitionTime};
   font-weight: ${props => props.active ? 'bold' : 300 };
   @media (${theme.devices.md}) {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }  
 `
 

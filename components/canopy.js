@@ -7,6 +7,10 @@ const Canopy = styled.div`
   left: 0;
   right: 0;
   height: 50px;
+  border-top: ${theme.fatBorder} ${theme.primary};
+  svg {
+    display: none;
+  }
 `;
 
 export default function () {
@@ -15,7 +19,7 @@ export default function () {
       <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="50">
         <defs>
           <pattern id="bg" patternUnits="userSpaceOnUse" width="100" height="50">
-            <circle stroke={theme.shadow} stroke-width="2" cx="50" cy="-35" fill={theme.primary} r="60"></circle>
+            <circle stroke={theme.primary} stroke-width="2" cx="50" cy="-35" fill={theme.primary} r="60"></circle>
           </pattern>
         </defs>
         <rect width="100%" height="100%" fill="url(#bg)"/>

@@ -11,6 +11,10 @@ const Button = styled.div`
   top: 25px;
   left: 15px;
   font-size: 2.2rem;
+  
+  @media (${theme.devices.md}) {
+    left: 40px;
+  }  
 `;
 
 export default function () {  

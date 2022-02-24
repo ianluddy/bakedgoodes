@@ -1,11 +1,20 @@
 import styled from 'styled-components';
 import Anchor from './anchor';
+import theme from '../themes/default';
 import { BsInstagram, BsFacebook } from "react-icons/bs";
 
 const Socials = styled.div`
   a {
     font-size: 2rem;
     padding: 0.35rem;    
+  }
+  position: ${props => props.header ? 'absolute' : 'static'};
+  top: ${props => props.header ? '25px' : '0'};
+  right: ${props => props.header ? '35px' : '0'};
+  
+  display: ${props => props.header ? 'none' : 'block'};
+  @media (${theme.devices.md}) {
+    display: block;
   }
 `;
 
@@ -25,7 +34,7 @@ export const Facebook = () => {
   )
 }
 
-export default function (props) {
+export const FooterSocials = () => {
   return (
     <Socials>
       <Instagram/>
@@ -33,3 +42,13 @@ export default function (props) {
     </Socials>
   )
 }
+
+export const HeaderSocials = () => {
+  return (
+    <Socials header>
+      <Instagram/>
+      <Facebook/>
+    </Socials>
+  )
+}
+

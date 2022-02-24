@@ -5,11 +5,10 @@ import { PrimarySquiggle, SecondarySquiggle } from './squiggle';
 
 const NavWrapper = styled.div`
   text-align: center;
-  padding: 4rem 0 1rem 0;
-  border-top: ${theme.fatBorder} ${theme.primary};
-  
+  padding: 2rem 0 3rem 0;
+    
   @media (${theme.devices.md}) {
-    padding: 3rem 0 0 0;
+    padding: 0;
   }
 `
 const NavLinkWrapper = styled.div`
@@ -51,7 +50,7 @@ const Title = styled.div`
   flex-grow: 1;
   text-shadow: 1px 1px ${theme.shadow};
   font-family: ${theme.fontLogo};
-  font-size: 3rem;
+  font-size: 3.3rem;
   color: ${theme.primary};
   margin-bottom: -1rem;
   
