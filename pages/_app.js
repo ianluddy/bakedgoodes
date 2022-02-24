@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }) {
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta name="name" content={name} />
-        <meta name="color" content={theme.secondary} />        
+        <meta name="color" content={theme.primary} />        
         <meta
           property="og:image"
           content={`https://og-image.vercel.app/${encodeURI(
@@ -25,7 +25,7 @@ export default function App({ Component, pageProps }) {
         <meta name="twitter:card" content="summary_large_image" />
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
-        <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400&Dongle:wght@300;400;700&family=Parisienne&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400&family=Lobster&display=swap" rel="stylesheet"/>
       </Head>    
       <Component {...pageProps} />
     </ThemeProvider>

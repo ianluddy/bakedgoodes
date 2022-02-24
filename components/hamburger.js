@@ -21,6 +21,7 @@ const Button = styled.div`
     width: 100%;
     border-radius: 10px;
     background: ${theme.text};
+    background-color: ${props => props.active ? theme.body : theme.text};
   }
 
   .line1 {
@@ -53,7 +54,8 @@ const Menu = styled.div`
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: ${theme.secondary};
+  background-color: ${theme.primary};
+  color: ${theme.body};
   transform: translate(-150%);
   transform: ${props => props.active ? 'translate(0)' : 'translate(-150%)'};
   display: flex;

@@ -8,7 +8,7 @@ const Footer = styled.div`
   text-align: center;
   margin: 2rem 0 0 0;
   padding-bottom: 2rem;
-  background-color: ${theme.secondary};
+  color: ${theme.text};
   width: 100vw;
   position: relative;
   right: 0.5rem;
@@ -19,7 +19,6 @@ const Footer = styled.div`
     margin: 2rem auto 0 auto;
     position: static;
     width: auto;
-    background-color: transparent;
     padding: 2rem 1rem;
   }
 `;
@@ -30,13 +29,8 @@ const Signature = styled.span`
 `;
 
 const Break = styled.div`
-  display: block;
+  display: none;
   padding-bottom: 2rem;
-  border-top: ${theme.fatBorder} ${theme.text};
-  @media (${theme.devices.md}) {
-    display: none;
-    border-top: ${theme.border} ${theme.text};
-  }  
 `;
 
 export default function () {  
@@ -51,7 +45,7 @@ export default function () {
       <Signature>
         <Anchor href="mailto:order@bakedgoodes.ie"> order@bakedgoodes.ie </Anchor>
       </Signature>
-      <Socials text></Socials>
+      <Socials fill={theme.text}></Socials>
     </Footer>
   )
 }

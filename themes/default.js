@@ -1,15 +1,14 @@
 const theme = {
-  primary: "#D69FAE",
-  secondary: "#BC627A",
-  tertiary: "#EDEECE",
-  text: "#EEEEEE",
+  text: "#9aabab",
+  body: "#ffffff",
+  primary: "#EB9AAD",  
+  shadow: "#ccc",
   fontSource: "'Source Serif 4', sans-serif",
-  fontParisienne: "'Parisienne', cursive",
-  border: "3px solid",
+  fontLogo: "'Lobster', cursive",
+  border: "5px solid",
   fatBorder: "10px solid",
   transitionTime: "0.3s",
-  opacity: "0.6",
-  
+  opacity: "0.6",  
   awesomegrid: {
     columns: {
       xs: 12, // 4
