@@ -1,25 +1,48 @@
 import Layout from '../components/layout';
-import Image from '../components/image';
+import Product from '../components/product';
+import Grid from '../components/grid';
 
 function Cakes() {
   return (
     <Layout>
-      <h1>Cakes</h1>
-
-      <div>
-        <Image 
+      <Grid>
+        <Product 
+          title="Vanilla"
+          desc="Mmmmm vanilla"
           src="images/cake1.png" 
           link="https://www.instagram.com/p/CU24C9SqydC/?utm_source=ig_web_copy_link"
-          height="350"></Image>
-        <Image 
+        />
+        <Product 
+          title="Chocolate"
+          desc="Mmmmm chocolate"
           src="images/cake2.png" 
           link="https://www.instagram.com/p/CU24C9SqydC/?utm_source=ig_web_copy_link"
-          height="350"></Image>
-        <Image 
-          src="images/cake3.png" 
+        />
+        <Product 
+          title="Gingerbread"
+          desc="Mmmmm gingerbread"
+          src="images/cake3.png"
           link="https://www.instagram.com/p/CU24C9SqydC/?utm_source=ig_web_copy_link"
-          height="350"></Image>
-      </div> 
+        />
+        <Product 
+          title="Vanilla"
+          desc="Mmmmm vanilla"
+          src="images/cake1.png" 
+          link="https://www.instagram.com/p/CU24C9SqydC/?utm_source=ig_web_copy_link"
+        />
+        <Product 
+          title="Chocolate"
+          desc="Mmmmm chocolate"
+          src="images/cake2.png" 
+          link="https://www.instagram.com/p/CU24C9SqydC/?utm_source=ig_web_copy_link"
+        />
+        <Product 
+          title="Gingerbread"
+          desc="Mmmmm gingerbread"
+          src="images/cake3.png"
+          link="https://www.instagram.com/p/CU24C9SqydC/?utm_source=ig_web_copy_link"
+        />     
+      </Grid>
     </Layout>
   );
 }

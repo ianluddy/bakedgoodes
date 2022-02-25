@@ -1,7 +1,8 @@
 const theme = {
   text: "#9aabab",
   body: "#ffffff",
-  primary: "#EB9AAD",  
+  primary: "#EB9AAD",
+  secondary: "#79cac2",
   shadow: "#ccc",
   fontSource: "'Source Serif 4', sans-serif",
   fontLogo: "'Lobster', cursive",
