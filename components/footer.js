@@ -9,10 +9,6 @@ const Footer = styled.div`
   margin: 2rem 0 0 0;
   padding-bottom: 2rem;
   color: ${theme.text};
-  width: 100vw;
-  position: relative;
-  right: 0.5rem;
-  top: 8px;
   max-width: ${theme.breakpoints.lg};  
 
   @media (${theme.devices.md}) {
