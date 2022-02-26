@@ -4,11 +4,12 @@ import theme from '../themes/default';
 const Page = styled.div`  
   text-align: center;  
   p {
-    font-size: 1.3em;
+    font-size: 1.1em;
     letter-spacing: 0.02em;
+    padding: 1rem 1rem 0 1rem;
   }
   h1 {
-    margin: 0 auto 2rem auto;
+    margin: 0 auto;
     display: inline-block;
     padding: 0 1rem;
   }
@@ -17,7 +18,7 @@ const Page = styled.div`
     h1 {
       border-bottom: none;
       padding: 0;
-      display: block;
+      display: none;
       margin: 3rem;
       text-align: center;
     }
