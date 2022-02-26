@@ -19,7 +19,7 @@ export default function () {
       <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="50">
         <defs>
           <pattern id="bg" patternUnits="userSpaceOnUse" width="100" height="50">
-            <circle stroke={theme.primary} stroke-width="2" cx="50" cy="-35" fill={theme.primary} r="60"></circle>
+            <circle stroke={theme.primary} strokeWidth="2" cx="50" cy="-35" fill={theme.primary} r="60"></circle>
           </pattern>
         </defs>
         <rect width="100%" height="100%" fill="url(#bg)"/>

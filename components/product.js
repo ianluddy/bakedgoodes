@@ -1,28 +1,29 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
 import Grid from './grid';
+import { PrimaryButton, SecondaryButton } from '../components/button';
 
 const ProductWrapper = styled.div`
-  flex-grow: 1;
-  width: calc(100%);
-  padding: 1rem 0;
+  position: relative;
   cursor: pointer;
-  transition: transform 0.3s;
+  transition: transform 0.3s;  
   img {
     width: 100%;
   }
-
   @media (${theme.devices.sm}) {
-    padding: 1rem;
-    width: calc(50% - 2rem);
     :hover {
-      transform: scale(1.1);
+      transform: scale(1.03);
     }
   }
-    
-  @media (${theme.devices.md}) {
-    width: calc(33% - 2rem);
-  }
+`
+
+const Meta = styled.div`
+  position: relative;
+  a {
+    position: absolute;
+    top: -3rem;
+    right: 0.5rem;
+  }  
 `
 
 const Title = styled.h2`
@@ -40,12 +41,21 @@ const Desc = styled.div`
   text-align: left;
 `;
 
+// TODO image optimisation
+
 export default function({ title, desc, link, src }) {
   return (
     <ProductWrapper>
-      <img src={src} alt="TODO" title="TODO" />
-      <Title>{title}</Title>
-      <Desc>{desc}</Desc>
+      <img src={src} alt="TODO" title="TODO"/>
+      <Meta>
+        <PrimaryButton href="#" text="Order"/>
+        <Title>
+          {title}
+        </Title>
+        <Desc>
+          {desc}
+        </Desc>
+      </Meta>
     </ProductWrapper>
   )
 }
