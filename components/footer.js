@@ -37,6 +37,10 @@ export default function () {
       <Signature>© {new Date().getFullYear()} Baked Goodes</Signature>
       <Signature>
         Baked in Inchicore, Dublin 8
+      </Signature>      
+      <Signature>
+        Baked Goodes bakes with nuts and nut products. <br/>
+        We are not a nut free bakery.<br/>
       </Signature>
       <Signature>
         <Anchor href="mailto:order@bakedgoodes.ie"> order@bakedgoodes.ie </Anchor>
