@@ -1,38 +1,17 @@
 const theme = {
-  text: "#9aabab",
-  body: "#ffffff",
-  primary: "#EB9AAD",
-  secondary: "#79cac2",
-  shadow: "#ccc",
+  text: "#9AABAB",
+  body: "#FFFFFF",
+  primary: "#e7859c",    
+  secondary: "#79CAC2",
+  shadow: "#CCCCCC",
+  grey: "#F5F5F5",
+  black: "#333333",
   fontSource: "'Source Serif 4', sans-serif",
   fontLogo: "'Lobster', cursive",
   border: "5px solid",
   fatBorder: "10px solid",
   transitionTime: "0.3s",
-  opacity: "0.6",  
-  awesomegrid: {
-    columns: {
-      xs: 12, // 4
-      sm: 12, // 8
-      md: 12, // 8
-      lg: 12,
-      xl: 12,
-    },
-    paddingWidth: {
-      xs: 0, // 1
-      sm: 0, // 1
-      md: 0, // 1.5
-      lg: 0, // 1.5
-      xl: 0, // 1.5
-    },    
-    breakpoints: {
-      xs: 24, // 375px
-      sm: 30, // 480px
-      md: 48, // 768px
-      lg: 64, // 1120px
-      xl: 90, // 1440px
-    },    
-  },
+  opacity: "0.6",
   breakpoints: {
     xs: "375px",
     sm: "480px",

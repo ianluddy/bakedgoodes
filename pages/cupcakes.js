@@ -11,11 +11,6 @@ function Cupcakes() {
     <Layout>
       <FadeIn>
         <h1> Cupcakes </h1>
-        <p> 
-          Our menu includes trusted signature flavors as well as seasonal and monthly favorites all made fresh daily using local, real ingredients. <br/>
-          We are inclusive of guests with special dietary needs offering gluten free and vegan cupcake options. <br/>
-          Please note our gluten free cupcakes are not vegan. And our vegan cupcakes are not gluten free.
-        </p>
         <Grid>
           <Product 
             title="Vanilla"

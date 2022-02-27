@@ -5,16 +5,16 @@ const Anchor = styled.a`
   transition: opacity ${theme.transitionTime};
   text-decoration: none;
   cursor: pointer;
-  color: ${theme.text};
+  color: ${props => props.color || theme.text};
   opacity: 1;
   &:hover {
     opacity: ${theme.opacity};
   }
 `;
 
-export default function ({ href, children }) {
+export default function ({ href, children, color }) {
   return (
-    <Anchor href={href}>
+    <Anchor href={href} color={color}>
       {children}
     </Anchor>
   )

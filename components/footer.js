@@ -29,7 +29,7 @@ const Break = styled.div`
   padding-bottom: 2rem;
 `;
 
-export default function () {  
+export default function () {
   return (
     <Footer>
       <Break/>

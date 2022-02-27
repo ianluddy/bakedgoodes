@@ -12,7 +12,7 @@ import theme from '../themes/default';
 const Layout = styled.div`
   max-width: ${theme.breakpoints.lg};
   margin: 0 auto;
-  padding: 3rem 1rem 0 1rem;
+  padding: 8rem 1rem 0 1rem;
   position: relative;
   
   @media (${theme.devices.md}) {
@@ -28,7 +28,6 @@ export default function ({ children }) {
         <Nav/>
         <Hamburger/>
         <Basket/>
-        <HeaderSocials/>
         <Page>{children}</Page>
         <Scroller/>
         <Footer/>

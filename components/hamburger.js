@@ -2,48 +2,19 @@ import styled from 'styled-components';
 import theme from '../themes/default';
 import { useState } from "react";
 import NavAnchor from './navAnchor';
+import Anchor from './anchor';
+import { HiOutlineMenuAlt1, HiX } from "react-icons/hi";
 
 const Button = styled.div`
-  height: 26px;
-  width: 32px;
   position: absolute;
-  top: 25px;
-  right: 15px;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;  
+  top: 1.6rem;
+  left: ${props => props.right ? 'unset' : '1rem'};
+  right: ${props => props.right ? '1rem' : 'unset'};
+  font-size: 1.8rem;
   cursor: pointer;
-  
-  .line {
-    display: block;
-    height: 4px;
-    width: 100%;
-    border-radius: 10px;
-    background: ${theme.text};
-    background-color: ${props => props.active ? theme.body : theme.text};
-  }
-
-  .line1 {
-    transform-origin: 0% 0%;
-    transition: transform 0.4s ease-in-out;
-    transform: ${props => props.active ? 'rotate(45deg)' : 'rotate(0deg)'};
-  }
-
-  .line2 {
-    transition: transform 0.2s ease-in-out;
-    transform: ${props => props.active ? 'scaleY(0)' : ''};
-  }
-
-  .line3 {
-    transform-origin: 0% 100%;
-    transition: transform 0.4s ease-in-out;
-    transform: ${props => props.active ? 'rotate(-45deg)' : 'rotate(0deg)'};
-  }
-  
   @media (${theme.devices.md}) {
     display: none;
-  }  
+  }
 `
 
 const Menu = styled.div`
@@ -63,17 +34,17 @@ const Menu = styled.div`
   transition: transform 0.5s ease-in-out;
   align-items: center;
 
-  > div {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    width: 100%;
-  }
-  
   @media (${theme.devices.md}) {
     display: none;
   }
 `
+
+const NavAnchorWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+`;
 
 export default function () {  
   const [active, setActive] = useState(false);
@@ -85,18 +56,23 @@ export default function () {
 
   return (
     <>
-      <Button active={active} onClick={handleClick}>
-        <span className="line line1"></span>
-        <span className="line line2"></span>
-        <span className="line line3"></span>
+      <Button onClick={handleClick}>
+        <Anchor href="#">
+          <HiOutlineMenuAlt1/>
+        </Anchor>
       </Button>
       <Menu active={active}>
-        <div onClick={handleClick}>
+        <Button onClick={handleClick} right>
+          <Anchor href="#" color={theme.body}>
+            <HiX/>
+          </Anchor>
+        </Button>
+        <NavAnchorWrapper onClick={handleClick}>
           <NavAnchor href="/">Home</NavAnchor>
           <NavAnchor href="/cakes">Cakes</NavAnchor>
           <NavAnchor href="/cupcakes">Cupcakes</NavAnchor>
           <NavAnchor href="/weddings">Weddings</NavAnchor>
-        </div>
+        </NavAnchorWrapper>
       </Menu>
     </>
   )

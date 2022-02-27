@@ -4,10 +4,14 @@ import NavAnchor from './navAnchor';
 import { PrimarySquiggle, SecondarySquiggle } from './squiggle';
 
 const NavWrapper = styled.div`
+  position: absolute;
+  left: 3.5rem;
+  right: 3.5rem;
+  top: 1rem;
+  padding: 0;
   text-align: center;
-  padding: 2rem 0 3rem 0;
-    
   @media (${theme.devices.md}) {
+    position: static;
     padding: 0;
   }
 `
@@ -50,14 +54,20 @@ const Title = styled.div`
   flex-grow: 1;
   text-shadow: 1px 1px ${theme.shadow};
   font-family: ${theme.fontLogo};
-  font-size: 3.3rem;
+  font-size: 2.4rem;
+  line-height: 2.2rem;
+  padding-top: 0.5rem;
   color: ${theme.primary};
   margin-bottom: -1rem;
   
-  @media (${theme.devices.xs}) {
-    font-size: 3.7em;
+  @media (${theme.devices.sm}) {
+    font-size: 3rem;
+    line-height: initial;
+    padding-top: 0.5rem;    
   }
+  
   @media (${theme.devices.md}) {
+    padding-top: 0;
     font-size: 4rem;
     margin-bottom: 1rem;
   }

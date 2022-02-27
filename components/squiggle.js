@@ -8,9 +8,13 @@ const Base = styled.div`
 `;
 
 const Primary = styled(Base)`
+  display: none;
   path {
     transform: scale(0.5) translate(0, -220px);
   }
+  @media (${theme.devices.md}) {
+    display: block;
+  }  
 `
 
 const Secondary = styled(Base)`
@@ -20,7 +24,7 @@ const Secondary = styled(Base)`
   }
   @media (${theme.devices.md}) {
     display: block;
-  }    
+  }
 `
 
 export function PrimarySquiggle() {

@@ -10,6 +10,10 @@ const NavAnchor = styled.a`
   text-transform: uppercase;  
   transition: opacity ${theme.transitionTime};
   font-weight: ${props => props.active ? 'bold' : 300 };
+  opacity: 1;
+  &:hover {
+    opacity: ${theme.opacity};
+  }
   @media (${theme.devices.md}) {
     font-size: 1.3rem;
   }  
@@ -19,7 +23,9 @@ export default function ({ href, active, children }) {
   const router = useRouter();
   return (
     <Link href={href}>
-      <NavAnchor active={router.pathname == href}>{children}</NavAnchor>
+      <NavAnchor active={router.pathname == href}>
+        {children}
+      </NavAnchor>
     </Link>
   )
 }

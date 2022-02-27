@@ -9,6 +9,7 @@ const Page = styled.div`
     padding: 1rem 1rem 0 1rem;
   }
   h1 {
+    font-size: 1.7rem;
     margin: 0 auto;
     display: inline-block;
     padding: 0 1rem;

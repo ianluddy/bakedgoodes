@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous"/>
         <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400&family=Lobster&display=swap" rel="stylesheet"/>
       </Head>    
       <Component {...pageProps} />

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
 import Grid from './grid';
-import { PrimaryButton, SecondaryButton } from '../components/button';
+import Button from '../components/button';
 
 const ProductWrapper = styled.div`
   position: relative;
@@ -48,7 +48,7 @@ export default function({ title, desc, link, src }) {
     <ProductWrapper>
       <img src={src} alt="TODO" title="TODO"/>
       <Meta>
-        <PrimaryButton href="#" text="Order"/>
+        <Button href="#" text="Order"/>
         <Title>
           {title}
         </Title>

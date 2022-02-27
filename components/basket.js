@@ -8,13 +8,17 @@ const Basket = styled.div`
 
 const Button = styled.div`
   position: absolute;
-  top: 25px;
-  left: 15px;
-  font-size: 2.2rem;
+  top: 1.6rem;
+  right: 1rem;
+  font-size: 1.8rem;
+  cursor: pointer;
   
   @media (${theme.devices.md}) {
-    left: 40px;
-  }  
+    top: 24px;
+    right: 2rem;
+    left: unset;
+    font-size: 2.1rem;
+  }
 `;
 
 export default function () {  
