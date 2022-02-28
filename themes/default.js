@@ -6,6 +6,7 @@ const theme = {
   shadow: "#CCCCCC",
   grey: "#F5F5F5",
   black: "#333333",
+  red: "#ee2f53",
   fontSource: "'Source Serif 4', sans-serif",
   fontLogo: "'Lobster', cursive",
   border: "5px solid",

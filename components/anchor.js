@@ -12,9 +12,9 @@ const Anchor = styled.a`
   }
 `;
 
-export default function ({ href, children, color }) {
+export default function ({ href, children, color, onClick }) {
   return (
-    <Anchor href={href} color={color}>
+    <Anchor onClick={onClick} href={href} color={color}>
       {children}
     </Anchor>
   )

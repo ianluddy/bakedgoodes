@@ -23,6 +23,7 @@ const Scroller = () => {
   
   useEffect(() => {
     window.addEventListener('scroll', toggleVisible); // TODO debounce
+    return () => window.removeEventListener("scroll", toggleVisible);
   }, []); 
   
   const toggleVisible = () => {

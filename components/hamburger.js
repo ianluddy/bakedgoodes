@@ -8,14 +8,20 @@ import { HiOutlineMenuAlt1, HiX } from "react-icons/hi";
 const Button = styled.div`
   position: absolute;
   top: 1.6rem;
-  left: ${props => props.right ? 'unset' : '1rem'};
-  right: ${props => props.right ? '1rem' : 'unset'};
   font-size: 1.8rem;
   cursor: pointer;
+`;
+
+const OpenButton = styled(Button)`
+  left: 1rem;
   @media (${theme.devices.md}) {
     display: none;
   }
-`
+`;
+
+const CloseButton = styled(Button)`
+  right: 1rem;
+`;
 
 const Menu = styled.div`
   display: none;
@@ -27,11 +33,11 @@ const Menu = styled.div`
   left: 0;
   background-color: ${theme.primary};
   color: ${theme.body};
-  transform: translate(-150%);
-  transform: ${props => props.active ? 'translate(0)' : 'translate(-150%)'};
+  transition: transform 0.5s ease-in-out;  
+  transform: translate(0, calc(-100% + 10px));
+  transform: ${props => props.active ? 'translate(0)' : 'translate(0, calc(-100% + 10px));'};
   display: flex;
   flex-direction: row;
-  transition: transform 0.5s ease-in-out;
   align-items: center;
 
   @media (${theme.devices.md}) {
@@ -49,24 +55,25 @@ const NavAnchorWrapper = styled.div`
 export default function () {  
   const [active, setActive] = useState(false);
   
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault();    
     document.body.style.overflow = active ? 'unset' : 'hidden';
     setActive(!active);
   }
 
   return (
     <>
-      <Button onClick={handleClick}>
-        <Anchor href="#">
+      <OpenButton>
+        <Anchor href="#" onClick={handleClick}>
           <HiOutlineMenuAlt1/>
         </Anchor>
-      </Button>
+      </OpenButton>
       <Menu active={active}>
-        <Button onClick={handleClick} right>
-          <Anchor href="#" color={theme.body}>
+        <CloseButton>
+          <Anchor href="#" color={theme.body} onClick={handleClick}>
             <HiX/>
           </Anchor>
-        </Button>
+        </CloseButton>
         <NavAnchorWrapper onClick={handleClick}>
           <NavAnchor href="/">Home</NavAnchor>
           <NavAnchor href="/cakes">Cakes</NavAnchor>
