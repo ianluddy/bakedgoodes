@@ -6,7 +6,7 @@ import Button from '../components/button';
 const ProductWrapper = styled.div`
   position: relative;
   cursor: pointer;
-  transition: transform 0.3s;  
+  transition: transform ${theme.transitionTime};
   img {
     width: 100%;
   }
@@ -43,9 +43,9 @@ const Desc = styled.div`
 
 // TODO image optimisation
 
-export default function({ title, desc, link, src }) {
+export default function({ title, desc, src, meta, onClick }) {
   return (
-    <ProductWrapper>
+    <ProductWrapper onClick={onClick}>
       <img src={src} alt="TODO" title="TODO"/>
       <Meta>
         <Button href="#" text="Order"/>

@@ -1,21 +1,19 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
 import React, { useState, useEffect } from 'react';
+import { IconAnchor } from './anchor';
 import { IoIosArrowDropupCircle } from 'react-icons/io';
 
-export const Button = styled.div`
+export const Wrapper = styled.div`
   position: fixed; 
-  right: 20px;
-  bottom: 10px;
-  color: ${theme.primary};
-  font-size: 3rem;
+  right: 1rem;
+  bottom: 1.2rem;
   z-index: 100;
-  cursor: pointer;
-  transition: transform 0.5s;
+  transition: transform ${theme.transitionTime};
   transform: ${props => props.active ? 'none' : 'translate(0, 200px);' };
   @media (${theme.devices.md}) {
     display: none;
-  }  
+  }
 `
   
 const Scroller = () => {  
@@ -39,9 +37,11 @@ const Scroller = () => {
   };
   
   return (
-    <Button active={visible}>
-     <IoIosArrowDropupCircle onClick={scrollToTop}/>
-    </Button>
+    <Wrapper active={visible}>
+      <IconAnchor color={theme.primary} size="2.4rem">
+        <IoIosArrowDropupCircle onClick={scrollToTop}/>
+      </IconAnchor>
+    </Wrapper>
   );
 }
   

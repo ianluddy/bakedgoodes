@@ -1,47 +1,27 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
 import { useState } from "react";
-import Anchor from './anchor';
+import { IconAnchor } from './anchor';
+import Rodal from 'rodal';
+import 'rodal/lib/rodal.css';
 import { BsFillBasket2Fill } from "react-icons/bs";
 import { HiX } from "react-icons/hi";
 
 const Button = styled.div`
   position: absolute;
   top: 1.6rem;
-  font-size: 1.8rem;
-  cursor: pointer;
   right: 1rem;
-`;
-
-const OpenButton = styled(Button)`
   @media (${theme.devices.md}) {
     top: 2rem;
     right: 2rem;
-    font-size: 2.1rem;
   }
 `;
 
-const CloseButton = styled(Button)`
-`;
-
-const Basket = styled.div`
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background-color: ${theme.primary};
-  color: ${theme.body};
-  transition: transform 0.5s ease-in-out;  
-  transform: translate(0, calc(100% - 10px));
-  transform: ${props => props.active ? 'translate(0)' : 'translate(0, calc(100% - 10px));'};
-`;
-
 const Counter = styled.div`
+  display: ${props => props.visible ? 'block' : 'none'};
   position: absolute;
   top: 0.8rem;
-  right: 0.1rem;
+  right: 0.3rem;
   width: 22px;
   height: 22px;
   border-radius: 30px;
@@ -52,37 +32,49 @@ const Counter = styled.div`
   text-align: center;
   @media (${theme.devices.md}) {
     top: 1.5rem;
-    right: 1rem;
+    right: 1.2rem;
   }
 `;
 
+const BasketWrapper = styled.div`
+  padding-top: 3rem;
+`;
+
+const Close = styled.div`
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+`;
+
 export default function () {
-  const [active, setActive] = useState(false);
+  const [open, setOpen] = useState(false);
   const [products, setProducts] = useState([]);
   
   const handleClick = (e) => {
     e.preventDefault();
-    document.body.style.overflow = active ? 'unset' : 'hidden';
-    setActive(!active);
+    document.body.style.overflow = open ? 'unset' : 'hidden';
+    setOpen(!open);
   }
   
   return (
     <>
-      <OpenButton>
-        <Anchor href="#" onClick={handleClick}>
+      <Button>
+        <IconAnchor href="#" onClick={handleClick}>
           <BsFillBasket2Fill/>
-        </Anchor>
-      </OpenButton>
-      <Counter>
-        {products.length + 22}
+        </IconAnchor>
+      </Button>
+      <Counter visible={products.length > 0}>
+        {products.length}
       </Counter>
-      <Basket active={active}>
-        <CloseButton>
-          <Anchor href="#" color={theme.body} onClick={handleClick}>
+      <Rodal visible={open} onClose={handleClick} showCloseButton={false}>
+        <Close>
+          <IconAnchor href="#" onClick={handleClick}>
             <HiX/>
-          </Anchor>
-        </CloseButton>
-      </Basket>
+          </IconAnchor>
+        </Close>
+        <BasketWrapper>
+        </BasketWrapper>
+      </Rodal>
     </>
   )
 };

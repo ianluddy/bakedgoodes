@@ -1,12 +1,10 @@
 import styled from 'styled-components';
-import Canopy from './canopy';
 import Footer from './footer';
 import Scroller from './scroller';
 import Basket from './basket';
 import Nav from './nav';
 import Page from './page';
 import Hamburger from './hamburger';
-import { HeaderSocials } from './socials';
 import theme from '../themes/default';
 
 const Layout = styled.div`
@@ -23,7 +21,6 @@ const Layout = styled.div`
 export default function ({ children }) {
   return (
     <>
-      <Canopy/>
       <Layout>
         <Nav/>
         <Hamburger/>

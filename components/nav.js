@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
-import NavAnchor from './navAnchor';
+import { NavAnchor } from './anchor';
 import { PrimarySquiggle, SecondarySquiggle } from './squiggle';
+import Link from 'next/link';
 
 const NavWrapper = styled.div`
   position: absolute;
@@ -10,6 +11,7 @@ const NavWrapper = styled.div`
   top: 1rem;
   padding: 0;
   text-align: center;
+
   @media (${theme.devices.md}) {
     position: static;
     padding: 0;
@@ -57,8 +59,12 @@ const Title = styled.div`
   font-size: 2.4rem;
   line-height: 2.2rem;
   padding-top: 0.5rem;
-  color: ${theme.primary};
   margin-bottom: -1rem;
+
+  a {
+    color: ${theme.primary};
+    text-decoration: none;
+  }
   
   @media (${theme.devices.sm}) {
     font-size: 3rem;
@@ -77,7 +83,9 @@ export default function () {
   return (
     <NavWrapper>
       <Title>
-        Baked Goodes 
+        <Link href="/">
+          Baked Goodes
+        </Link>
       </Title>
       <NavLinkWrapper>
         <Nav>

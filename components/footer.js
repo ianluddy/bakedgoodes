@@ -1,32 +1,34 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
-import { FooterSocials } from './socials';
-import Anchor from './anchor';
+import { Instagram, Facebook } from './socials';
+import { Anchor } from './anchor';
 import { SecondarySquiggle } from './squiggle';
+import { RiCake3Line } from "react-icons/ri";
 
 const Footer = styled.div`
   text-align: center;
-  margin: 2rem 0 0 0;
-  padding-bottom: 2rem;
+  margin: 0;
+  padding: 1rem 0;
   color: ${theme.text};
-  max-width: ${theme.breakpoints.lg};  
-
-  @media (${theme.devices.md}) {
-    margin: 2rem auto 0 auto;
-    position: static;
-    width: auto;
-    padding: 2rem 1rem;
-  }
 `;
 
 const Signature = styled.span`
   display: block;
-  margin: 0 2rem 1rem 2rem;
+  margin: 0 0.25rem 1rem 0.25rem;
+  font-size: 0.9rem;
+  svg {
+    font-size: 1.4rem;
+    position: relative;
+    top: 0.3rem;
+  }
 `;
 
 const Break = styled.div`
   display: none;
   padding-bottom: 2rem;
+`;
+
+const Socials = styled.div`
 `;
 
 export default function () {
@@ -36,16 +38,19 @@ export default function () {
       <SecondarySquiggle/>
       <Signature>© {new Date().getFullYear()} Baked Goodes</Signature>
       <Signature>
-        Baked in Inchicore, Dublin 8
-      </Signature>      
+        <RiCake3Line/> Baked in Inchicore, Dublin 8
+      </Signature>
       <Signature>
         Baked Goodes bakes with nuts and nut products. <br/>
         We are not a nut free bakery.<br/>
       </Signature>
       <Signature>
-        <Anchor href="mailto:order@bakedgoodes.ie"> order@bakedgoodes.ie </Anchor>
+        <Anchor href="mailto:order@bakedgoodes.ie" color={theme.primary} bold>order@bakedgoodes.ie</Anchor>
       </Signature>
-      <FooterSocials/>
+      <Socials>
+        <Instagram/>
+        <Facebook/>
+      </Socials>
     </Footer>
   )
 }

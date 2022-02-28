@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import theme from '../themes/default';
 import Button from '../components/button';
 
-const Cta = styled.div`
+const Wrapper = styled.div`
   padding: 3rem 0;
-  margin: 2rem 0;
+  margin: 3rem 0;
   text-align: center;
   line-height: 2.5rem;
 `;
@@ -20,16 +20,17 @@ const Headline = styled.div`
 const Body = styled.div`
   font-size: 1.1rem;
   padding: 1rem 0 1.5rem 0;
+  line-height: 1.5rem;
 `
 
-export default function () {
+export default function (props) {
   return (
-    <Cta>
-      <Headline> Something else? </Headline>
-      <Body>Plenty of options available, get in touch! </Body>
+    <Wrapper>
+      <Headline>{props.headline}</Headline>
+      <Body>{props.body}</Body>
       <ButtonWrapper>
-        <Button href="#" text="Contact me" large/>
+        <Button href={props.buttonLink} text={props.buttonText} large/>
       </ButtonWrapper>
-    </Cta>
+    </Wrapper>
   )
 }

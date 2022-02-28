@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import theme from '../themes/default';
 
 const Page = styled.div`  
-  text-align: center;  
+  text-align: center;
+  min-height: 60vh;
   p {
     font-size: 1.1em;
     letter-spacing: 0.02em;

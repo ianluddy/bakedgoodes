@@ -1,6 +1,7 @@
 import Layout from '../components/layout';
 import Product from '../components/product';
 import Grid from '../components/grid';
+import Cta from '../components/cta';
 import FadeIn from 'react-fade-in';
 
 function Cakes() {
@@ -50,7 +51,13 @@ function Cakes() {
             src="images/cake3.png"
             link="https://www.instagram.com/p/CU24C9SqydC/?utm_source=ig_web_copy_link"
           />     
-        </Grid>        
+        </Grid>
+        <Cta 
+          headline="Something else?" 
+          body="Plenty of options available, get in touch!"
+          buttonText="Contact me"
+          buttonLink="#"
+        />        
       </FadeIn>
     </Layout>
   );

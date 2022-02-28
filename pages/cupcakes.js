@@ -67,7 +67,12 @@ function Cupcakes() {
             link="https://www.instagram.com/p/CU24C9SqydC/?utm_source=ig_web_copy_link"
           />                
         </Grid>
-        <Cta/>
+        <Cta 
+          headline="Something else?" 
+          body="Plenty of options available, get in touch!"
+          buttonText="Contact me"
+          buttonLink="#"
+        />
       </FadeIn>
     </Layout>
   );

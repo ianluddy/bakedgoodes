@@ -7,5 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     color: ${theme.text};
     font-family: ${theme.fontSource};
     margin: 0;
+    border-bottom: ${theme.fatBorder} ${theme.primary};
+    border-top: ${theme.fatBorder} ${theme.primary};
   }  
 `
