@@ -15,10 +15,12 @@ const Grid = styled(FadeIn)`
     @media (${theme.devices.sm}) {
       padding: 1rem;
       width: calc(50% - 2rem);
+      max-width: calc(50% - 2rem);
     }
       
     @media (${theme.devices.md}) {
       width: calc(33% - 2rem);
+      max-width: calc(33% - 2rem);
     }
   }
 `;

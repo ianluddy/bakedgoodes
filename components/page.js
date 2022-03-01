@@ -9,6 +9,9 @@ const Page = styled.div`
     letter-spacing: 0.02em;
     padding: 1rem 1rem 0 1rem;
   }
+  img {
+    border-radius: 8px;
+  }
   h1 {
     font-size: 1.7rem;
     margin: 0 auto;
