@@ -15,42 +15,6 @@ function Cakes() {
           Please note our gluten free cupcakes are not vegan. And our vegan cupcakes are not gluten free.
         </p>    
         <Grid>
-          <Product 
-            title="Vanilla"
-            desc="Mmmmm vanilla"
-            src="images/cake1.png" 
-            link="https://www.instagram.com/p/CU24C9SqydC/?utm_source=ig_web_copy_link"
-          />
-          <Product 
-            title="Chocolate"
-            desc="Mmmmm chocolate"
-            src="images/cake2.png" 
-            link="https://www.instagram.com/p/CU24C9SqydC/?utm_source=ig_web_copy_link"
-          />
-          <Product 
-            title="Gingerbread"
-            desc="Mmmmm gingerbread"
-            src="images/cake3.png"
-            link="https://www.instagram.com/p/CU24C9SqydC/?utm_source=ig_web_copy_link"
-          />
-          <Product 
-            title="Vanilla"
-            desc="Mmmmm vanilla"
-            src="images/cake1.png" 
-            link="https://www.instagram.com/p/CU24C9SqydC/?utm_source=ig_web_copy_link"
-          />
-          <Product 
-            title="Chocolate"
-            desc="Mmmmm chocolate"
-            src="images/cake2.png" 
-            link="https://www.instagram.com/p/CU24C9SqydC/?utm_source=ig_web_copy_link"
-          />
-          <Product 
-            title="Gingerbread"
-            desc="Mmmmm gingerbread"
-            src="images/cake3.png"
-            link="https://www.instagram.com/p/CU24C9SqydC/?utm_source=ig_web_copy_link"
-          />     
         </Grid>
         <Cta 
           headline="Something else?" 

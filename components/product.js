@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import theme from '../themes/default';
 import Grid from './grid';
 import Button from '../components/button';
+import Link from 'next/link';
 
 const ProductWrapper = styled.div`
   position: relative;
@@ -43,19 +44,21 @@ const Desc = styled.div`
 
 // TODO image optimisation
 
-export default function({ title, desc, src, meta, onClick }) {
+export default function({ id, title, desc, src, meta, path }) {
   return (
-    <ProductWrapper onClick={onClick}>
-      <img src={src} alt="TODO" title="TODO"/>
-      <Meta>
-        <Button href="#" text="Order"/>
-        <Title>
-          {title}
-        </Title>
-        <Desc>
-          {desc}
-        </Desc>
-      </Meta>
-    </ProductWrapper>
+    <Link href={path}>
+      <ProductWrapper>
+        <img src={src} alt="TODO" title="TODO"/>
+        <Meta>
+          <Button href="#" text="Order"/>
+          <Title>
+            {title}
+          </Title>
+          <Desc>
+            {desc}
+          </Desc>
+        </Meta>
+      </ProductWrapper>
+    </Link>
   )
 }

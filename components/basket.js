@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { OrderContext } from './order';
 import { IconAnchor } from './anchor';
 import Rodal from 'rodal';
 import 'rodal/lib/rodal.css';
@@ -11,6 +12,7 @@ const Button = styled.div`
   position: absolute;
   top: 1.6rem;
   right: 1rem;
+  z-index: 100;
   @media (${theme.devices.md}) {
     top: 2rem;
     right: 2rem;
@@ -46,16 +48,16 @@ const Close = styled.div`
   right: 1rem;
 `;
 
-export default function () {
+export default function ({ children }) {
   const [open, setOpen] = useState(false);
-  const [products, setProducts] = useState([]);
+  const {addOrder, removeOrder, orders} = useContext(OrderContext);
   
   const handleClick = (e) => {
     e.preventDefault();
     document.body.style.overflow = open ? 'unset' : 'hidden';
     setOpen(!open);
   }
-  
+
   return (
     <>
       <Button>
@@ -63,8 +65,8 @@ export default function () {
           <BsFillBasket2Fill/>
         </IconAnchor>
       </Button>
-      <Counter visible={products.length > 0}>
-        {products.length}
+      <Counter visible={orders.length > 0}>
+        {orders.length}
       </Counter>
       <Rodal visible={open} onClose={handleClick} showCloseButton={false}>
         <Close>

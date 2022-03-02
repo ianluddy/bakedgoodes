@@ -29,7 +29,7 @@ const Button = styled.a`
 
 export default function(props) {
   return (
-    <Button href={props.href} large={props.large} secondary={props.secondary}>
+    <Button onClick={props.onClick} href={props.href} large={props.large} secondary={props.secondary}>
       {props.text}
     </Button>
   )
