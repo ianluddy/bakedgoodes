@@ -4,7 +4,7 @@ import Grid from './grid';
 import Button from '../components/button';
 import Link from 'next/link';
 
-const ProductWrapper = styled.div`
+const Wrapper = styled.div`
   position: relative;
   cursor: pointer;
   transition: transform ${theme.transitionTime};
@@ -37,28 +37,27 @@ const Title = styled.h2`
   letter-spacing: 0.03rem;
 `;
 
-const Desc = styled.div`
-  font-size: 1rem;
+const Caption = styled.div`
   text-align: left;
 `;
 
 // TODO image optimisation
 
-export default function({ id, title, desc, src, meta, path }) {
+export default function({ id, title, caption, desc, src, meta, path }) {
   return (
     <Link href={path}>
-      <ProductWrapper>
+      <Wrapper>
         <img src={src} alt="TODO" title="TODO"/>
         <Meta>
           <Button href="#" text="Order"/>
           <Title>
             {title}
           </Title>
-          <Desc>
-            {desc}
-          </Desc>
+          <Caption>
+            {caption}
+          </Caption>
         </Meta>
-      </ProductWrapper>
+      </Wrapper>
     </Link>
   )
 }

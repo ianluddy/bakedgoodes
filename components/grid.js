@@ -14,6 +14,14 @@ const Grid = styled(FadeIn)`
     
     @media (${theme.devices.sm}) {
       padding: 1rem;
+    }
+  }
+`;
+
+const Default = styled(Grid)`
+  > div {
+    @media (${theme.devices.sm}) {
+      padding: 1rem;
       width: calc(50% - 2rem);
       max-width: calc(50% - 2rem);
     }
@@ -25,10 +33,44 @@ const Grid = styled(FadeIn)`
   }
 `;
 
-export default function({ children }) {
+const Right = styled(Grid)`
+  > div:first-of-type {
+    @media (${theme.devices.sm}) {
+      width: calc(50% - 2rem);
+      max-width: calc(50% - 2rem);
+    }
+      
+    @media (${theme.devices.md}) {
+      width: calc(33% - 2rem);
+      max-width: calc(33% - 2rem);
+    }
+  }
+  
+  > div:last-of-type {
+    @media (${theme.devices.sm}) {
+      width: calc(50% - 2rem);
+      max-width: calc(50% - 2rem);
+    }
+      
+    @media (${theme.devices.md}) {
+      width: calc(66% - 2rem);
+      max-width: calc(66% - 2rem);
+    }
+  }
+`;
+
+export const GridDefault = ({ children }) => {
   return (
-    <Grid delay="120">
+    <Default delay="120">
       {children}
-    </Grid>
+    </Default>
+  )  
+}
+
+export const GridRight = ({ children }) => {
+  return (
+    <Right delay="120">
+      {children}
+    </Right>
   )
 }

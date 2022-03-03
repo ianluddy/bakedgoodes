@@ -1,6 +1,6 @@
 import Layout from '../components/layout';
 import Product from '../components/product';
-import Grid from '../components/grid';
+import { GridDefault } from '../components/grid';
 import Cta from '../components/cta';
 import FadeIn from 'react-fade-in';
 
@@ -14,8 +14,6 @@ function Cakes() {
           We are inclusive of guests with special dietary needs offering gluten free and vegan cupcake options. <br/>
           Please note our gluten free cupcakes are not vegan. And our vegan cupcakes are not gluten free.
         </p>    
-        <Grid>
-        </Grid>
         <Cta 
           headline="Something else?" 
           body="Plenty of options available, get in touch!"

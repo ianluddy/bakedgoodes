@@ -13,6 +13,7 @@ const theme = {
   fatBorder: "10px solid",
   transitionTime: "0.3s",
   opacity: "0.6",
+  textMaxWidth: "500px",
   breakpoints: {
     xs: "375px",
     sm: "480px",

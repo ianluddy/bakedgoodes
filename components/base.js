@@ -9,5 +9,8 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     border-bottom: ${theme.fatBorder} ${theme.primary};
     border-top: ${theme.fatBorder} ${theme.primary};
-  }  
+  }
+  .rodal-dialog {
+    max-height: 65vh;
+  }
 `

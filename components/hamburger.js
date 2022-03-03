@@ -41,7 +41,7 @@ const Menu = styled.div`
   }
 `
 
-const NavAnchorWrapper = styled.div`
+const AnchorWrapper = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -70,12 +70,12 @@ export default function () {
             <HiX/>
           </IconAnchor>
         </CloseButton>
-        <NavAnchorWrapper onClick={handleClick}>
+        <AnchorWrapper onClick={handleClick}>
           <NavAnchor href="/" color={theme.body}>Home</NavAnchor>
           <NavAnchor href="/cakes" color={theme.body}>Cakes</NavAnchor>
           <NavAnchor href="/cupcakes" color={theme.body}>Cupcakes</NavAnchor>
           <NavAnchor href="/weddings" color={theme.body}>Weddings</NavAnchor>
-        </NavAnchorWrapper>
+        </AnchorWrapper>
       </Menu>
     </>
   )

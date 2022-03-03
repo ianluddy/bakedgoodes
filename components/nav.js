@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
 import { NavAnchor } from './anchor';
-import { PrimarySquiggle, SecondarySquiggle } from './squiggle';
+import { PrimarySquiggle } from './squiggle';
 import Link from 'next/link';
 
-const NavWrapper = styled.div`
+const Wrapper = styled.div`
   position: absolute;
   left: 3.5rem;
   right: 3.5rem;
@@ -17,7 +17,7 @@ const NavWrapper = styled.div`
     padding: 0;
   }
 `
-const NavLinkWrapper = styled.div`
+const LinkWrapper = styled.div`
   text-align: center;
   align-items: center;
   display: inline-block;
@@ -42,13 +42,6 @@ const NavLink = styled.div`
 
   @media (${theme.devices.md}) {
     padding: 0 1rem;
-  }
-`
-
-const SocialWrapper = styled.div`
-  display: none;
-  @media (${theme.devices.md}) {
-    display: block;
   }
 `
 
@@ -81,13 +74,13 @@ const Title = styled.div`
 
 export default function () {  
   return (
-    <NavWrapper>
+    <Wrapper>
       <Title>
         <Link href="/">
           Baked Goodes
         </Link>
       </Title>
-      <NavLinkWrapper>
+      <LinkWrapper>
         <Nav>
           <NavLink>
             <NavAnchor href="/">Home</NavAnchor>
@@ -102,8 +95,8 @@ export default function () {
             <NavAnchor href="/weddings">Weddings</NavAnchor>
           </NavLink>
         </Nav>
-      </NavLinkWrapper>
-      <PrimarySquiggle></PrimarySquiggle>
-    </NavWrapper>
+      </LinkWrapper>
+      <PrimarySquiggle/>
+    </Wrapper>
   )
 }

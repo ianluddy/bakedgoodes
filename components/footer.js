@@ -8,7 +8,7 @@ import { RiCake3Line } from "react-icons/ri";
 const Footer = styled.div`
   text-align: center;
   margin: 0;
-  padding: 1rem 0;
+  padding: 4rem 0 1rem 0;
   color: ${theme.text};
 `;
 
