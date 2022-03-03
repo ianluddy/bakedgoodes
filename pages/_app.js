@@ -13,7 +13,6 @@ export default function App({ Component, pageProps }) {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Head>
-          <link rel="icon" href="/favicon.ico" />
           <meta name="name" content={name} />
           <meta name="color" content={theme.primary} />        
           <meta
