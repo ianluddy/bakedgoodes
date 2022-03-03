@@ -11,7 +11,7 @@ const Select = styled.select`
 
 export default function(props) {  
   const options = props.options.map((option, i) => (
-    <option value={i}>
+    <option key={i} value={i}>
       {option.title}
     </option>
   ));
