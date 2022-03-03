@@ -3,10 +3,11 @@ import { useEffect, useState, createContext } from "react";
 export const OrderContext = createContext();
 
 export default function ({ children }) {
-  const [orders, setOrders] = useState([]);
-  
+  const [orders, setOrders] = useState(null);
+
   useEffect(() => {
-    if( orders.length ) localStorage.setItem("orders", JSON.stringify(orders));
+    if( orders != undefined ) localStorage.setItem("orders", JSON.stringify(orders));
+    console.log(orders);
   }, [orders]);
   
   useEffect(() => {
