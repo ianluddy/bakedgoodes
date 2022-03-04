@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import theme from '../../themes/default';
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { OrderContext } from './orderProvider';
 import OrderSummary from './OrderSummary';
+import Counter from './counter';
 import { IconAnchor } from '../anchor';
 import Price from '../price';
 import Rodal from 'rodal';
@@ -28,28 +29,8 @@ const CloseButton = styled.div`
   right: 0.5rem;
 `;
 
-const Counter = styled.div`
-  display: ${props => props.visible ? 'block' : 'none'};
-  position: absolute;
-  top: 0.8rem;
-  right: 0.3rem;
-  width: 22px;
-  height: 22px;
-  border-radius: 30px;
-  background: ${theme.red};
-  color: ${theme.body};
-  font-size: 0.8rem;
-  line-height: 22px;
-  text-align: center;
-  @media (${theme.devices.md}) {
-    top: 1.5rem;
-    right: 1.2rem;
-  }
-`;
-
 export default function ({ children }) {
   const [open, setOpen] = useState(false);
-  const {addOrder, removeOrder, orders} = useContext(OrderContext);
   
   const handleClick = (e) => {
     e.preventDefault();
@@ -64,9 +45,7 @@ export default function ({ children }) {
           <BsFillBasket2Fill/>
         </IconAnchor>
       </OpenButton>      
-      <Counter visible={orders && orders.length > 0}>
-        {orders && orders.length}
-      </Counter>
+      <Counter/>
       <Rodal width={600} height={500} visible={open} onClose={handleClick} showCloseButton={false}>
         <CloseButton>
           <IconAnchor href="#" onClick={handleClick}>
