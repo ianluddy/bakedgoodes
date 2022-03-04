@@ -79,9 +79,7 @@ export default function Post({ postData }) {
     <Layout>
       <Back>
         <Link href='/cupcakes'>
-          <Anchor color={theme.primary}>
-            Back 
-          </Anchor>
+          Back
         </Link>
       </Back>
       <GridRight>
