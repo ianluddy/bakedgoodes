@@ -7,10 +7,6 @@ import { IconAnchor } from '../anchor';
 import Price from '../price';
 import { AiOutlineDelete } from "react-icons/ai";
 
-const Header = styled.h2`
-  text-align: center;
-`;
-
 const Placeholder = styled.div`
   position: absolute;
   top: 0;
@@ -34,7 +30,6 @@ const Table = styled.table`
   width: 100%;
   height: 100%;
   overflow: auto;
-  border: 1px solid;
 `;
 
 export default function ({ children }) {
@@ -50,7 +45,6 @@ export default function ({ children }) {
 
   return (
     <>
-      <Header> Order summary </Header>
       <Placeholder visible={!orders || !orders.length}>
         <div>Your basket is empty :(</div>
       </Placeholder>

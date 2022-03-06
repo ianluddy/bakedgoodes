@@ -6,11 +6,9 @@ import OrderSummary from './OrderSummary';
 import Counter from './counter';
 import { IconAnchor } from '../anchor';
 import Price from '../price';
-import Rodal from 'rodal';
-import 'rodal/lib/rodal.css';
+import Modal from '../modal';
 import { BsFillBasket2Fill } from "react-icons/bs";
 import { AiOutlineDelete } from "react-icons/ai";
-import { HiX } from "react-icons/hi";
 
 const OpenButton = styled.div`
   position: absolute;
@@ -23,37 +21,30 @@ const OpenButton = styled.div`
   }
 `;
 
-const CloseButton = styled.div`
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-`;
-
 export default function ({ children }) {
-  const [open, setOpen] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
   
-  const handleClick = (e) => {
+  const toggleModal = (e) => {
     e.preventDefault();
-    document.body.style.overflow = open ? 'unset' : 'hidden';
-    setOpen(!open);
+    document.body.style.overflow = modalVisible ? 'unset' : 'hidden';
+    setModalVisible(!modalVisible);
   }
 
   return (
     <>
       <OpenButton>
-        <IconAnchor href="#" onClick={handleClick}>
+        <IconAnchor href="#" onClick={toggleModal}>
           <BsFillBasket2Fill/>
         </IconAnchor>
-      </OpenButton>      
+      </OpenButton>
       <Counter/>
-      <Rodal width={600} height={500} visible={open} onClose={handleClick} showCloseButton={false}>
-        <CloseButton>
-          <IconAnchor href="#" onClick={handleClick}>
-            <HiX/>
-          </IconAnchor>
-        </CloseButton>
+      <Modal 
+        title={'Order summary'} 
+        visible={modalVisible} 
+        onClose={toggleModal} 
+        showCloseButton={false}>
         <OrderSummary/>
-      </Rodal>
+      </Modal>
     </>
   )
 };
