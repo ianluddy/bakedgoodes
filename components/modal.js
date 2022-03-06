@@ -30,7 +30,6 @@ const Footer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: row;
-  border: 2px solid;
 `;
 
 const Title = styled.div`

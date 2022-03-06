@@ -56,10 +56,11 @@ const Meta = styled.div`
   padding: 0 1rem;
 `;
 
-const MetaTitle = styled.h2`
+const MetaTitle = styled.h1`
   color: ${theme.secondary};
   text-transform: uppercase;
-  margin: 0 0 1rem;
+  margin: 0 0 1rem 0;
+  display: block;
 `;
 
 const MetaDesc = styled.div`
@@ -72,7 +73,7 @@ const ButtonWrapper = styled.div`
 `;
 
 export default function Post({ postData }) {
-  const [quantity, setQuantity] = useState(postData.quantities[0]);
+  const [variant, setVariant] = useState(postData.variants[0]);
   const {addOrder, removeOrder, orders} = useContext(OrderContext);
 
   return (
@@ -91,17 +92,17 @@ export default function Post({ postData }) {
           <MetaDesc> {postData.meta.desc} </MetaDesc>
           <div>
             <Select 
-              options={postData.quantities} 
-              selected={quantity}
-              setSelected={setQuantity}
+              options={postData.variants}
+              selected={variant}
+              setSelected={setVariant}
             />
-            <Price value={quantity.price}/>          
+            <Price value={variant.price}/>
           </div>  
           <ButtonWrapper>
             <Button 
               href="#" 
               text={"Add to basket"} 
-              onClick={() => addOrder({ id: postData.id, ...postData.meta }, quantity)} 
+              onClick={() => addOrder({ id: postData.id, ...postData.meta }, variant, 1)}
               large
             />
           </ButtonWrapper>

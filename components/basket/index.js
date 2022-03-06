@@ -4,7 +4,9 @@ import { useState } from "react";
 import { OrderContext } from './orderProvider';
 import OrderSummary from './OrderSummary';
 import Counter from './counter';
-import { IconAnchor } from '../anchor';
+import Total from './orderTotal';
+import { ButtonAnchor, IconAnchor } from '../anchor';
+import Button from '../button';
 import Price from '../price';
 import Modal from '../modal';
 import { BsFillBasket2Fill } from "react-icons/bs";
@@ -18,6 +20,16 @@ const OpenButton = styled.div`
   @media (${theme.devices.md}) {
     top: 2rem;
     right: 2rem;
+  }
+`;
+
+const FooterWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 1rem;
+  div {
+    margin: 0 1rem;
   }
 `;
 
@@ -39,11 +51,18 @@ export default function ({ children }) {
       </OpenButton>
       <Counter/>
       <Modal 
-        title={'Order summary'} 
+        title={''}
         visible={modalVisible} 
         onClose={toggleModal} 
-        showCloseButton={false}>
-        <OrderSummary/>
+        showCloseButton={false}
+        body={<OrderSummary/>}
+        footer={(
+          <FooterWrapper>
+            <Total/>
+            <ButtonAnchor href="/checkout" text="Checkout" onClick={() => {setModalVisible(false)}}/>
+          </FooterWrapper>
+        )}
+        >
       </Modal>
     </>
   )
