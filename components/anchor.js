@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import theme from '../themes/default';
 import { useRouter } from "next/router";
 import Link from 'next/link';
+import Button from './button';
 
 const AnchorWrapper = styled.a`
   transition: opacity ${theme.transitionTime};
@@ -44,6 +45,15 @@ export function NavAnchor({ href, active, children, color }) {
       <NavAnchorWrapper active={router.pathname == href} color={color}>
         {children}
       </NavAnchorWrapper>
+    </Link>
+  )
+}
+
+export function ButtonAnchor({ href, text, onClick }) {
+  const router = useRouter();
+  return (
+    <Link href={href}>
+      <Button text={text} onClick={onClick} large/>
     </Link>
   )
 }

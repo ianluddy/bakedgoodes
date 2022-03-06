@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
-import Button from '../components/button';
+import { ButtonAnchor } from './anchor';
 
 const Wrapper = styled.div`
   padding: 3rem 0;
@@ -25,7 +25,7 @@ export default function (props) {
     <Wrapper>
       <Headline>{props.headline}</Headline>
       <Body>{props.body}</Body>
-      <Button href={props.buttonLink} text={props.buttonText} large/>
+      <ButtonAnchor href={props.buttonLink} text={props.buttonText} />
     </Wrapper>
   )
 }

@@ -46,7 +46,7 @@ export default function( props ) {
             {props.order.product.title}
           </div>
           <span>
-            {props.order.quantity.title} (<Price value={props.order.quantity.price}/>)
+            {props.order.variant.title} (<Price value={props.order.variant.price}/>)
           </span>
         </Meta>
       </td>

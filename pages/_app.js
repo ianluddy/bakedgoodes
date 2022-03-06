@@ -7,7 +7,7 @@ import OrderProvider from '../components/basket/orderProvider';
 const name = 'Baked Goodes';
 export const siteTitle = 'Home baking from Dublin 8';
 
-export default function App({ Component, pageProps }) {
+export default function({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />

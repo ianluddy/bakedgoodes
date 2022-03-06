@@ -14,9 +14,9 @@ export default function ({ children }) {
     setOrders(JSON.parse(localStorage.getItem("orders")) || []);
   }, []);
   
-  const addOrder = (product, quantity) => {
+  const addOrder = (product, variant, quantity) => {
     setOrders(prevState => {
-      return [...prevState, { product, quantity }]
+      return [...prevState, { product, variant, quantity }]
     });
   }
   

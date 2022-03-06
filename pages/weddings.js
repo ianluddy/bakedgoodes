@@ -2,7 +2,7 @@ import Cta from '../components/cta';
 import Layout from '../components/layout';
 import FadeIn from 'react-fade-in';
 
-function Weddings() {
+export default function() {
   return (
     <Layout>
       <FadeIn delay="0">
@@ -18,10 +18,9 @@ function Weddings() {
           headline="Weddings" 
           body="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           buttonText="Contact me"
-          buttonLink="#"
+          buttonLink="/contact"
         />        
       </FadeIn>
     </Layout>
   );
 }
-export default Weddings;

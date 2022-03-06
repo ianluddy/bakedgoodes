@@ -18,6 +18,7 @@ const Button = styled.a`
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  cursor: pointer;
   font-size: ${props => props.large ? '1.2rem' : '1rem'};  
   background-color: ${props => props.secondary ? theme.grey : theme.primary};
   color: ${props => props.secondary ? theme.black : theme.body};

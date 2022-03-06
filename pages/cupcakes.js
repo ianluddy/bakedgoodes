@@ -18,11 +18,11 @@ const productList = cupcakes.map(cupcake => (
   />
 ));
 
-export default function Cupcakes() {
+export default function() {
   return (
     <Layout>
       <FadeIn>
-        <h1> Cupcakes </h1>
+        <h1 style={{display:"none"}}> Cupcakes </h1>
         <GridDefault>
           { productList }
         </GridDefault>
@@ -30,7 +30,7 @@ export default function Cupcakes() {
           headline="Something else?" 
           body="Plenty of options available, get in touch!"
           buttonText="Contact me"
-          buttonLink="#"
+          buttonLink="/contact"
         />
       </FadeIn>
     </Layout>
