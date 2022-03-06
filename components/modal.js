@@ -27,9 +27,13 @@ const Footer = styled.div`
   left: 0;
   right: 0;
   height: 4rem;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  border: 2px solid;
 `;
 
-const Title = styled.h2`
+const Title = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -37,6 +41,7 @@ const Title = styled.h2`
   height: 4rem;
   text-align: center;
   line-height: 4rem;
+  font-size: 1.3rem;
   margin: 0;
 `;
 
@@ -46,7 +51,7 @@ const CloseButton = styled.div`
   right: 1rem;
 `;
 
-export default function ({ children, visible, onClose, width, height, title }) {
+export default function ({ body, footer, visible, onClose, width, height, title }) {
   return (
     <Wrapper>
       <Rodal 
@@ -65,10 +70,10 @@ export default function ({ children, visible, onClose, width, height, title }) {
           </IconAnchor>
         </CloseButton>
         <Body>
-          { children }
+          { body }
         </Body>
         <Footer>
-          
+          { footer }
         </Footer>
       </Rodal>
     </Wrapper>

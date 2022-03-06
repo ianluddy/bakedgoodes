@@ -22,9 +22,6 @@ const Page = styled.div`
   
   @media (${theme.devices.md}) {
     text-align: left;
-    h1 {
-      text-align: center;
-    }
   }
 `
 
