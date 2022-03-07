@@ -4,7 +4,7 @@ import { NavAnchor } from './anchor';
 import { PrimarySquiggle } from './squiggle';
 import Link from 'next/link';
 
-const Wrapper = styled.div`
+const PrimaryWrapper = styled.div`
   position: absolute;
   left: 3.5rem;
   right: 3.5rem;
@@ -24,7 +24,7 @@ const LinkWrapper = styled.div`
   margin: 0 auto 1.5rem auto;
 `;
 
-const Nav = styled.div`
+const LinkInner = styled.div`
   display: none;
   height: 2rem;
   align-items: center;
@@ -70,18 +70,54 @@ const Title = styled.div`
     font-size: 4rem;
     margin-bottom: 1rem;
   }
+`;
+
+const SecondaryWrapper = styled.div`
+  display: none;
+  position: absolute;
+  z-index: 1;  
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  color: ${theme.body};
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 `
 
-export default function () {  
+const SecondaryInner = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+`;
+
+export function SecondaryNav() {
   return (
-    <Wrapper>
+    <>
+      <SecondaryWrapper>
+        <SecondaryInner>
+          <NavAnchor href="/" color={theme.body}>Home</NavAnchor>
+          <NavAnchor href="/cakes" color={theme.body}>Cakes</NavAnchor>
+          <NavAnchor href="/cupcakes" color={theme.body}>Cupcakes</NavAnchor>
+          <NavAnchor href="/weddings" color={theme.body}>Weddings</NavAnchor>
+        </SecondaryInner>
+      </SecondaryWrapper>
+    </>
+  )
+}
+
+export function PrimaryNav() {
+  return (
+    <PrimaryWrapper>
       <Title>
         <Link href="/">
           Baked Goodes
         </Link>
       </Title>
       <LinkWrapper>
-        <Nav>
+        <LinkInner>
           <NavLink>
             <NavAnchor href="/">Home</NavAnchor>
           </NavLink>
@@ -94,9 +130,9 @@ export default function () {
           <NavLink>
             <NavAnchor href="/weddings">Weddings</NavAnchor>
           </NavLink>
-        </Nav>
+        </LinkInner>
       </LinkWrapper>
       <PrimarySquiggle/>
-    </Wrapper>
+    </PrimaryWrapper>
   )
 }

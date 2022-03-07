@@ -11,11 +11,7 @@ const Page = styled.div`
     padding: 1rem 1rem 0 1rem;
     max-width: ${theme.textMaxWidth};
   }
-  
-  img {
-    border-radius: 8px;
-  }
-  
+    
   h1 {
     font-size: 1.7rem;
   }  

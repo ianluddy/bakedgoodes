@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import theme from '../../themes/default';
+import theme from '../themes/default';
 import { useState, useContext } from "react";
 import { OrderContext } from './orderProvider';
 import Order from './order';
-import { IconAnchor } from '../anchor';
-import Price from '../price';
+import { IconAnchor } from './anchor';
+import Price from './price';
 import { AiOutlineDelete } from "react-icons/ai";
 
 const Placeholder = styled.div`
@@ -23,6 +23,7 @@ const Placeholder = styled.div`
 `;
 
 const Summary = styled.div`
+  padding: 1rem;
   display: ${props => props.visible ? 'block' : 'none'};
 `;
 

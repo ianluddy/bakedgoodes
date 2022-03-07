@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import theme from '../../themes/default';
-import { IconAnchor } from '../anchor';
-import Price from '../price';
+import theme from '../themes/default';
+import { IconAnchor } from './anchor';
+import Price from './price';
+import Image from './image';
 import { AiOutlineDelete } from "react-icons/ai";
 
 const Meta = styled.div`
@@ -13,12 +14,6 @@ const Meta = styled.div`
   span {
     font-size: 1rem;
     color: ${theme.text};
-  }
-`;
-
-const Image = styled.div`
-  img {
-    height: 100%;
   }
 `;
 
@@ -38,7 +33,7 @@ export default function( props ) {
   return (
     <Row>
       <td>
-        <img src={props.order.product.src}/>
+        <Image src={props.order.product.src}/>
       </td>
       <td>
         <Meta>

@@ -5,9 +5,10 @@ import Link from 'next/link';
 import { getAllPostIds, getPostData } from '../../lib/cupcakes';
 import Layout from '../../components/layout';
 import Price from '../../components/price';
+import Image from '../../components/image';
 import Button from '../../components/button';
 import Select from '../../components/select';
-import { OrderContext } from '../../components/basket/orderProvider';
+import { OrderContext } from '../../components/orderProvider';
 import { GridRight } from '../../components/grid';
 import { Anchor } from '../../components/anchor';
 
@@ -40,12 +41,9 @@ const Back = styled.div`
   display: none;
 `;
 
-const Image = styled.div`
+const ImageWrapper = styled.div`
   width: 100%;
   display: inline-block;  
-  img {
-    width: 100%;
-  }
 `;
 
 const Meta = styled.div`
@@ -84,9 +82,9 @@ export default function Post({ postData }) {
         </Link>
       </Back>
       <GridRight>
-        <Image>
-          <img src={postData.meta.src} alt="TODO" title="TODO"/>
-        </Image>
+        <ImageWrapper>
+          <Image src={postData.meta.src} alt="TODO" title="TODO"/>
+        </ImageWrapper>
         <Meta>
           <MetaTitle> {postData.meta.title} </MetaTitle>
           <MetaDesc> {postData.meta.desc} </MetaDesc>

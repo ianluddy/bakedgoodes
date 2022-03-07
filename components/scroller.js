@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   position: fixed; 
   right: 1rem;
   bottom: 1.2rem;
-  z-index: 100;
+  z-index: 1;
   transition: transform ${theme.transitionTime};
   transform: ${props => props.active ? 'none' : 'translate(0, 200px);' };
   @media (${theme.devices.md}) {

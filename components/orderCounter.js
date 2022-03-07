@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import theme from '../../themes/default';
+import theme from '../themes/default';
 import { useContext } from "react";
 import { OrderContext } from './orderProvider';
-import { IconAnchor } from '../anchor';
+import { IconAnchor } from './anchor';
 
 const Counter = styled.div`
   display: ${props => props.visible ? 'block' : 'none'};

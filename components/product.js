@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
 import Grid from './grid';
+import Image from './image';
 import Button from '../components/button';
 import Link from 'next/link';
 
@@ -8,15 +9,12 @@ const Wrapper = styled.div`
   position: relative;
   cursor: pointer;
   transition: transform ${theme.transitionTime};
-  img {
-    width: 100%;
-  }
   @media (${theme.devices.sm}) {
     :hover {
       transform: scale(1.03);
     }
   }
-`
+`;
 
 const Meta = styled.div`
   position: relative;
@@ -25,7 +23,7 @@ const Meta = styled.div`
     top: -3rem;
     right: 0.5rem;
   }  
-`
+`;
 
 const Title = styled.h2`
   font-weight: bold;
@@ -41,13 +39,11 @@ const Caption = styled.div`
   text-align: left;
 `;
 
-// TODO image optimisation
-
 export default function({ id, title, caption, desc, src, meta, path }) {
   return (
     <Link href={path}>
       <Wrapper>
-        <img src={src} alt="TODO" title="TODO"/>
+        <Image src={src} alt="TODO" title="TODO"/>
         <Meta>
           <Button href="#" text="Order"/>
           <Title>

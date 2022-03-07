@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
+import Image from './image';
 
 const PolaroidAnchor = styled.a`
   transition: all ${theme.transitionTime};
@@ -42,7 +43,7 @@ export default function ({ link, src, height, nozoom }) {
   return (
     <Polaroid>
       <PolaroidAnchor href={link} title="" nozoom={nozoom}>
-        <img height={height} src={src} alt="TODO" title="TODO" />
+        <Image height={height} src={src} alt="TODO" title="TODO" />
       </PolaroidAnchor>
     </Polaroid>
   )

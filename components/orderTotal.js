@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { useState, useEffect, useContext } from "react";
-import theme from '../../themes/default';
+import theme from '../themes/default';
 import { OrderContext } from './orderProvider';
-import Price from '../price';
+import Price from './price';
 
 const Wrapper = styled.div`
   display: ${props => props.visible ? 'block' : 'none'};
