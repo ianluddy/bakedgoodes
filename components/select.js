@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import theme from '../themes/default';
 
 const Select = styled.select`
+  color: ${theme.text};
   background-color: ${theme.grey};
   padding: 0.5rem 1rem;
   border-radius: 5px;

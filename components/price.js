@@ -5,7 +5,9 @@ export default function (props) {
     <CurrencyFormat 
       value={props.value} 
       displayType={'text'} 
-      thousandSeparator={true} prefix={'€'} 
+      thousandSeparator={true} 
+      prefix={'€ '} 
+      suffix={'.00'} // hmmm TODO
     />
   )
 }

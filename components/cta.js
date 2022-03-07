@@ -25,7 +25,7 @@ export default function (props) {
     <Wrapper>
       <Headline>{props.headline}</Headline>
       <Body>{props.body}</Body>
-      <ButtonAnchor href={props.buttonLink} text={props.buttonText} />
+      <ButtonAnchor href={props.buttonLink} text={props.buttonText} large/>
     </Wrapper>
   )
 }

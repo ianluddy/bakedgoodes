@@ -5,7 +5,8 @@ const Page = styled.div`
   text-align: center;
   min-height: 60vh;  
   font-size: 1.1em;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
+  font-weight: 200;
     
   p {
     padding: 1rem 1rem 0 1rem;

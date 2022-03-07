@@ -31,7 +31,7 @@ const Left = styled(Drawer)`
 
 const Close = styled.div`
   position: absolute;
-  top: 1rem;
+  top: 2rem;
   right: 1rem;
   z-index: 4;
 `;

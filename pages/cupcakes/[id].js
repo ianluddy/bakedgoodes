@@ -57,17 +57,25 @@ const Meta = styled.div`
 const MetaTitle = styled.h1`
   color: ${theme.secondary};
   text-transform: uppercase;
-  margin: 0 0 1rem 0;
+  margin: 0;
   display: block;
 `;
 
+const PriceWrapper = styled.div`
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+`;
+
+const SelectWrapper = styled.div`
+`;
+
 const MetaDesc = styled.div`
-  padding: 0 0 1rem;
+  padding: 0 0 1.5rem 0;
   max-width: ${theme.textMaxWidth};
 `;
 
 const ButtonWrapper = styled.div`
-  padding-top: 2rem;
+  padding-top: 1.5rem;
 `;
 
 export default function Post({ postData }) {
@@ -87,15 +95,17 @@ export default function Post({ postData }) {
         </ImageWrapper>
         <Meta>
           <MetaTitle> {postData.meta.title} </MetaTitle>
+          <PriceWrapper>
+            <Price value={variant.price}/>
+          </PriceWrapper>
           <MetaDesc> {postData.meta.desc} </MetaDesc>
-          <div>
+          <SelectWrapper>
             <Select 
               options={postData.variants}
               selected={variant}
               setSelected={setVariant}
             />
-            <Price value={variant.price}/>
-          </div>  
+          </SelectWrapper>  
           <ButtonWrapper>
             <Button 
               href="#" 
