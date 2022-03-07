@@ -10,7 +10,7 @@ const Drawer = styled.div`
   position: fixed;
   width: ${theme.drawerWidth};
   max-width: ${theme.drawerMaxWidth};
-  top: 10px;
+  top: 0;
   bottom: 0;
   z-index: 3;
   transition: transform ${theme.transitionTime};

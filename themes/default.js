@@ -1,11 +1,11 @@
 const theme = {
-  text: "#9AABAB",
+  text: "#939393",
   body: "#FFFFFF",
   primary: "#e7859c",    
   secondary: "#79CAC2",
   shadow: "#CCCCCC",
   grey: "#F5F5F5",
-  darkGrey: "#424242",
+  darkGrey: "#525252",
   black: "#333333",
   red: "#ee2f53",
   fontSource: "'Source Serif 4', sans-serif",

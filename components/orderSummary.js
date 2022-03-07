@@ -18,6 +18,7 @@ const Placeholder = styled.div`
   display: ${props => props.visible ? 'flex' : 'none'};
   flex-direction: row;
   align-items: center;
+  color: ${theme.body};  
   div {
     width: 100%;
   }
@@ -38,7 +39,6 @@ const Header = styled.div`
   font-size: 1.4rem;
   font-weight: bold;
   color: ${theme.body};
-  border-bottom: 1px solid ${theme.lightGrey};  
   position: absolute;
   top: 0;
   height: 2rem;
@@ -49,7 +49,6 @@ const Header = styled.div`
 
 const Footer = styled.div`
   display: ${props => props.visible ? 'block' : 'none'};
-  border-top: 1px solid ${theme.lightGrey};
   position: absolute;
   bottom: 0;
   height: 8rem;
@@ -78,7 +77,7 @@ const Meta = styled.div`
 `;
 
 const Title = styled.div`
-  font-weight: 200;
+  font-weight: 400;
   color: ${theme.grey};
   font-size: 1.1rem;
 `;
@@ -89,7 +88,7 @@ const Variant = styled.div`
   font-size: 0.85rem;
 `;
 
-export default function ({ children }) {
+export default function ({ children, setOpen }) {
   const {addOrder, removeOrder, orders} = useContext(OrderContext);
   
   const orderList = orders ? orders.map((order, i) => 
@@ -121,6 +120,7 @@ export default function ({ children }) {
         <ButtonAnchor 
           href="/checkout" 
           text={"Checkout"} 
+          onClick={() => { setOpen(false); }}
           large
           secondary
           wide

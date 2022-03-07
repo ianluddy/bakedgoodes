@@ -93,11 +93,11 @@ const SecondaryInner = styled.div`
   width: 100%;
 `;
 
-export function SecondaryNav() {
+export function SecondaryNav({ setOpen }) {
   return (
     <>
       <SecondaryWrapper>
-        <SecondaryInner>
+        <SecondaryInner onClick={() => {setOpen(false);}}>
           <NavAnchor href="/" color={theme.body}>Home</NavAnchor>
           <NavAnchor href="/cakes" color={theme.body}>Cakes</NavAnchor>
           <NavAnchor href="/cupcakes" color={theme.body}>Cupcakes</NavAnchor>

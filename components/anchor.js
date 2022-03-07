@@ -18,7 +18,7 @@ const AnchorWrapper = styled.a`
 
 const NavAnchorWrapper = styled(AnchorWrapper)`
   font-size: 1.4rem;
-  margin-bottom: 1rem;
+  padding-bottom: 1rem;
   text-transform: uppercase;
   @media (${theme.devices.md}) {
     font-size: 1.3rem;

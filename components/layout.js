@@ -36,7 +36,7 @@ const Overlay = styled.div`
   z-index: 2;
   background-color: black;
   transform: opacity ${theme.transitionTime};
-  opacity: ${props => props.visible ? "0.2" : "0"};
+  opacity: ${props => props.visible ? "0.1" : "0"};
   display: ${props => props.visible ? "block" : "none"};
 `;
 
@@ -64,7 +64,7 @@ export default function ({ children }) {
         <SecondaryNav setOpen={setLeftDrawerOpen}/>
       </LeftDrawer>
       <RightDrawer open={rightDrawerOpen} setOpen={setRightDrawerOpen}>
-        <OrderSummary/>
+        <OrderSummary setOpen={setRightDrawerOpen}/>
       </RightDrawer>
       <Overlay 
         visible={rightDrawerOpen || leftDrawerOpen} 
