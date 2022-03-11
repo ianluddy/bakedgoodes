@@ -7,7 +7,8 @@ import Image from './image';
 
 const OrderWrapper = styled.div`
   padding-bottom: 0.5rem;
-  display: ${props => props.visible ? "block" : "none"}
+  display: ${props => props.visible ? "block" : "none"};
+  text-align: left;  
 `;
 
 const Meta = styled.div`
