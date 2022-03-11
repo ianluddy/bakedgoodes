@@ -1,12 +1,13 @@
 import Cta from '../components/cta';
 import Layout from '../components/layout';
 import FadeIn from 'react-fade-in';
+import PageHeader from '../components/pageHeader';
 
 export default function() {
   return (
     <Layout>
       <FadeIn delay="0">
-        <h1>Weddings</h1>
+        <PageHeader>Weddings</PageHeader>
         
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie dui at tellus eleifend dapibus. Aenean vitae arcu non sem sagittis consectetur. Praesent sed arcu quis felis dignissim placerat. Nam ultrices metus non justo porttitor lacinia. Aenean a convallis velit. Praesent porttitor urna nec blandit placerat. Aliquam ligula tortor, hendrerit sollicitudin condimentum quis, eleifend id metus.</p>
 

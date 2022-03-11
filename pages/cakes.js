@@ -3,12 +3,13 @@ import Product from '../components/product';
 import { GridDefault } from '../components/grid';
 import Cta from '../components/cta';
 import FadeIn from 'react-fade-in';
+import PageHeader from '../components/pageHeader';
 
 export default function() {
   return (
     <Layout>
       <FadeIn>
-        <h1 style={{display:"none"}}> Cakes </h1>
+        <PageHeader style={{display:"none"}}> Cakes </PageHeader>
         <p> 
           Our menu includes trusted signature flavors as well as seasonal and monthly favorites all made fresh daily using local, real ingredients. <br/>
           We are inclusive of guests with special dietary needs offering gluten free and vegan cupcake options. <br/>

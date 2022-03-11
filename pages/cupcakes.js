@@ -5,6 +5,7 @@ import { GridDefault } from '../components/grid';
 import Cta from '../components/cta';
 import FadeIn from 'react-fade-in';
 import { cupcakes } from '../lib/cupcakes';
+import PageHeader from '../components/pageHeader';
 
 const productList = cupcakes.map(cupcake => (
   <Product 
@@ -22,7 +23,7 @@ export default function() {
   return (
     <Layout>
       <FadeIn>
-        <h1 style={{display:"none"}}> Cupcakes </h1>
+        <PageHeader style={{display:"none"}}> Cupcakes </PageHeader>
         <GridDefault>
           { productList }
         </GridDefault>

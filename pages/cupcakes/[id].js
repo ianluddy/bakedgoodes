@@ -57,8 +57,8 @@ const Meta = styled.div`
 const MetaTitle = styled.h1`
   color: ${theme.secondary};
   text-transform: uppercase;
-  margin: 0;
-  display: block;
+  font-size: 1.7rem;
+  margin: 0.5rem 0 1rem 0;
 `;
 
 const PriceWrapper = styled.div`

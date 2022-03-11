@@ -13,10 +13,6 @@ const Page = styled.div`
     max-width: ${theme.textMaxWidth};
   }
     
-  h1 {
-    font-size: 1.7rem;
-  }  
-  
   @media (${theme.devices.md}) {
     text-align: left;
   }

@@ -1,9 +1,10 @@
 import Layout from '../components/layout';
+import PageHeader from '../components/pageHeader';
 
 export default function() {
   return (
     <Layout>
-      <h1>Home</h1>
+      <PageHeader>Home</PageHeader>
     </Layout>
   );
 }
