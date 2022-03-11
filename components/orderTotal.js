@@ -1,16 +1,21 @@
 import { useContext } from "react";
 import { OrderContext } from './orderProvider';
+import theme from '../themes/default';
 import Price from './price';
 
 export default function ({ children }) {
-  const {addOrder, removeOrder, orders} = useContext(OrderContext);
+  const { orders } = useContext(OrderContext);
   return (
     <>
-      <Price value={
-        orders && orders.length && orders.reduce(
-          (prev, next) => prev + next.quantity * next.variant.price
-        , 0) || 0
-      }/>
+      <Price 
+        color={theme.secondary}
+        weight={600}
+        value={
+          orders && orders.length && orders.reduce(
+            (prev, next) => prev + next.quantity * next.variant.price
+          , 0) || 0
+        }
+      />
     </>
   )
 };

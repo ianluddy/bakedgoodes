@@ -43,7 +43,7 @@ const Overlay = styled.div`
 export default function ({ children }) {
   const [rightDrawerOpen, setRightDrawerOpen] = useState(false);
   const [leftDrawerOpen, setLeftDrawerOpen] = useState(false);
-  const {addOrder, removeOrder, orders} = useContext(OrderContext);
+  const { orders } = useContext(OrderContext);
   const orderRef = useRef();
 
   useEffect(() => {

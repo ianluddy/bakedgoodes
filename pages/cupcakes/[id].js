@@ -80,8 +80,7 @@ const ButtonWrapper = styled.div`
 
 export default function Post({ postData }) {
   const [variant, setVariant] = useState(postData.variants[0]);
-  const {addOrder, removeOrder, orders} = useContext(OrderContext);
-
+  const { addOrder } = useContext(OrderContext);
   return (
     <Layout>
       <Back>

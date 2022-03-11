@@ -4,10 +4,14 @@ export const OrderContext = createContext();
 
 export default function ({ children }) {
   const [orders, setOrders] = useState(null);
+  const [count, setCount] = useState(null);
 
   useEffect(() => {
-    if( orders != undefined ) localStorage.setItem("orders", JSON.stringify(orders));
     console.log(orders);
+    setCount(orders ? orders.filter(order => {return order.quantity > 0}).length : 0);    
+    if( orders != undefined ) {
+      localStorage.setItem("orders", JSON.stringify(orders));
+    }
   }, [orders]);
   
   useEffect(() => {
@@ -20,13 +24,17 @@ export default function ({ children }) {
     });
   }
   
-  const removeOrder = (index) => {
-    setOrders(orders.filter((_, i) => i !== index));
+  const updateOrder = (index, quantity) => {
+    setOrders(prevState => {
+      const updated = [...prevState];
+      updated[index].quantity = quantity;
+      return updated;
+    });
   }
   
   return (
     <>
-      <OrderContext.Provider value={{orders, addOrder, removeOrder}}>
+      <OrderContext.Provider value={{orders, count, addOrder, updateOrder}}>
         {children}
       </OrderContext.Provider>
     </>

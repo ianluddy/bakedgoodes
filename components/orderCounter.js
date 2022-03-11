@@ -24,10 +24,10 @@ const Counter = styled.div`
 `;
 
 export default function ({ children }) {
-  const {addOrder, removeOrder, orders} = useContext(OrderContext);
+  const { count } = useContext(OrderContext);
   return (
-    <Counter visible={orders && orders.length > 0}>
-      {orders && orders.length}
+    <Counter visible={count}>
+      {count}
     </Counter>
   )
 };

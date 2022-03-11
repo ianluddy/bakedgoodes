@@ -3,6 +3,7 @@ import theme from '../themes/default';
 import { useState, useContext } from "react";
 import { OrderContext } from './orderProvider';
 import OrderTotal from './orderTotal';
+import QuantityPicker from './quantityPicker';
 import { IconAnchor, ButtonAnchor } from './anchor';
 import Price from './price';
 import Image from './image';
@@ -65,15 +66,16 @@ const TotalWrapper = styled.div`
   }
 `;
 
-const Order = styled.div`
-  padding-top: 0.1rem;
+const OrderWrapper = styled.div`
+  padding-bottom: 0.5rem;
+  display: ${props => props.visible ? "block" : "none"}
 `;
 
 const Meta = styled.div`
   display: inline-block;
-  padding: 1rem 0 0 1rem;
-  font-weight: 200;
-  vertical-align: top;  
+  padding: 0.3rem 0 0 1rem;
+  font-weight: 400;
+  vertical-align: top;
 `;
 
 const Title = styled.div`
@@ -83,36 +85,41 @@ const Title = styled.div`
 `;
 
 const Variant = styled.div`
-  font-weight: 200;
-  color: ${theme.grey};
-  font-size: 0.85rem;
+  font-weight: 100;
+  color: ${theme.midGrey};
+  font-size: 1rem;
 `;
 
-export default function ({ children, setOpen }) {
-  const {addOrder, removeOrder, orders} = useContext(OrderContext);
-  
-  const orderList = orders ? orders.map((order, i) => 
-    <Order key={i}>
+export function Order(order, index) {
+  return (
+    <OrderWrapper key={index} visible={order.quantity > 0}>
       <Image width={"80px"} src={order.product.src} inline/>
       <Meta>
         <Title>{order.product.title}</Title>
         <Variant>{order.variant.title}</Variant>
+        <Price weight={600} color={theme.secondary} value={order.variant.price * order.quantity}></Price>
       </Meta>
-    </Order>
-  ) : null;
+      <QuantityPicker order={order} index={index}/>
+    </OrderWrapper>
+  )
+}
 
+export default function ({ children, setOpen }) {
+  const { orders, count } = useContext(OrderContext);
   return (
     <>
       <Header>
         Your basket
       </Header>
-      <Placeholder visible={!orders || !orders.length}>
+      <Placeholder visible={!count}>
         <div>Your basket is empty :(</div>
       </Placeholder>
-      <Summary visible={orders && orders.length}>
-        {orderList}
+      <Summary visible={count}>
+        {
+          orders && orders.length ? orders.map((order, i) => Order(order, i)) : null
+        }
       </Summary>
-      <Footer visible={orders && orders.length}>
+      <Footer visible={count}>
         <TotalWrapper>
           <span>Subtotal</span>
           <OrderTotal/>
