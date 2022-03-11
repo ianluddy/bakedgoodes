@@ -50,8 +50,11 @@ const Meta = styled.div`
   width: 100%;
   display: inline-block;  
   vertical-align: top;
-  text-align: left;  
-  padding: 0 1rem;
+  padding: 0;
+  @media (${theme.devices.md}) {
+    padding: 0 1rem;
+    text-align: left;
+  }
 `;
 
 const MetaTitle = styled.h1`
