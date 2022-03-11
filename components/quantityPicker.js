@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
-import { useState, useEffect, useContext } from 'react';
+import { useContext } from 'react';
 import { OrderContext } from './orderProvider';
-import { FaMinusSquare, FaMinusCircle, FaPlusSquare, FaPlusCircle } from "react-icons/fa";
-
+import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
 
 const Wrapper = styled.div`
   display: inline-block;
@@ -11,7 +10,6 @@ const Wrapper = styled.div`
   margin-top: 1.5rem;
   display: flex;
   align-items: center;
-  color: ${theme.grey};
   svg {
     color: ${theme.midGrey};
     cursor: pointer;
@@ -31,17 +29,12 @@ const Value = styled.span`
 
 export default function ({ order, index }) {
   const { updateOrder } = useContext(OrderContext);
-  const [value, setValue] = useState(order.quantity);
-  
-  useEffect(() => {
-    updateOrder(index, value);
-  }, [value]);
-  
+
   return (
     <Wrapper>
-      <FaMinusCircle onClick={() => {setValue(value > 0 ? value - 1 : 0)}}/>
-      <Value>{value}</Value>
-      <FaPlusCircle onClick={() => {setValue(value + 1)}}/>
+      <FaMinusCircle onClick={() => updateOrder(index, order.quantity - 1)}/>
+      <Value>{order.quantity}</Value>
+      <FaPlusCircle onClick={() => updateOrder(index, order.quantity + 1)}/>
     </Wrapper>
   )
 };

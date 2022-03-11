@@ -3,6 +3,7 @@ import theme from '../themes/default';
 import { useState, useContext } from "react";
 import { OrderContext } from './orderProvider';
 import OrderTotal from './orderTotal';
+import Order from './order';
 import QuantityPicker from './quantityPicker';
 import { IconAnchor, ButtonAnchor } from './anchor';
 import Price from './price';
@@ -34,6 +35,7 @@ const Summary = styled.div`
   left: 2rem;
   bottom: 8rem;
   padding: 1rem 0;
+  color: ${theme.grey};
 `;
 
 const Header = styled.div`
@@ -65,44 +67,6 @@ const TotalWrapper = styled.div`
     float: right;
   }
 `;
-
-const OrderWrapper = styled.div`
-  padding-bottom: 0.5rem;
-  display: ${props => props.visible ? "block" : "none"}
-`;
-
-const Meta = styled.div`
-  display: inline-block;
-  padding: 0.3rem 0 0 1rem;
-  font-weight: 400;
-  vertical-align: top;
-`;
-
-const Title = styled.div`
-  font-weight: 400;
-  color: ${theme.grey};
-  font-size: 1.1rem;
-`;
-
-const Variant = styled.div`
-  font-weight: 100;
-  color: ${theme.midGrey};
-  font-size: 1rem;
-`;
-
-export function Order(order, index) {
-  return (
-    <OrderWrapper key={index} visible={order.quantity > 0}>
-      <Image width={"80px"} src={order.product.src} inline/>
-      <Meta>
-        <Title>{order.product.title}</Title>
-        <Variant>{order.variant.title}</Variant>
-        <Price weight={600} color={theme.secondary} value={order.variant.price * order.quantity}></Price>
-      </Meta>
-      <QuantityPicker order={order} index={index}/>
-    </OrderWrapper>
-  )
-}
 
 export default function ({ children, setOpen }) {
   const { orders, count } = useContext(OrderContext);

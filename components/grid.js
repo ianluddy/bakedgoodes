@@ -3,9 +3,9 @@ import theme from '../themes/default';
 import FadeIn from 'react-fade-in';
 
 const Grid = styled(FadeIn)`
-  display: flex;
   flex-wrap: wrap;
   margin-top: 2rem;
+  display: ${props => props.hide ? 'none' : 'flex'};
   
   > div {
     flex-grow: 1;
@@ -59,17 +59,17 @@ const Right = styled(Grid)`
   }
 `;
 
-export const GridDefault = ({ children }) => {
+export const GridDefault = ({ children, hide }) => {
   return (
-    <Default delay="120">
+    <Default delay="120" hide={hide}>
       {children}
     </Default>
   )  
 }
 
-export const GridRight = ({ children }) => {
+export const GridRight = ({ children, hide }) => {
   return (
-    <Right delay="120">
+    <Right delay="120" hide={hide}>
       {children}
     </Right>
   )
