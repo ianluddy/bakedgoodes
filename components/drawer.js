@@ -15,6 +15,7 @@ const Drawer = styled.div`
   z-index: 3;
   transition: transform ${theme.transitionTime};
   transform: ${props => props.visible ? "translate(-400px)" : "unset"};
+  overflow: hidden;
 `;
 
 const Right = styled(Drawer)`

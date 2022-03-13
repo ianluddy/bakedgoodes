@@ -19,11 +19,11 @@ const Layout = styled.div`
   padding: 8rem 1rem 0 1rem;
   position: relative;
   transition: transform ${theme.transitionTime};
-  transform: ${props => props.rightDrawerOpen && "translate(-400px)"};
-  transform: ${props => props.leftDrawerOpen && "translate(400px)"};  
-  overflow: ${props => props.leftDrawerOpen || props.rightDrawerOpen ? "hidden" : "unset"};
   @media (${theme.devices.md}) {
     padding: 3rem 2rem 0 2rem;
+    transform: ${props => props.rightDrawerOpen && "translate(-400px)"};
+    transform: ${props => props.leftDrawerOpen && "translate(400px)"};  
+    overflow: ${props => props.leftDrawerOpen || props.rightDrawerOpen ? "hidden" : "unset"};
   }
 `;
 
