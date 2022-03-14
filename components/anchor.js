@@ -32,7 +32,12 @@ const IconAnchorWrapper = styled(AnchorWrapper)`
 
 export function Anchor({ href, children, color, bold, onClick }) {
   return (
-    <AnchorWrapper onClick={onClick} href={href} color={color} bold={bold}>
+    <AnchorWrapper 
+      onClick={onClick} 
+      href={href} 
+      color={color} 
+      bold={bold}
+    >
       {children}
     </AnchorWrapper>
   )

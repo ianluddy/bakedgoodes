@@ -10,7 +10,7 @@ export default function() {
   return (
     <Layout>
       <FadeIn>
-        <PageHeader style={{display:"none"}}> Cakes </PageHeader>
+        <PageHeader> Cakes </PageHeader>
         <GridDefault>
           {
             cakes.map(cake => (

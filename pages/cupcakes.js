@@ -11,7 +11,7 @@ export default function() {
   return (
     <Layout>
       <FadeIn>
-        <PageHeader style={{display:"none"}}> Cupcakes </PageHeader>
+        <PageHeader> Cupcakes </PageHeader>
         <GridDefault>
           {
             cupcakes.map(cupcake => (

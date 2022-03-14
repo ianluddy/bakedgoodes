@@ -11,6 +11,7 @@ const Page = styled.div`
   p {
     padding: 1rem 1rem 0 1rem;
     max-width: ${theme.textMaxWidth};
+    margin: 0 auto;
   }
     
   @media (${theme.devices.md}) {

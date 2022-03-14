@@ -11,12 +11,10 @@ const Error = styled.div`
 const FieldWrapper = styled.div`
   margin-bottom: 1.5rem;
   input, textarea {
-    padding: 1rem;
-    width: 100%;
+    width: calc(100% - 2rem);
     border: none;
     background-color: ${theme.grey};
-    text-indent: 1rem;
-    padding: 1rem 0;
+    padding: 1rem;
     color: ${theme.darkGrey};
   }
   textarea {
