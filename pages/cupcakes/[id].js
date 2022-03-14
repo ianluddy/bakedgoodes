@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import theme from '../../themes/default';
 import { useState, useContext } from "react";
-import Link from 'next/link';
 import { getAllPostIds, getPostData } from '../../lib/cupcakes';
 import Layout from '../../components/layout';
 import Price from '../../components/price';
@@ -9,7 +8,7 @@ import Image from '../../components/image';
 import Button from '../../components/button';
 import Select from '../../components/select';
 import { OrderContext } from '../../components/orderProvider';
-import { GridRight } from '../../components/grid';
+import { GridSplit } from '../../components/grid';
 import { Anchor } from '../../components/anchor';
 
 export async function getStaticProps({ params }) {
@@ -61,12 +60,12 @@ const MetaTitle = styled.h1`
   color: ${theme.secondary};
   text-transform: uppercase;
   font-size: 1.7rem;
-  margin: 0.5rem 0 1rem 0;
+  margin: 0.5rem 0;
 `;
 
 const PriceWrapper = styled.div`
-  font-size: 1.5rem;
-  padding-bottom: 1rem;
+  font-size: 1.3rem;
+  padding-bottom: 0.75rem;
 `;
 
 const SelectWrapper = styled.div`
@@ -86,12 +85,7 @@ export default function Post({ postData }) {
   const { addOrder } = useContext(OrderContext);
   return (
     <Layout>
-      <Back>
-        <Link href='/cupcakes'>
-          Back
-        </Link>
-      </Back>
-      <GridRight>
+      <GridSplit>
         <ImageWrapper>
           <Image src={postData.meta.src} alt="TODO" title="TODO"/>
         </ImageWrapper>
@@ -117,7 +111,7 @@ export default function Post({ postData }) {
             />
           </ButtonWrapper>
         </Meta>
-      </GridRight>
+      </GridSplit>
     </Layout>
   )
 }

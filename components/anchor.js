@@ -53,13 +53,16 @@ export function ButtonAnchor({ href, text, onClick, secondary, large, wide }) {
   const router = useRouter();
   return (
     <Link href={href}>
-      <Button 
-        text={text} 
-        onClick={onClick} 
-        large={large} 
-        secondary={secondary}
-        wide={wide}
-      />
+      <div>
+        <Button 
+          href="#"
+          text={text} 
+          onClick={onClick} 
+          large={large} 
+          secondary={secondary}
+          wide={wide}
+        />
+      </div>
     </Link>
   )
 }

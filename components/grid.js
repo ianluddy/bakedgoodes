@@ -59,6 +59,15 @@ const Right = styled(Grid)`
   }
 `;
 
+const Split = styled(Grid)`
+  > div {
+    @media (${theme.devices.md}) {
+      width: calc(50% - 2rem);
+      max-width: calc(50% - 2rem);
+    }
+  }
+`;
+
 export const GridDefault = ({ children, hide }) => {
   return (
     <Default delay="120" hide={hide}>
@@ -72,5 +81,13 @@ export const GridRight = ({ children, hide }) => {
     <Right delay="120" hide={hide}>
       {children}
     </Right>
+  )
+}
+
+export const GridSplit = ({ children, hide }) => {
+  return (
+    <Split delay="120" hide={hide}>
+      {children}
+    </Split>
   )
 }
