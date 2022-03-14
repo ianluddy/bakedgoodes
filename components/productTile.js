@@ -26,17 +26,16 @@ const Meta = styled.div`
 `;
 
 const Title = styled.h2`
-  font-weight: bold;
   margin: 0;
   text-align: left;
   color: ${theme.secondary};
-  text-transform: uppercase;
   font-size: 1.3rem;
   letter-spacing: 0.03rem;
 `;
 
 const Caption = styled.div`
   text-align: left;
+  font-size: 1rem;
 `;
 
 export default function({ id, title, caption, desc, src, meta, path }) {
@@ -45,7 +44,7 @@ export default function({ id, title, caption, desc, src, meta, path }) {
       <Wrapper>
         <Image src={src} alt="TODO" title="TODO"/>
         <Meta>
-          <Button href="#" text="Order"/>
+          <Button href="#" text="Order" secondary/>
           <Title>
             {title}
           </Title>

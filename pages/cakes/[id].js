@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import theme from '../../themes/default';
 import { useState, useContext } from "react";
-import { getAllPostIds, getPostData } from '../../lib/cupcakes';
+import { getAllPostIds, getPostData } from '../../lib/cakes';
 import Layout from '../../components/layout';
 import Price from '../../components/price';
 import Image from '../../components/image';

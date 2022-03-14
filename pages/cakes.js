@@ -1,26 +1,37 @@
+import FadeIn from 'react-fade-in';
 import Layout from '../components/layout';
-import Product from '../components/product';
+import ProductTile from '../components/productTile';
 import { GridDefault } from '../components/grid';
 import Cta from '../components/cta';
-import FadeIn from 'react-fade-in';
 import PageHeader from '../components/pageHeader';
+import { data as cakes } from '../lib/cakes';
 
 export default function() {
   return (
     <Layout>
       <FadeIn>
         <PageHeader style={{display:"none"}}> Cakes </PageHeader>
-        <p> 
-          Our menu includes trusted signature flavors as well as seasonal and monthly favorites all made fresh daily using local, real ingredients. <br/>
-          We are inclusive of guests with special dietary needs offering gluten free and vegan cupcake options. <br/>
-          Please note our gluten free cupcakes are not vegan. And our vegan cupcakes are not gluten free.
-        </p>    
+        <GridDefault>
+          {
+            cakes.map(cake => (
+              <ProductTile 
+                key={cake.id}
+                path={`/cakes/${cake.id}`}
+                title={cake.meta.title}
+                caption={cake.meta.caption}
+                desc={cake.meta.desc}
+                src={cake.meta.src}
+                link={cake.meta.link}
+              />
+            ))
+          }
+        </GridDefault>
         <Cta 
           headline="Something else?" 
           body="Plenty of options available, get in touch!"
           buttonText="Contact me"
           buttonLink="/contact"
-        />        
+        />
       </FadeIn>
     </Layout>
   );
