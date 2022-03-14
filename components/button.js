@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
 
-const Button = styled.a`
+const Button = styled.button`
   transition: opacity ${theme.transitionTime};
+  font-family: ${theme.fontSource};
   opacity: 1;  
   font-weight: bold;  
   text-align: center;
@@ -29,11 +30,14 @@ const Button = styled.a`
 }
 `;
 
+// const SubmitButton = styled.button`
+
 export default function(props) {
   return (
     <Button 
       onClick={props.onClick} 
       href={props.href} 
+      type={props.type} 
       large={props.large} 
       secondary={props.secondary}
       wide={props.wide}

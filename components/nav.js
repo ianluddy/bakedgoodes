@@ -102,6 +102,7 @@ export function SecondaryNav({ setOpen }) {
           <NavAnchor href="/cakes" color={theme.body}>Cakes</NavAnchor>
           <NavAnchor href="/cupcakes" color={theme.body}>Cupcakes</NavAnchor>
           <NavAnchor href="/weddings" color={theme.body}>Weddings</NavAnchor>
+          <NavAnchor href="/contact" color={theme.body}>Contact</NavAnchor>
         </SecondaryInner>
       </SecondaryWrapper>
     </>
@@ -129,6 +130,9 @@ export function PrimaryNav() {
           </NavLink>
           <NavLink>
             <NavAnchor href="/weddings">Weddings</NavAnchor>
+          </NavLink>
+          <NavLink>
+            <NavAnchor href="/contact">Contact</NavAnchor>
           </NavLink>
         </LinkInner>
       </LinkWrapper>

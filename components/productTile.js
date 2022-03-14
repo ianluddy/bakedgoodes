@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 
 const Meta = styled.div`
   position: relative;
-  a {
+  button {
     position: absolute;
     top: -3rem;
     right: 0.5rem;
