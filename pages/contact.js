@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import theme from '../themes/default';
 import PageHeader from '../components/pageHeader';
 import Button from '../components/button';
+import Paragraph from '../components/paragraph';
 import { Anchor, ButtonAnchor } from '../components/anchor';
 import { GridSplit } from '../components/grid';
 import { TextArea, TextInput } from '../components/form';
@@ -19,14 +20,14 @@ const FormWrapper = styled.div`
 
 const InstaWrapper = styled.div`
   text-align: center;
-  button {
-    margin: 2rem 5rem;
-  }
+  padding-bottom: 5rem;
   svg {
     font-size: 2rem;
     line-height: 2rem;
-    vertical-align: middle;
+    vertical-align: top;
     margin-right: 0.5rem;
+    position: relative;
+    top: 0.15rem;
   }
   h3 {
     font-weight: bold;
@@ -46,15 +47,16 @@ export default function() {
               baked_goodes
             </Anchor>
           </h2>
-          <p>
+          <Paragraph centred>
             Check out my Instagram to see my most recent bakes.
             You can message me there to chat about an order.
-          </p>
+          </Paragraph>
           <ButtonAnchor 
             href="https://www.instagram.com/baked_goodes/" 
             text={"Follow me"}
             large 
             secondary
+            nomargin
           >
             <BsInstagram/>
           </ButtonAnchor>

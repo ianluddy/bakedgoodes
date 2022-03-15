@@ -5,10 +5,11 @@ import { getAllPostIds, getPostData } from '../../lib/cakes';
 import Breadcrumbs from '../../components/breadcrumbs';
 import Layout from '../../components/layout';
 import Price from '../../components/price';
+import Paragraph from '../../components/paragraph';
 import Image from '../../components/image';
 import Button from '../../components/button';
 import Select from '../../components/select';
-import { Title, PriceWrapper, Desc, ButtonWrapper } from '../../components/productMeta';
+import { MetaWrapper, Title, PriceWrapper, Desc, ButtonWrapper } from '../../components/productMeta';
 import { OrderContext } from '../../components/orderProvider';
 import { GridSplit } from '../../components/grid';
 
@@ -36,7 +37,7 @@ export default function Post({ postData }) {
     <Layout>
       <GridSplit>
         <Image src={postData.meta.src} alt="TODO" title="TODO"/>
-        <div>
+        <MetaWrapper>
           <Breadcrumbs/>
           <Title>
             {postData.meta.title}
@@ -45,9 +46,9 @@ export default function Post({ postData }) {
             <Price value={variant.price}/>
           </PriceWrapper>
           <Desc>
-            <p>
+            <Paragraph centred>
               {postData.meta.desc} 
-            </p>
+            </Paragraph>
           </Desc>
           <div>
             <Select 
@@ -65,7 +66,7 @@ export default function Post({ postData }) {
               secondary
             />
           </ButtonWrapper>
-        </div>
+        </MetaWrapper>
       </GridSplit>
     </Layout>
   )

@@ -25,6 +25,7 @@ const Button = styled.button`
   color: ${props => props.secondary ? theme.body : theme.body};
   display: ${props => props.wide ? "block" : "inline-block"};
   width: ${props => props.wide ? "100%" : "auto"};
+  margin: ${props => props.nomargin ? "0" : "initial"};
   &:hover {
     opacity: ${theme.opacity};
   }
@@ -40,6 +41,7 @@ export default function(props) {
       large={props.large} 
       secondary={props.secondary}
       wide={props.wide}
+      nomargin={props.nomargin}
     >
       {props.text}
     </Button>

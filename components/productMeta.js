@@ -22,3 +22,7 @@ export const Desc = styled.div`
 export const ButtonWrapper = styled.div`
   padding-top: 1.5rem;
 `;
+
+export const MetaWrapper = styled.div`
+  text-align: center;
+`;
