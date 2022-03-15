@@ -2,11 +2,13 @@ import styled from 'styled-components';
 import theme from '../../themes/default';
 import { useState, useContext } from "react";
 import { getAllPostIds, getPostData } from '../../lib/cakes';
+import Breadcrumbs from '../../components/breadcrumbs';
 import Layout from '../../components/layout';
 import Price from '../../components/price';
 import Image from '../../components/image';
 import Button from '../../components/button';
 import Select from '../../components/select';
+import { Title, PriceWrapper, Desc, ButtonWrapper } from '../../components/productMeta';
 import { OrderContext } from '../../components/orderProvider';
 import { GridSplit } from '../../components/grid';
 
@@ -27,26 +29,6 @@ export async function getStaticPaths() {
   }
 }
 
-const MetaTitle = styled.h1`
-  color: ${theme.secondary};
-  font-size: 1.7rem;
-  margin: 0.5rem 0;
-`;
-
-const PriceWrapper = styled.div`
-  font-size: 1.3rem;
-  padding-bottom: 0.75rem;
-`;
-
-const MetaDesc = styled.div`
-  padding: 0 0 1.5rem 0;
-  max-width: ${theme.textMaxWidth};
-`;
-
-const ButtonWrapper = styled.div`
-  padding-top: 1.5rem;
-`;
-
 export default function Post({ postData }) {
   const [variant, setVariant] = useState(postData.variants[0]);
   const { addOrder } = useContext(OrderContext);
@@ -55,15 +37,18 @@ export default function Post({ postData }) {
       <GridSplit>
         <Image src={postData.meta.src} alt="TODO" title="TODO"/>
         <div>
-          <MetaTitle>
+          <Breadcrumbs/>
+          <Title>
             {postData.meta.title}
-          </MetaTitle>
+          </Title>
           <PriceWrapper>
             <Price value={variant.price}/>
           </PriceWrapper>
-          <MetaDesc> 
-            {postData.meta.desc} 
-          </MetaDesc>
+          <Desc>
+            <p>
+              {postData.meta.desc} 
+            </p>
+          </Desc>
           <div>
             <Select 
               options={postData.variants}

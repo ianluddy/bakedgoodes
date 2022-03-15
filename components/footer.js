@@ -8,8 +8,12 @@ import { RiCake3Line } from "react-icons/ri";
 const Footer = styled.div`
   text-align: center;
   margin: 0;
-  padding: 4rem 0 1rem 0;
+  padding: 7rem 0 1rem 0;
+  font-weight: 200;
   color: ${theme.text};
+  @media (${theme.devices.md}) {
+    padding: 4rem 0 1rem 0;
+  }
 `;
 
 const Signature = styled.span`
@@ -36,7 +40,9 @@ export default function () {
     <Footer>
       <Break/>
       <SecondarySquiggle/>
-      <Signature>© {new Date().getFullYear()} Baked Goodes</Signature>
+      <Signature>
+        © {new Date().getFullYear()} Baked Goodes
+      </Signature>
       <Signature>
         <RiCake3Line/> Baked in Inchicore, Dublin 8
       </Signature>

@@ -24,13 +24,12 @@ const Button = styled.button`
   background-color: ${props => props.secondary ? theme.secondary : theme.primary};
   color: ${props => props.secondary ? theme.body : theme.body};
   display: ${props => props.wide ? "block" : "inline-block"};
+  width: ${props => props.wide ? "100%" : "auto"};
   &:hover {
     opacity: ${theme.opacity};
   }
 }
 `;
-
-// const SubmitButton = styled.button`
 
 export default function(props) {
   return (

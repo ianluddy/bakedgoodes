@@ -55,7 +55,6 @@ export function NavAnchor({ href, active, children, color }) {
 }
 
 export function ButtonAnchor({ href, text, onClick, secondary, large, wide }) {
-  const router = useRouter();
   return (
     <Link href={href}>
       <div>
