@@ -11,6 +11,9 @@ const Footer = styled.div`
   padding: 10rem 0 1rem 0;
   font-weight: 200;
   color: ${theme.text};
+  @media (${theme.devices.md}) {
+    padding: 4rem 0 1rem 0;
+  }
 `;
 
 const Signature = styled.span`

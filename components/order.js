@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 
 const Meta = styled.div`
   width: calc(100% - (84px + 2rem));
-  padding: 0.25rem 0.5rem 0 0.75rem;
+  padding: 0.35rem 0.5rem 0 0.75rem;
   font-weight: 400;
   display: inline-block;
   vertical-align: top;

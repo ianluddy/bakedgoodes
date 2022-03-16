@@ -3,7 +3,7 @@ import theme from '../themes/default';
 
 const Page = styled.div`  
   text-align: center;
-  min-height: 60vh;  
+  min-height: 50vh;  
   font-size: 1.1em;
   letter-spacing: 0.04em;
   font-weight: 200;
