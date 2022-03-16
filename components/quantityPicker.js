@@ -7,7 +7,6 @@ import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
 const Wrapper = styled.div`
   display: inline-block;
   float: right;
-  margin-top: 1.5rem;
   display: flex;
   align-items: center;
   svg {
@@ -24,7 +23,7 @@ const Wrapper = styled.div`
 
 const Value = styled.span`
   padding: 0 0.5rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 `;
 
 export default function ({ order, index }) {

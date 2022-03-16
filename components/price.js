@@ -9,7 +9,10 @@ const Wrapper = styled.span`
 
 export default function (props) {
   return (
-    <Wrapper weight={props.weight} color={props.color}>
+    <Wrapper 
+      weight={props.weight} 
+      color={props.color}
+      >
       <CurrencyFormat 
         value={props.value} 
         displayType={'text'} 

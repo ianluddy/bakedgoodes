@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useContext } from "react";
 import Layout from '../components/layout';
 import { OrderContext } from '../components/orderProvider';
-import { GridRight } from '../components/grid';
+import { GridSplit } from '../components/grid';
 import Order from '../components/order';
 import OrderTotal from '../components/orderTotal';
 import PageHeader from '../components/pageHeader';
@@ -17,14 +17,14 @@ export default function() {
     <Layout>
       <FadeIn delay="0">
         <PageHeader>Checkout</PageHeader>
-        <GridRight hide={!count}>
+        <GridSplit hide={!count}>
           <OrderWrapper>
             { 
               orders ? orders.map((order, i) => Order(order, i)) : null
             }
             <OrderTotal/>
           </OrderWrapper>
-        </GridRight>
+        </GridSplit>
       </FadeIn>
     </Layout>
   );

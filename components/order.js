@@ -5,40 +5,42 @@ import QuantityPicker from './quantityPicker';
 import Price from './price';
 import Image from './image';
 
-const OrderWrapper = styled.div`
-  padding-bottom: 0.5rem;
+const Wrapper = styled.div`
+  padding-bottom: 0.75rem;
   display: ${props => props.visible ? "block" : "none"};
   text-align: left;  
 `;
 
 const Meta = styled.div`
-  display: inline-block;
-  padding: 0.3rem 0 0 1rem;
+  width: calc(100% - (84px + 2rem));
+  padding: 0.25rem 0.5rem 0 0.75rem;
   font-weight: 400;
+  display: inline-block;
   vertical-align: top;
+  font-size: 1.1rem;
 `;
 
 const Title = styled.div`
   font-weight: 400;
-  font-size: 1.1rem;
 `;
 
 const Variant = styled.div`
   font-weight: 100;
   color: ${theme.midGrey};
-  font-size: 1rem;
 `;
 
 export default function (order, index) {
   return (
-    <OrderWrapper key={index} visible={order.quantity > 0}>
-      <Image width={"80px"} src={order.product.src} inline/>
+    <Wrapper key={index} visible={order.quantity > 0}>
+      <Image width={"84px"} src={order.product.src} inline/>
       <Meta>
         <Title>{order.product.title}</Title>
-        <Variant>{order.variant.title}</Variant>
-        <Price weight={600} color={theme.secondary} value={order.variant.price * order.quantity}></Price>
+        <Variant>{order.variant.shortTitle}</Variant>
+        <div>
+          <Price weight={600} color={theme.secondary} value={order.variant.price * order.quantity}></Price>
+          <QuantityPicker order={order} index={index}/>
+        </div>
       </Meta>
-      <QuantityPicker order={order} index={index}/>
-    </OrderWrapper>
+    </Wrapper>
   )
 }
