@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Layout from '../components/layout';
 import PageHeader from '../components/pageHeader';
 import Cta from '../components/cta';
