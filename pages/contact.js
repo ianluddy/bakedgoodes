@@ -79,28 +79,18 @@ export default function() {
                 .required('Please enter your message'),
             })}
             onSubmit={(values, { setSubmitting }) => {
+              // TODO
               setTimeout(() => {
                 alert(JSON.stringify(values, null, 2));
                 setSubmitting(false);
               }, 400);
+              // TODO              
             }}
           >
             <Form>
-              <TextInput
-                label="Name *"
-                name="name"
-                type="text"
-              />
-              <TextInput
-                label="Email *"
-                name="email"
-                type="email"
-              />
-              <TextArea
-                label="Message *"
-                name="message"
-                type="text"
-              />
+              <TextInput label="Name" name="name" type="text" />
+              <TextInput label="Email" name="email" type="email" />
+              <TextArea label="Message" name="message" type="text" />
               <Button type="submit" text="Send message" large/>
             </Form>
           </Formik>

@@ -8,21 +8,27 @@ export default function ({ children }) {
 
   useEffect(() => {
     console.log(orders);
-    setCount(orders ? orders.filter(order => {return order.quantity > 0}).length : 0);    
+    setCount(orderCount(orders));
     if( orders != undefined ) {
       localStorage.setItem("orders", JSON.stringify(orders));
     }
   }, [orders]);
   
   useEffect(() => {
-    setOrders(JSON.parse(localStorage.getItem("orders")) || []);
+    const orders = JSON.parse(localStorage.getItem("orders")) || [];
+    const count = orderCount(orders);
+    setOrders(count ? orders : []);
   }, []);
   
+  const orderCount = (orders) => {
+    return orders ? orders.filter(order => {return order.quantity > 0}).length : 0;
+  };
+
   const addOrder = (product, variant, quantity) => {
     setOrders(prevState => {
       return [...prevState, { product, variant, quantity }]
     });
-  }
+  };
   
   const updateOrder = (index, quantity) => {
     setOrders(prevState => {
@@ -30,7 +36,7 @@ export default function ({ children }) {
       updated[index].quantity = quantity;
       return updated;
     });
-  }
+  };
   
   return (
     <>

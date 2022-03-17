@@ -23,6 +23,7 @@ const FieldWrapper = styled.div`
   label {
     display: block;
     text-align: left;
+    font-weight: bold;
   }
 `;
 

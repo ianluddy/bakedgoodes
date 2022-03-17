@@ -28,7 +28,7 @@ const Layout = styled.div`
 `;
 
 const Overlay = styled.div`
-  position: absolute;
+  position: fixed;
   top: 10px;
   bottom: 0;
   right: 0;
