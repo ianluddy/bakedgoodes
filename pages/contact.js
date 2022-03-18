@@ -10,6 +10,7 @@ import { GridSplit } from '../components/grid';
 import { TextArea, TextInput } from '../components/form';
 import Layout from '../components/layout';
 import { BsInstagram } from "react-icons/bs";
+import { useEffect } from "react";
 
 const FormWrapper = styled.div`
   text-align: center;
@@ -36,6 +37,17 @@ const InstaWrapper = styled.div`
 `;
 
 export default function() {
+  const initialValues = {
+    name: '',
+    email: '',
+    message: '',
+  };
+  
+  useEffect(() => {
+    initialValues.name = localStorage.getItem('form:name');
+    initialValues.email = localStorage.getItem('form:email');
+  }, []);
+  
   return (
     <Layout>
       <PageHeader>Contact</PageHeader>
@@ -64,11 +76,8 @@ export default function() {
         <FormWrapper>
           <h2> Get in touch </h2>
           <Formik style={{"text-align": "center"}}
-            initialValues={{
-              name: '',
-              email: '',
-              message: '',
-            }}
+            enableReinitialize
+            initialValues={initialValues}
             validationSchema={Yup.object({
               name: Yup.string()
                 .required('Please enter your name'),

@@ -1,4 +1,5 @@
 import { useField } from 'formik';
+import { useEffect } from 'react';
 import theme from '../themes/default';
 import styled from 'styled-components';
 
@@ -32,6 +33,16 @@ export const TextInput = ({ label, ...props }) => {
   // which we can spread on <input>. We can use field meta to show an error
   // message if the field is invalid and it has been touched (i.e. visited)
   const [field, meta] = useField(props);
+
+  useEffect(() => {
+    if( field.value ) {
+      localStorage.setItem(
+        `form:${field.name}`, 
+        field.value.length > 1 ? field.value : ''
+      );
+    }
+  }, [field]);
+
   return (
     <FieldWrapper>
       <div>
