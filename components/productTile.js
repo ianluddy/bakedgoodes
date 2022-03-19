@@ -6,6 +6,7 @@ import Button from '../components/button';
 import Link from 'next/link';
 
 const Wrapper = styled.div`
+  padding: 0.5rem;
   position: relative;
   cursor: pointer;
   transition: transform ${theme.transitionTime};
