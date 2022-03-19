@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
-import { NavAnchor } from './anchor';
+import { PrimaryNavAnchor, SecondaryNavAnchor } from './anchor';
 import { PrimarySquiggle } from './squiggle';
 import Link from 'next/link';
 
@@ -41,7 +41,7 @@ const NavLink = styled.div`
   width: auto;
 
   @media (${theme.devices.md}) {
-    padding: 0 1rem;
+    padding: 0 0.3rem;
   }
 `
 
@@ -98,11 +98,11 @@ export function SecondaryNav({ setOpen }) {
     <>
       <SecondaryWrapper>
         <SecondaryInner onClick={() => {setOpen(false);}}>
-          <NavAnchor href="/" color={theme.body}>Home</NavAnchor>
-          <NavAnchor href="/cakes" color={theme.body}>Cakes</NavAnchor>
-          <NavAnchor href="/cupcakes" color={theme.body}>Cupcakes</NavAnchor>
-          <NavAnchor href="/weddings" color={theme.body}>Weddings</NavAnchor>
-          <NavAnchor href="/contact" color={theme.body}>Contact</NavAnchor>
+          <SecondaryNavAnchor href="/">Home</SecondaryNavAnchor>
+          <SecondaryNavAnchor href="/cakes">Cakes</SecondaryNavAnchor>
+          <SecondaryNavAnchor href="/cupcakes">Cupcakes</SecondaryNavAnchor>
+          <SecondaryNavAnchor href="/weddings">Weddings</SecondaryNavAnchor>
+          <SecondaryNavAnchor href="/contact">Contact</SecondaryNavAnchor>
         </SecondaryInner>
       </SecondaryWrapper>
     </>
@@ -120,19 +120,19 @@ export function PrimaryNav() {
       <LinkWrapper>
         <LinkInner>
           <NavLink>
-            <NavAnchor href="/">Home</NavAnchor>
+            <PrimaryNavAnchor href="/">Home</PrimaryNavAnchor>
           </NavLink>
           <NavLink>          
-            <NavAnchor href="/cakes">Cakes</NavAnchor>
+            <PrimaryNavAnchor href="/cakes">Cakes</PrimaryNavAnchor>
           </NavLink>
           <NavLink>
-            <NavAnchor href="/cupcakes">Cupcakes</NavAnchor>
+            <PrimaryNavAnchor href="/cupcakes">Cupcakes</PrimaryNavAnchor>
           </NavLink>
           <NavLink>
-            <NavAnchor href="/weddings">Weddings</NavAnchor>
+            <PrimaryNavAnchor href="/weddings">Weddings</PrimaryNavAnchor>
           </NavLink>
           <NavLink>
-            <NavAnchor href="/contact">Contact</NavAnchor>
+            <PrimaryNavAnchor href="/contact">Contact</PrimaryNavAnchor>
           </NavLink>
         </LinkInner>
       </LinkWrapper>

@@ -8,9 +8,9 @@ const AnchorWrapper = styled.a`
   transition: opacity ${theme.transitionTime};
   text-decoration: none;
   cursor: pointer;
-  color: ${props => props.color || theme.text};
-  font-weight: ${props => props.active || props.bold ? 'bold' : 300 };
   opacity: 1;
+  color: ${props => props.color ? props.color : 'inherit'};
+  font-weight: ${props => props.active || props.bold ? 'bold' : 300 };
   &:hover {
     opacity: ${theme.opacity};
   }
@@ -20,6 +20,12 @@ const NavAnchorWrapper = styled(AnchorWrapper)`
   font-size: 1.4rem;
   padding-bottom: 1rem;
   text-transform: uppercase;
+  color: ${props => props.active ? props.activeColor : props.color};
+  &:before, &:after {
+    content: ${props => props.active ? "'•'" : "''" };
+    width: 1rem;
+    display: inline-block;
+  }
   @media (${theme.devices.md}) {
     font-size: 1.3rem;
   }
@@ -28,6 +34,7 @@ const NavAnchorWrapper = styled(AnchorWrapper)`
 const IconAnchorWrapper = styled(AnchorWrapper)`
   font-size: ${props => props.size || "1.9rem"};
   padding: 0.35rem;
+  color: ${props => props.color || theme.text};
 `;
 
 export function Anchor({ href, children, color, bold, onClick }) {
@@ -43,11 +50,28 @@ export function Anchor({ href, children, color, bold, onClick }) {
   )
 }
 
-export function NavAnchor({ href, active, children, color }) {
+export function PrimaryNavAnchor({ href, active, children }) {
   const router = useRouter();
   return (
     <Link href={href}>
-      <NavAnchorWrapper active={router.pathname == href} color={color}>
+      <NavAnchorWrapper 
+        active={router.pathname == href} 
+        color={router.pathname == href ? theme.primary : theme.text}
+      >
+        {children}
+      </NavAnchorWrapper>
+    </Link>
+  )
+}
+
+export function SecondaryNavAnchor({ href, active, children }) {
+  const router = useRouter();
+  return (
+    <Link href={href}>
+      <NavAnchorWrapper 
+        active={router.pathname == href} 
+        color={theme.body}
+      >
         {children}
       </NavAnchorWrapper>
     </Link>
