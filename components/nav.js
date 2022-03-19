@@ -136,7 +136,7 @@ export function PrimaryNav() {
           </NavLink>
         </LinkInner>
       </LinkWrapper>
-      <PrimarySquiggle/>
+      <PrimarySquiggle hideMobile/>
     </PrimaryWrapper>
   )
 }

@@ -39,7 +39,7 @@ export default function () {
   return (
     <Footer>
       <Break/>
-      <SecondarySquiggle/>
+      <SecondarySquiggle hideMobile/>
       <Signature>
         © {new Date().getFullYear()} Baked Goodes
       </Signature>

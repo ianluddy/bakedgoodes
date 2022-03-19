@@ -7,7 +7,9 @@ import * as Yup from 'yup';
 import Layout from '../components/layout';
 import { OrderContext } from '../components/orderProvider';
 import { GridSplit } from '../components/grid';
+import Wrapper from '../components/wrapper';
 import Order from '../components/order';
+import Cta from '../components/cta';
 import Paragraph from '../components/paragraph';
 import OrderTotal from '../components/orderTotal';
 import PageHeader from '../components/pageHeader';
@@ -24,14 +26,16 @@ const TotalWrapper = styled.div`
 
 const OrderWrapper = styled.div`
   text-align: left;
-  max-width: 400px;
+  @media (${theme.devices.md}) {
+    max-width: 400px;
+  }
 `;
 
 const FormWrapper = styled.div`
   text-align: left;
   @media (${theme.devices.md}) {
     padding: 0 2rem;
-  }  
+  }
 `;
 
 export default function() {
@@ -51,9 +55,16 @@ export default function() {
     
   return (
     <Layout>
-      <PageHeader>
+      <PageHeader hide={!count}>
         Checkout
       </PageHeader>
+      <Cta 
+        headline="Checkout"
+        body="Your basket is empty :("
+        buttonText="Back to home"
+        buttonLink="/"
+        hide={count && count != 0}
+      />
       <GridSplit hide={!count}>
         <OrderWrapper>
           <h3> Order summary </h3>

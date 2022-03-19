@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
 import { ButtonAnchor } from './anchor';
+import { Wrapper } from './wrapper';
 
-const Wrapper = styled.div`
+const CTAWrapper = styled(Wrapper)`
   padding: 3rem 0;
   margin: 3rem 0;
   text-align: center;
@@ -22,10 +23,10 @@ const Body = styled.div`
 
 export default function (props) {
   return (
-    <Wrapper>
+    <CTAWrapper {...props}>
       <Headline>{props.headline}</Headline>
       <Body>{props.body}</Body>
       <ButtonAnchor href={props.buttonLink} text={props.buttonText} large/>
-    </Wrapper>
+    </CTAWrapper>
   )
 }
