@@ -85,12 +85,15 @@ export default function() {
             initialValues={initialValues}
             validationSchema={Yup.object({
               name: Yup.string()
-                .required('Please enter your name'),
+                .required('Please enter your name')
+                .nullable(),
               email: Yup.string()
                 .email('Invalid email address')
-                .required('Please enter your email'),
+                .required('Please enter your email')
+                .nullable(),
               message: Yup.string()
-                .required('Please enter your message'),
+                .required('Please enter your message')
+                .nullable(),
             })}
             onSubmit={(values, { setSubmitting }) => {
               // TODO

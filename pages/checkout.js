@@ -21,11 +21,12 @@ const TotalWrapper = styled.div`
   font-size: 1.2rem;
   font-weight: bold;
   color: ${theme.secondary};
-  border-top: 1px solid;
+  border-top: 1px solid ${theme.shadow};
 `;
 
 const OrderWrapper = styled.div`
   text-align: left;
+  padding-bottom: 5rem;
   @media (${theme.devices.md}) {
     max-width: 400px;
   }
@@ -86,12 +87,15 @@ export default function() {
             initialValues={initialValues}
             validationSchema={Yup.object({
               name: Yup.string()
-                .required('Please enter your name'),
+                .required('Please enter your name')
+                .nullable(),
               email: Yup.string()
                 .email('Invalid email address')
-                .required('Please enter your email'),
+                .required('Please enter your email')
+                .nullable(),
               message: Yup.string()
-                .required('Please enter your message'),
+                .required('Please enter your message')
+                .nullable(),
             })}
             onSubmit={(values, { setSubmitting }) => {
               // TODO
