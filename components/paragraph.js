@@ -13,7 +13,8 @@ const Paragraph = styled.p`
 export default function ({ children, centred }) {
   return (
     <Paragraph 
-      centred>
+      centred={centred}
+    >
       {children}
     </Paragraph>
   )

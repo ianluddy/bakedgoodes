@@ -52,7 +52,7 @@ export default function() {
   
   return (
     <Layout>
-      <PageHeader hideDesktop hideMobile>
+      <PageHeader hideDesktop>
         Contact
       </PageHeader>
       <GridSplit>
@@ -102,10 +102,10 @@ export default function() {
             }}
           >
             <Form>
-              <TextInput label="Name" name="name" type="text" />
-              <TextInput label="Email" name="email" type="email" />
-              <TextArea label="Message" name="message" type="text" />
-              <Button type="submit" text="Send message" large/>
+              <TextInput label="Name *" name="name" type="text" />
+              <TextInput label="Email *" name="email" type="email" />
+              <TextArea label="Message *" name="message" type="text" />
+              <Button type="submit" text="Send message" large wide/>
             </Form>
           </Formik>
         </FormWrapper>

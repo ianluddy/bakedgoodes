@@ -11,21 +11,29 @@ const Error = styled.div`
 
 const FieldWrapper = styled.div`
   margin-bottom: 1.5rem;
+  
   input, textarea {
+    font-size: 1rem;
     width: calc(100% - 2rem);
     border: none;
     background-color: ${theme.grey};
     padding: 1rem;
     color: ${theme.darkGrey};
+    
+    ::placeholder {
+      color: ${theme.text};
+      opacity: 0.5;
+    }
   }
   textarea {
-    height: 200px;
+    height: 120px;
   }
-  label {
-    display: block;
-    text-align: left;
-    font-weight: bold;
-  }
+`;
+
+const Label = styled.label`
+  display: block;
+  text-align: left;
+  font-size: 1.1rem;
 `;
 
 export const TextInput = ({ label, ...props }) => {
@@ -46,7 +54,7 @@ export const TextInput = ({ label, ...props }) => {
   return (
     <FieldWrapper>
       <div>
-        <label htmlFor={props.id || props.name}>{label}</label>
+        <Label htmlFor={props.id || props.name}>{label}</Label>
       </div>
       <input className="text-input" {...field} {...props} />
       {meta.touched && meta.error ? (
@@ -64,7 +72,7 @@ export const TextArea = ({ label, ...props }) => {
   return (
     <FieldWrapper>
       <div>    
-        <label htmlFor={props.id || props.name}>{label}</label>
+        <Label htmlFor={props.id || props.name}>{label}</Label>
       </div>
       <textarea className="text-input" {...field} {...props} />
       {meta.touched && meta.error ? (
@@ -82,10 +90,10 @@ export const Checkbox = ({ children, ...props }) => {
   const [field, meta] = useField({ ...props, type: 'checkbox' });
   return (
     <FieldWrapper>
-      <label className="checkbox-input">
+      <Label className="checkbox-input">
         <input type="checkbox" {...field} {...props} />
         {children}
-      </label>
+      </Label>
       {meta.touched && meta.error ? (
         <Error>{meta.error}</Error>
       ) : null}
@@ -97,7 +105,7 @@ export const Select = ({ label, ...props }) => {
   const [field, meta] = useField(props);
   return (
     <FieldWrapper>
-      <label htmlFor={props.id || props.name}>{label}</label>
+      <Label htmlFor={props.id || props.name}>{label}</Label>
       <select {...field} {...props} />
       {meta.touched && meta.error ? (
         <Error>{meta.error}</Error>

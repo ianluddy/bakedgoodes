@@ -10,6 +10,11 @@ import Price from './price';
 import Image from './image';
 import { AiOutlineDelete } from "react-icons/ai";
 
+const TotalWrapper = styled.div`
+  padding: 1rem 0;
+  font-size: 1.2rem;
+`;
+
 const Placeholder = styled.div`
   position: absolute;
   top: 6rem;
@@ -31,7 +36,7 @@ const Summary = styled.div`
   overflow: auto;
   position: absolute;
   top: 6rem;
-  right: 2rem;
+  right: 1rem;
   left: 2rem;
   bottom: 8rem;
   padding: 1rem 0;
@@ -53,19 +58,11 @@ const Header = styled.div`
 const Footer = styled.div`
   display: ${props => props.visible ? 'block' : 'none'};
   position: absolute;
+  color: ${theme.body};
   bottom: 0;
   height: 8rem;
   right: 2rem;
   left: 2rem;
-`;
-
-const TotalWrapper = styled.div`
-  padding: 1rem 0;
-  font-size: 1.2rem;
-  color: ${theme.body};
-  span:last-of-type {
-    float: right;
-  }
 `;
 
 export default function ({ children, setOpen }) {
@@ -85,7 +82,6 @@ export default function ({ children, setOpen }) {
       </Summary>
       <Footer visible={count}>
         <TotalWrapper>
-          <span>Subtotal</span>
           <OrderTotal/>
         </TotalWrapper>
         <ButtonAnchor 

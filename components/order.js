@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import theme from '../themes/default';
 import { OrderContext } from './orderProvider';
 import QuantityPicker from './quantityPicker';
@@ -8,12 +9,12 @@ import Image from './image';
 const Wrapper = styled.div`
   padding-bottom: 0.75rem;
   display: ${props => props.visible ? "block" : "none"};
-  text-align: left;  
+  text-align: left;
 `;
 
 const Meta = styled.div`
-  width: calc(100% - (84px + 2rem));
-  padding: 0.35rem 0.5rem 0 0.75rem;
+  width: calc(100% - (84px + 1.75rem));
+  padding: 0.35rem 0 0 0.75rem;
   font-weight: 400;
   display: inline-block;
   vertical-align: top;
