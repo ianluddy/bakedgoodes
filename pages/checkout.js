@@ -17,11 +17,10 @@ import { TextArea, TextInput } from '../components/form';
 import Button from '../components/button';
 
 const TotalWrapper = styled.div`
-  padding: 1rem 0;
-  font-size: 1.2rem;
+  padding: 0 0 1rem 0;
+  font-size: 1.17em;
   font-weight: bold;
   color: ${theme.secondary};
-  border-top: 1px solid ${theme.shadow};
 `;
 
 const OrderWrapper = styled.div`
@@ -68,7 +67,7 @@ export default function() {
       />
       <GridSplit hide={!count}>
         <OrderWrapper>
-          <h3> Order summary </h3>
+          <h3> Your order </h3>
           { 
             orders ? orders.map((order, i) => Order(order, i)) : null
           }
