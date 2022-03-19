@@ -4,9 +4,11 @@ import FadeIn from 'react-fade-in';
 
 const Grid = styled(FadeIn)`
   flex-wrap: wrap;
-  margin-top: 2rem;
-  display: ${props => props.hide ? 'none' : 'flex'};
-  
+  margin-top: 0;
+  display: ${props => props.hide ? 'none' : 'flex'};  
+  @media (${theme.devices.md}) {
+    margin-top: 2rem;
+  }
   > div {
     flex-grow: 1;
     width: calc(100%);

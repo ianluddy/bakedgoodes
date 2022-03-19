@@ -18,7 +18,7 @@ import { ButtonAnchor, IconAnchor } from './anchor';
 const Layout = styled.div`
   max-width: ${theme.breakpoints.lg};
   margin: 0 auto;
-  padding: 6rem 1rem 0 1rem;
+  padding: 5.5rem 1rem 0 1rem;
   position: relative;
   transition: transform ${theme.transitionTime};
   @media (${theme.devices.md}) {

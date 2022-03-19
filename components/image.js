@@ -5,8 +5,11 @@ const Wrapper = styled.div`
   display: ${props => props.inline ? "inline-block" : "block"};
   width: ${props => props.width ? props.width : "unset"};
   img {
-    border-radius: 8px;
     width: 100%;
+    border-radius: ${props => props.hero ? '0' : '8px'};
+    @media (${theme.devices.md}) {
+      border-radius: 8px;
+    }
   }
 `;
 
@@ -14,8 +17,8 @@ const Wrapper = styled.div`
 
 export default function (props) {
   return (
-    <Wrapper inline={props.inline} width={props.width}>
-      <img src={props.src} alt={props.alt}/>
+    <Wrapper {...props}>
+      <img {...props}/>
     </Wrapper>
   )
 }

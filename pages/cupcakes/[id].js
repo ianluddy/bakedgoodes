@@ -32,7 +32,17 @@ export async function getStaticPaths() {
   }
 }
 
-const ImageWrapper = styled(Wrapper)``;
+const ImageWrapper = styled(Wrapper)`
+  width: 100vw;
+  position: relative;
+  right: 1rem;
+  padding-bottom: 1rem;
+  @media (${theme.devices.md}) {
+    width: initial;
+    position: static;
+    padding: 0;
+  }
+`;
 
 export default function Post({ postData }) {
   const [variant, setVariant] = useState(postData.variants[0]);
@@ -40,24 +50,14 @@ export default function Post({ postData }) {
   return (
     <Layout>
       <GridSplit>
-        <ImageWrapper hideMobile>
-          <Image src={postData.meta.src} alt="TODO" title="TODO"/>
+        <ImageWrapper>
+          <Image src={postData.meta.src} alt="TODO" title="TODO" hero={true}/>
         </ImageWrapper>
         <MetaWrapper>
           <Breadcrumbs/>
           <Title>
             {postData.meta.title}
           </Title>
-          <PriceWrapper>
-            <Price 
-              value={variant.price} 
-              color={theme.secondary}
-              weight={"bold"}
-            />
-          </PriceWrapper>
-          <ImageWrapper hideDesktop>
-            <Image src={postData.meta.src} alt="TODO" title="TODO"/>
-          </ImageWrapper>
           <Desc>
             <Paragraph centred>
               {postData.meta.desc} 
