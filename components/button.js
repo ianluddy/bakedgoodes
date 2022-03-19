@@ -45,5 +45,5 @@ export default function(props) {
     >
       {props.text}
     </Button>
-  )
+  );
 }

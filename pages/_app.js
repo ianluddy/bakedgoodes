@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { ThemeProvider } from "styled-components";
+import{ init } from '@emailjs/browser';
 
 import theme from '../themes/default';
 import OrderProvider from '../components/orderProvider';
@@ -9,6 +10,7 @@ const name = 'Baked Goodes';
 export const siteTitle = 'Home baking from Dublin 8';
 
 export default function({ Component, pageProps }) {
+  init("u4Pqy4omgBsiy3ghJ");
   return (
     <>
       <GlobalStyle />

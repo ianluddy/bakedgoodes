@@ -33,7 +33,7 @@ const Variant = styled.div`
 export default function (order, index) {
   return (
     <Wrapper key={index} visible={order.quantity > 0}>
-      <Image width={"84px"} src={order.product.src} inline/>
+      <Image width={"84px"} src={order.product.src} inline="true"/>
       <Meta>
         <Title>{order.product.title}</Title>
         <Variant>{order.variant.shortTitle}</Variant>
