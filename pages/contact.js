@@ -52,7 +52,9 @@ export default function() {
   
   return (
     <Layout>
-      <PageHeader>Contact</PageHeader>
+      <PageHeader hideDesktop hideMobile>
+        Contact
+      </PageHeader>
       <GridSplit>
         <InstaWrapper>
           <h2>

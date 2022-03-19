@@ -4,7 +4,9 @@ import PageHeader from '../components/pageHeader';
 export default function() {
   return (
     <Layout>
-      <PageHeader>Home</PageHeader>
+      <PageHeader hideDesktop hideMobile>
+        Home
+      </PageHeader>
     </Layout>
   );
 }

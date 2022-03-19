@@ -8,7 +8,9 @@ import PageHeader from '../components/pageHeader';
 export default function() {
   return (
     <Layout>
-      <PageHeader> Cupcakes </PageHeader>
+      <PageHeader hideDesktop>
+        Cupcakes
+      </PageHeader>
       <GridDefault>
         {
           cupcakes.map(cupcake => (

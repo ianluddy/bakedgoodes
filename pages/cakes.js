@@ -8,7 +8,9 @@ import PageHeader from '../components/pageHeader';
 export default function() {
   return (
     <Layout>
-      <PageHeader> Cakes </PageHeader>
+      <PageHeader hideDesktop>
+        Cakes 
+      </PageHeader>
       <GridDefault>
         {
           cakes.map(cake => (

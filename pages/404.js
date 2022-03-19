@@ -5,7 +5,9 @@ import Cta from '../components/cta';
 export default function() {
   return (
     <Layout>
-      <PageHeader>404</PageHeader>
+      <PageHeader hideDesktop hideMobile>
+        404
+      </PageHeader>
       <Cta 
         headline="404" 
         body="Hmmmm, that page couldn't be found"

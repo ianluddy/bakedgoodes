@@ -5,7 +5,9 @@ import PageHeader from '../components/pageHeader';
 export default function() {
   return (
     <Layout>
-      <PageHeader>Weddings</PageHeader>
+      <PageHeader>
+        Weddings
+      </PageHeader>
       
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie dui at tellus eleifend dapibus. Aenean vitae arcu non sem sagittis consectetur. Praesent sed arcu quis felis dignissim placerat. Nam ultrices metus non justo porttitor lacinia. Aenean a convallis velit. Praesent porttitor urna nec blandit placerat. Aliquam ligula tortor, hendrerit sollicitudin condimentum quis, eleifend id metus.</p>
 

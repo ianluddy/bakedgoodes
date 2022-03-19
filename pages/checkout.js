@@ -15,7 +15,9 @@ export default function() {
   const { orders, count } = useContext(OrderContext);
   return (
     <Layout>
-      <PageHeader>Checkout</PageHeader>
+      <PageHeader>
+        Checkout
+      </PageHeader>
       <GridSplit hide={!count}>
         <OrderWrapper>
           { 
