@@ -77,11 +77,11 @@ export default function() {
         </OrderWrapper>
         <FormWrapper>
           <h3> Your details </h3>
-          <Paragraph>
+          <Paragraph padding={"0 0 1.5rem 0"}>
             Please fill in your details below.<br/>
             I will respond within 24 hours to confirm your order and arrange payment.
           </Paragraph>
-          <Formik style={{"text-align": "center"}}
+          <Formik
             enableReinitialize
             initialValues={initialValues}
             validationSchema={Yup.object({

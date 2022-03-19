@@ -63,7 +63,7 @@ export default function() {
               baked_goodes
             </Anchor>
           </h2>
-          <Paragraph centred>
+          <Paragraph centred padding={"0 0  1rem 0"}>
             Check out my Instagram to see my most recent bakes.<br/>
             You can message me there to chat about an order. <br/>
             Or just use the contact form on this page.
