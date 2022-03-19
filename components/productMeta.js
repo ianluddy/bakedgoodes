@@ -3,12 +3,13 @@ import theme from '../themes/default';
 
 export const Title = styled.h1`
   color: ${theme.secondary};
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin: 0.75rem 0 0.1rem 0;
 `;
 
 export const PriceWrapper = styled.div`
-  font-size: 1.3rem;
+  color: ${theme.secondary};
+  font-size: 1.8rem;
   padding-bottom: 0.75rem;
 `;
 

@@ -10,25 +10,19 @@ const Grid = styled(FadeIn)`
   > div {
     flex-grow: 1;
     width: calc(100%);
-    padding: 1rem 0;
-    
-    @media (${theme.devices.sm}) {
-      padding: 1rem;
-    }
   }
 `;
 
 const Default = styled(Grid)`
   > div {
     @media (${theme.devices.sm}) {
-      padding: 1rem;
-      width: calc(50% - 2rem);
-      max-width: calc(50% - 2rem);
+      width: calc(50%);
+      max-width: calc(50%);
     }
       
     @media (${theme.devices.md}) {
-      width: calc(33% - 2rem);
-      max-width: calc(33% - 2rem);
+      width: calc(33%);
+      max-width: calc(33%);
     }
   }
 `;
@@ -36,25 +30,25 @@ const Default = styled(Grid)`
 const Right = styled(Grid)`
   > div:first-of-type {
     @media (${theme.devices.sm}) {
-      width: calc(50% - 2rem);
-      max-width: calc(50% - 2rem);
+      width: calc(50%);
+      max-width: calc(50%);
     }
       
     @media (${theme.devices.md}) {
-      width: calc(33% - 2rem);
-      max-width: calc(33% - 2rem);
+      width: calc(33%);
+      max-width: calc(33%);
     }
   }
   
   > div:last-of-type {
     @media (${theme.devices.sm}) {
-      width: calc(50% - 2rem);
-      max-width: calc(50% - 2rem);
+      width: calc(50%);
+      max-width: calc(50%);
     }
       
     @media (${theme.devices.md}) {
-      width: calc(66% - 2rem);
-      max-width: calc(66% - 2rem);
+      width: calc(66%);
+      max-width: calc(66%);
     }
   }
 `;
@@ -62,8 +56,8 @@ const Right = styled(Grid)`
 const Split = styled(Grid)`
   > div {
     @media (${theme.devices.md}) {
-      width: calc(50% - 2rem);
-      max-width: calc(50% - 2rem);
+      width: calc(50%);
+      max-width: calc(50%);
     }
   }
 `;

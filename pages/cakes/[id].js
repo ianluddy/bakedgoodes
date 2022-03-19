@@ -13,6 +13,7 @@ import Select from '../../components/select';
 import { MetaWrapper, Title, PriceWrapper, Desc, ButtonWrapper } from '../../components/productMeta';
 import { OrderContext } from '../../components/orderProvider';
 import { GridSplit } from '../../components/grid';
+import { Wrapper } from '../../components/wrapper';
 
 export async function getStaticProps({ params }) {
   const postData = getPostData(params.id);
@@ -31,21 +32,32 @@ export async function getStaticPaths() {
   }
 }
 
+const ImageWrapper = styled(Wrapper)``;
+
 export default function Post({ postData }) {
   const [variant, setVariant] = useState(postData.variants[0]);
   const { addOrder } = useContext(OrderContext);
   return (
     <Layout>
       <GridSplit>
-        <Image src={postData.meta.src} alt="TODO" title="TODO"/>
+        <ImageWrapper hideMobile>
+          <Image src={postData.meta.src} alt="TODO" title="TODO"/>
+        </ImageWrapper>
         <MetaWrapper>
           <Breadcrumbs/>
           <Title>
             {postData.meta.title}
           </Title>
           <PriceWrapper>
-            <Price value={variant.price}/>
+            <Price 
+              value={variant.price} 
+              color={theme.secondary}
+              weight={"bold"}
+            />
           </PriceWrapper>
+          <ImageWrapper hideDesktop>
+            <Image src={postData.meta.src} alt="TODO" title="TODO"/>
+          </ImageWrapper>
           <Desc>
             <Paragraph centred>
               {postData.meta.desc} 

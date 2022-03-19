@@ -49,7 +49,11 @@ export default function Post({ postData }) {
             {postData.meta.title}
           </Title>
           <PriceWrapper>
-            <Price value={variant.price}/>
+            <Price 
+              value={variant.price} 
+              color={theme.secondary}
+              weight={"bold"}
+            />
           </PriceWrapper>
           <ImageWrapper hideDesktop>
             <Image src={postData.meta.src} alt="TODO" title="TODO"/>
