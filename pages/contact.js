@@ -60,8 +60,9 @@ export default function() {
             </Anchor>
           </h2>
           <Paragraph centred>
-            Check out my Instagram to see my most recent bakes.
-            You can message me there to chat about an order.
+            Check out my Instagram to see my most recent bakes.<br/>
+            You can message me there to chat about an order. <br/>
+            Or just use the contact form on this page.
           </Paragraph>
           <ButtonAnchor 
             href="https://www.instagram.com/baked_goodes/" 
