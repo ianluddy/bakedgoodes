@@ -1,39 +1,35 @@
-import styled from 'styled-components';
+import { data as cupcakes } from '../lib/cupcakes';
 import Layout from '../components/layout';
 import ProductTile from '../components/productTile';
 import { GridDefault } from '../components/grid';
 import Cta from '../components/cta';
-import FadeIn from 'react-fade-in';
-import { data as cupcakes } from '../lib/cupcakes';
 import PageHeader from '../components/pageHeader';
 
 export default function() {
   return (
     <Layout>
-      <FadeIn>
-        <PageHeader> Cupcakes </PageHeader>
-        <GridDefault>
-          {
-            cupcakes.map(cupcake => (
-              <ProductTile 
-                key={cupcake.id}
-                path={`/cupcakes/${cupcake.id}`}
-                title={cupcake.meta.title}
-                caption={cupcake.meta.caption}
-                desc={cupcake.meta.desc}
-                src={cupcake.meta.src}
-                link={cupcake.meta.link}
-              />
-            ))
-          }
-        </GridDefault>
-        <Cta 
-          headline="Something else?" 
-          body="Plenty of options available, get in touch!"
-          buttonText="Contact me"
-          buttonLink="/contact"
-        />
-      </FadeIn>
+      <PageHeader> Cupcakes </PageHeader>
+      <GridDefault>
+        {
+          cupcakes.map(cupcake => (
+            <ProductTile 
+              key={cupcake.id}
+              path={`/cupcakes/${cupcake.id}`}
+              title={cupcake.meta.title}
+              caption={cupcake.meta.caption}
+              desc={cupcake.meta.desc}
+              src={cupcake.meta.src}
+              link={cupcake.meta.link}
+            />
+          ))
+        }
+      </GridDefault>
+      <Cta 
+        headline="Something else?" 
+        body="Plenty of options available, get in touch!"
+        buttonText="Contact me"
+        buttonLink="/contact"
+      />
     </Layout>
   );
 }

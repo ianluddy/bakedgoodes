@@ -1,8 +1,9 @@
 import Head from 'next/head';
-import theme from '../themes/default';
-import { GlobalStyle } from '../components/base';
 import { ThemeProvider } from "styled-components";
+
+import theme from '../themes/default';
 import OrderProvider from '../components/orderProvider';
+import { GlobalStyle } from '../components/base';
 
 const name = 'Baked Goodes';
 export const siteTitle = 'Home baking from Dublin 8';

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import theme from '../../themes/default';
 import { useState, useContext } from "react";
+
+import theme from '../../themes/default';
 import { getAllPostIds, getPostData } from '../../lib/cupcakes';
 import Breadcrumbs from '../../components/breadcrumbs';
 import Layout from '../../components/layout';

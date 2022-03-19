@@ -1,6 +1,9 @@
-import theme from '../themes/default';
 import { useState, useEffect, useContext, useRef } from "react";
 import styled from 'styled-components';
+import FadeIn from 'react-fade-in';
+import { BsFillBasket2Fill } from "react-icons/bs";
+
+import theme from '../themes/default';
 import Footer from './footer';
 import Scroller from './scroller';
 import Counter from './orderCounter';
@@ -11,7 +14,6 @@ import { RightDrawer, RightDrawerOpen, LeftDrawer, LeftDrawerOpen } from './draw
 import { PrimaryNav, SecondaryNav } from './nav';
 import Page from './page';
 import { ButtonAnchor, IconAnchor } from './anchor';
-import { BsFillBasket2Fill } from "react-icons/bs";
 
 const Layout = styled.div`
   max-width: ${theme.breakpoints.lg};
@@ -74,7 +76,9 @@ export default function ({ children }) {
         <LeftDrawerOpen setOpen={setLeftDrawerOpen}/>
         <Counter/>
         <PrimaryNav/>
-        <Page>{children}</Page>
+        <Page>
+          <FadeIn>{children}</FadeIn>
+        </Page>
         <Scroller/>
         <Footer/>
       </Layout>

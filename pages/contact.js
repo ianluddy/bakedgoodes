@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { Formik, Form, useField } from 'formik';
 import * as Yup from 'yup';
+import FadeIn from 'react-fade-in';
+import { BsInstagram } from "react-icons/bs";
+import { useEffect } from "react";
+
 import theme from '../themes/default';
 import PageHeader from '../components/pageHeader';
 import Button from '../components/button';
@@ -9,8 +13,6 @@ import { Anchor, ButtonAnchor } from '../components/anchor';
 import { GridSplit } from '../components/grid';
 import { TextArea, TextInput } from '../components/form';
 import Layout from '../components/layout';
-import { BsInstagram } from "react-icons/bs";
-import { useEffect } from "react";
 
 const FormWrapper = styled.div`
   text-align: center;
