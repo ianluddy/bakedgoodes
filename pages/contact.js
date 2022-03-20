@@ -106,26 +106,25 @@ export default function() {
             onSubmit={(values) => {
               setSubmitting(true);
               setTimeout(() => {
-                // emailjs.send(
-                //   'service_6wdvvxv', 
-                //   'template_e0doy5b', 
-                //   {
-                //     from_name: values.name,
-                //     reply_to: values.email,
-                //     message: values.message
-                //   }
-                // ).then((response) => {
-                //   console.log(response);
-                //   setSubmitting(false);
-                //   setSuccess(true);
-                // }, (error) => {
-                //   console.log(error);
-                //   setSubmitting(false);
-                //   setSuccess(true);
-                // });
-                
-                setSubmitting(false);
-                setSuccess(false);
+                emailjs.send(
+                  'service_6wdvvxv', 
+                  'template_e0doy5b', 
+                  {
+                    from_name: values.name,
+                    reply_to: values.email,
+                    message: values.message
+                  }
+                ).then((response) => {
+                  console.log(response);
+                  setSubmitting(false);
+                  setSuccess(true);
+                }, (error) => {
+                  console.log(error);
+                  setSubmitting(false);
+                  setSuccess(true);
+                });
+                // setSubmitting(false);
+                // setSuccess(false);
               }, 2000);
             }}
           >
