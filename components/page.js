@@ -7,6 +7,7 @@ const Page = styled.div`
   font-size: 1.1em;
   letter-spacing: 0.04em;
   font-weight: 200;
+  position: relative;
   @media (${theme.devices.md}) {
     text-align: left;
   }

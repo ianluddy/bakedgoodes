@@ -16,7 +16,7 @@ import Page from './page';
 import { ButtonAnchor, IconAnchor } from './anchor';
 
 const Layout = styled.div`
-  max-width: ${theme.breakpoints.lg};
+  max-width: ${theme.breakpoints.lg}px;
   margin: 0 auto;
   padding: 5.5rem 1rem 0 1rem;
   position: relative;

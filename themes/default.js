@@ -19,12 +19,12 @@ const theme = {
   opacity: "0.6",
   textMaxWidth: "500px",
   breakpoints: {
-    xs: "375px",
-    sm: "480px",
-    md: "768px",
-    lg: "1120px",
-    xl: "1440px"
-  },  
+    xs: 375,
+    sm: 480,
+    md: 768,
+    lg: 1120,
+    xl: 1440
+  },
   devices: {
     xs: 'min-width: 375px',
     sm: 'min-width: 480px',

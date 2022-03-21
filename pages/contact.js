@@ -54,8 +54,8 @@ export default function() {
   };
   
   useEffect(() => {
-    initialValues.name = localStorage.getItem('form:name');
-    initialValues.email = localStorage.getItem('form:email');
+    initialValues.name = localStorage.getItem('form:name') || '';
+    initialValues.email = localStorage.getItem('form:email') || '';
   }, []);
   
   return (
@@ -108,44 +108,41 @@ export default function() {
               setTimeout(() => {
                 emailjs.send(
                   'service_6wdvvxv', 
-                  'template_e0doy5b', 
+                  'template_e0doy5b',
                   {
                     from_name: values.name,
                     reply_to: values.email,
                     message: values.message
                   }
                 ).then((response) => {
-                  console.log(response);
                   setSubmitting(false);
                   setSuccess(true);
                 }, (error) => {
-                  console.log(error);
                   setSubmitting(false);
-                  setSuccess(true);
+                  setSuccess(false);
+                  throw error;
                 });
-                // setSubmitting(false);
-                // setSuccess(false);
-              }, 2000);
+              }, 1200);
             }}
           >
-            <Wrapper>
-              <Wrapper hide={submitting || success != undefined}>
-                <Form>
-                  <TextInput label="Name *" name="name" type="text" />
-                  <TextInput label="Email *" name="email" type="email" />
-                  <TextArea label="Message *" name="message" type="text" />
-                  <Button type="submit" text={"Send message"} large wide/>
-                </Form>
-              </Wrapper>
-              <FormLoader 
-                $loading={submitting === true} 
-                $success={success === true}
-                $error={success === false}
-                loadingMsg={"Sending"}
-                errorMsg={"Oops something went wrong, please try again later"}
-                successMsg={"Thanks! I will be in touch within 24 hours"}
-              />              
+          <>
+            <Wrapper hide={submitting || success != undefined}>
+              <Form>
+                <TextInput label="Name *" name="name" type="text" />
+                <TextInput label="Email *" name="email" type="email" />
+                <TextArea label="Message *" name="message" type="text" />
+                <Button type="submit" text="Send message" large wide/>
+              </Form>
             </Wrapper>
+            <FormLoader 
+              $loading={submitting === true} 
+              $success={success === true}
+              $error={success === false}
+              loadingMsg={"Sending"}
+              errorMsg={"Oops something went wrong, please try again later"}
+              successMsg={"Thanks! I will be in touch within 24 hours"}
+            />
+          </>
           </Formik>
         </FormWrapper>
       </GridSplit>

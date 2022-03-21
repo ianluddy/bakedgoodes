@@ -17,6 +17,7 @@ const Wrapper = styled.div`
   };
   font-size: 1.1em;
   font-weight: bold;
+  text-align: center;
   svg {
     font-size: 1.5em;
   }
