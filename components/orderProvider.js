@@ -1,6 +1,7 @@
 import { useEffect, useState, createContext } from "react";
 
 export const OrderContext = createContext();
+const OrderTTL = 60000 * 60 * 24 * 7; // 1 Week
 
 export default function ({ children }) {
   const [orders, setOrders] = useState(null);
@@ -11,11 +12,14 @@ export default function ({ children }) {
     setCount(orderCount(orders));
     if( orders != undefined ) {
       localStorage.setItem("orders", JSON.stringify(orders));
+      localStorage.setItem("orderStamp", Date.now() + OrderTTL);
     }
   }, [orders]);
   
   useEffect(() => {
-    const orders = JSON.parse(localStorage.getItem("orders")) || [];
+    const stamp = localStorage.getItem("orderStasmp");
+    const expired = stamp && stamp < Date.now();
+    const orders = expired ? [] : (JSON.parse(localStorage.getItem("orders")) || []);
     const count = orderCount(orders);
     setOrders(count ? orders : []);
   }, []);
