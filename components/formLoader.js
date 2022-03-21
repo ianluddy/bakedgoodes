@@ -79,15 +79,17 @@ export default function(props) {
       </Loading>
       <Success show={props.$success}>
         <div>
-          <FaCheckCircle/><br/>      
+          <FaCheckCircle/><br/>
+          Thanks! <br/>
           {props.successMsg}
         </div>
       </Success>
       <Error show={props.$error}>
         <div>
-          <FaTimesCircle/><br/>        
+          <FaTimesCircle/><br/>
+          Hmmmm. <br/>
           {props.errorMsg}
-        </div>        
+        </div>
       </Error>
     </Wrapper>
   );

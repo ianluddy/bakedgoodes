@@ -139,8 +139,8 @@ export default function() {
               $success={success === true}
               $error={success === false}
               loadingMsg={"Sending"}
-              errorMsg={"Oops something went wrong, please try again later"}
-              successMsg={"Thanks! I will be in touch within 24 hours"}
+              errorMsg={"Something went wrong, please try again later"}
+              successMsg={"I will be in touch within 24 hours"}
             />
           </>
           </Formik>
