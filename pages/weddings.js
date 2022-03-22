@@ -16,8 +16,8 @@ export default function() {
       <p>Suspendisse facilisis in enim id scelerisque. Praesent interdum lacus lorem, ac sollicitudin nunc viverra auctor. Suspendisse iaculis consequat dolor a volutpat. Morbi sed dui at arcu bibendum iaculis a at quam. Sed a ipsum tincidunt sem elementum auctor eget vel velit. Suspendisse sapien velit, efficitur ac posuere a, venenatis non tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris est felis, malesuada in metus in, rutrum tempor lorem. Etiam pharetra in urna vel bibendum. Aenean erat purus, laoreet vitae elit eget, euismod vestibulum ante. Fusce id mollis justo. Praesent sodales ultricies consequat. Donec nec erat velit. Pellentesque aliquam lorem sit amet orci rhoncus, id ultrices purus convallis. Phasellus semper elementum nulla, in ultricies nulla congue et. Fusce pretium placerat mollis.      </p>
       
       <Cta 
-        headline="Weddings" 
-        body="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        headline="Fancy something else?"
+        body="Plenty of options available, get in touch!"
         buttonText="Contact me"
         buttonLink="/contact"
       />

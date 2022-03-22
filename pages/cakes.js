@@ -27,7 +27,7 @@ export default function() {
         }
       </GridDefault>
       <Cta 
-        headline="Something else?" 
+        headline="Fancy something else?"
         body="Plenty of options available, get in touch!"
         buttonText="Contact me"
         buttonLink="/contact"
