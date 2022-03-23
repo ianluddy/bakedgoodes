@@ -10,7 +10,7 @@ import Paragraph from '../../components/paragraph';
 import Image from '../../components/image';
 import Button from '../../components/button';
 import Select from '../../components/select';
-import { MetaWrapper, Title, PriceWrapper, Desc, ButtonWrapper } from '../../components/productMeta';
+import { ImageWrapper, MetaWrapper, Title, PriceWrapper, Desc, ButtonWrapper } from '../../components/productMeta';
 import { OrderContext } from '../../components/orderProvider';
 import { GridSplit } from '../../components/grid';
 import { Wrapper } from '../../components/wrapper';
@@ -32,18 +32,6 @@ export async function getStaticPaths() {
   }
 }
 
-const ImageWrapper = styled(Wrapper)`
-  width: 100vw;
-  position: relative;
-  right: 1rem;
-  padding-bottom: 1rem;
-  @media (${theme.devices.md}) {
-    width: initial;
-    position: static;
-    padding: 0;
-  }
-`;
-
 export default function Post({ postData }) {
   const [variant, setVariant] = useState(postData.variants[0]);
   const { addOrder } = useContext(OrderContext);
@@ -51,7 +39,11 @@ export default function Post({ postData }) {
     <Layout>
       <GridSplit>
         <ImageWrapper>
-          <Image src={postData.meta.src} alt="TODO" title="TODO" hero={true}/>
+          <Image 
+            src={postData.meta.src}
+            alt={postData.meta.title}
+            title={postData.meta.title}
+          />
         </ImageWrapper>
         <MetaWrapper>
           <Breadcrumbs/>

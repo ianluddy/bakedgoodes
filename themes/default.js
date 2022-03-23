@@ -12,6 +12,7 @@ const theme = {
   fontSource: "'Source Serif 4', sans-serif",
   fontLogo: "'Lobster', cursive",
   border: "5px solid",
+  borderRadius: "8px",
   fatBorder: "10px solid",
   drawerWidth: "400px",
   drawerMaxWidth: "100vw",

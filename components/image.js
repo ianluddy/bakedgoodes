@@ -1,24 +1,28 @@
 import styled from 'styled-components';
-import theme from '../themes/default';
+
+import ExportedImage from "next-image-export-optimizer";
 
 const Wrapper = styled.div`
-  display: ${props => props.inline ? "inline-block" : "block"};
-  width: ${props => props.width ? props.width : "unset"};
+  > span {
+    position: static !important;
+  }
   img {
-    width: 100%;
-    border-radius: ${props => props.hero ? '0' : '8px'};
-    @media (${theme.devices.md}) {
-      border-radius: 8px;
-    }
+    width: auto !important;
+    height: auto !important;
+    position: static !important;
   }
 `;
 
-// TODO optimise
-
 export default function (props) {
   return (
-    <Wrapper {...props}>
-      <img {...props}/>
+    <Wrapper>
+      <ExportedImage 
+        src={props.src}
+        alt={props.alt}
+        width={props.width}
+        layout="fill"
+        objectFit="cover"
+      />
     </Wrapper>
   )
 }

@@ -108,3 +108,8 @@ resources
 
 # Sentry
 .sentryclirc
+
+# Optimized images
+public/images/cakes/nextImageExportOptimizer/
+public/images/cupcakes/nextImageExportOptimizer/
+next-image-export-optimizer-hashes.json

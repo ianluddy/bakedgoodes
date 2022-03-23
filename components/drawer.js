@@ -42,8 +42,10 @@ const OpenRight = styled.div`
   top: 1.6rem;
   right: 1rem;
   z-index: 1;
-  @media (${theme.devices.md}) {
+  @media (${theme.devices.sm}) {
     top: 2rem;
+  }
+  @media (${theme.devices.md}) {
     right: 2rem;
   }
 `;
@@ -52,6 +54,9 @@ const OpenLeft = styled.div`
   position: absolute;
   top: 1.6rem;
   left: 1rem;
+  @media (${theme.devices.sm}) {
+    top: 2rem;
+  }
   @media (${theme.devices.md}) {
     display: none;
   }

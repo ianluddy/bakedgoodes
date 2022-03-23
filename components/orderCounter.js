@@ -17,8 +17,10 @@ const Counter = styled.div`
   font-size: 0.8rem;
   line-height: 22px;
   text-align: center;
-  @media (${theme.devices.md}) {
+  @media (${theme.devices.sm}) {
     top: 1.5rem;
+  }
+  @media (${theme.devices.md}) {
     right: 1.2rem;
   }
 `;

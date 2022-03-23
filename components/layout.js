@@ -21,6 +21,11 @@ const Layout = styled.div`
   padding: 5.5rem 1rem 0 1rem;
   position: relative;
   transition: transform ${theme.transitionTime};
+
+  @media (${theme.devices.sm}) {
+    padding: 6.5rem 1rem 0 1rem;
+  }
+
   @media (${theme.devices.md}) {
     padding: 3rem 2rem 0 2rem;
     transform: ${props => props.rightDrawerOpen && "translate(-400px)"};

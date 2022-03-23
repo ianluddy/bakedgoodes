@@ -12,6 +12,14 @@ const Wrapper = styled.div`
   text-align: left;
 `;
 
+const ImageWrapper = styled.div`
+  width: 84px;
+  display: inline-block;
+  img {
+    border-radius: ${theme.borderRadius};
+  }
+`;
+
 const Meta = styled.div`
   width: calc(100% - (84px + 1.75rem));
   padding: 0.35rem 0 0 0.75rem;
@@ -33,7 +41,13 @@ const Variant = styled.div`
 export default function (order, index) {
   return (
     <Wrapper key={index} visible={order.quantity > 0}>
-      <Image width={"84px"} src={order.product.src} inline="true"/>
+      <ImageWrapper>
+        <Image 
+          alt={order.product.title}
+          title={order.product.title}
+          src={order.product.src}
+        />
+      </ImageWrapper>
       <Meta>
         <Title>{order.product.title}</Title>
         <Variant>{order.variant.shortTitle}</Variant>
