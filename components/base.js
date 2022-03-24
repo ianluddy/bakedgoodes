@@ -10,4 +10,38 @@ export const GlobalStyle = createGlobalStyle`
     border-bottom: ${theme.fatBorder} ${theme.primary};
     border-top: ${theme.fatBorder} ${theme.primary};
   }}
-`
+
+  h1 {
+    text-align: center;
+    font-size: 1.6em;
+    @media (${theme.devices.xs}) {
+      font-size: 1.7em;
+    }
+    @media (${theme.devices.sm}) {
+      font-size: 1.8em;
+    }
+    @media (${theme.devices.md}) {
+      font-size: 2em;
+    }
+  }
+  h2 {
+    font-size: 1.3em;
+    @media (${theme.devices.xs}) {
+      font-size: 1.4em;
+    }
+    @media (${theme.devices.sm}) {
+      font-size: 1.5em;
+    }
+    @media (${theme.devices.md}) {
+      font-size: 1.5em;
+    }
+  }
+  p {
+    letter-spacing: 0.04em;
+    font-weight: 200;
+    max-width: ${theme.textMaxWidth};
+    @media (${theme.devices.md}) {
+      font-size: 1.1em;
+    }
+  }
+`;

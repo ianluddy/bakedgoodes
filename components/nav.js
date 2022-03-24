@@ -49,29 +49,28 @@ const Title = styled.div`
   flex-grow: 1;
   text-shadow: 1px 1px ${theme.shadow};
   font-family: ${theme.fontLogo};
-  font-size: 2rem;
   line-height: 2.2rem;
   padding-top: 0.5rem;
   margin-bottom: -1rem;
-
+  font-size: 2em;
   a {
     color: ${theme.primary};
     text-decoration: none;
   }
 
   @media (${theme.devices.xs}) {
-    font-size: 2.4rem;
+    font-size: 2.5em;
   }
   
   @media (${theme.devices.sm}) {
-    font-size: 3rem;
+    font-size: 3em;
     line-height: initial;
     padding-top: 0.25rem;
   }
   
   @media (${theme.devices.md}) {
     padding-top: 0;
-    font-size: 4rem;
+    font-size: 4em;
     margin-bottom: 1rem;
   }
 `;

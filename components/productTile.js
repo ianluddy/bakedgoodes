@@ -22,6 +22,7 @@ const Wrapper = styled.div`
 
 const Meta = styled.div`
   position: relative;
+  padding: 0.25rem 0 0.5rem 0;
   button {
     position: absolute;
     top: -2.5rem;
@@ -33,7 +34,6 @@ const Title = styled.h2`
   margin: 0;
   text-align: left;
   color: ${theme.secondary};
-  font-size: 1.3rem;
   letter-spacing: 0.03rem;
 `;
 

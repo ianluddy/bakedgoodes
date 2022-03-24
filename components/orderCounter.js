@@ -17,11 +17,17 @@ const Counter = styled.div`
   font-size: 0.8rem;
   line-height: 22px;
   text-align: center;
+  z-index: 2;
+  @media (${theme.devices.xs}) {
+    top: 1rem;
+    right: 0.5rem;
+  }
   @media (${theme.devices.sm}) {
-    top: 1.5rem;
+    top: 1.3rem;
+    right: 0.5rem;
   }
   @media (${theme.devices.md}) {
-    right: 1.2rem;
+    right: 1.4rem;
   }
 `;
 

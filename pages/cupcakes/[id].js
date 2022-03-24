@@ -6,7 +6,6 @@ import { getAllPostIds, getPostData } from '../../lib/cupcakes';
 import Breadcrumbs from '../../components/breadcrumbs';
 import Layout from '../../components/layout';
 import Price from '../../components/price';
-import Paragraph from '../../components/paragraph';
 import Image from '../../components/image';
 import Button from '../../components/button';
 import Select from '../../components/select';
@@ -51,9 +50,9 @@ export default function Post({ postData }) {
             {postData.meta.title}
           </Title>
           <Desc>
-            <Paragraph centred>
+            <p>
               {postData.meta.desc} 
-            </Paragraph>
+            </p>
           </Desc>
           <div>
             <Select 

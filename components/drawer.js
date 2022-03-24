@@ -39,11 +39,22 @@ const Close = styled.div`
 
 const OpenRight = styled.div`
   position: absolute;
-  top: 1.6rem;
   right: 1rem;
   z-index: 1;
+  top: 1.8rem;
+  a {
+    font-size: 1.4rem;
+  }
+  @media (${theme.devices.xs}) {
+    a {
+      font-size: 1.8rem;
+    }
+  }
   @media (${theme.devices.sm}) {
     top: 2rem;
+    a {
+      font-size: 1.9rem;
+    }
   }
   @media (${theme.devices.md}) {
     right: 2rem;
@@ -52,10 +63,22 @@ const OpenRight = styled.div`
 
 const OpenLeft = styled.div`
   position: absolute;
-  top: 1.6rem;
+  top: 1.8rem;
   left: 1rem;
+  a {
+    font-size: 1.4rem;
+  }
+  @media (${theme.devices.xs}) {
+    top: 1.7rem;
+    a {
+      font-size: 1.8rem;
+    }
+  }
   @media (${theme.devices.sm}) {
     top: 2rem;
+    a {
+      font-size: 1.9rem;
+    }
   }
   @media (${theme.devices.md}) {
     display: none;

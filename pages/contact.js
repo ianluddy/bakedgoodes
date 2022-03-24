@@ -7,10 +7,8 @@ import { BsInstagram } from "react-icons/bs";
 import { useEffect, useState } from "react";
 
 import theme from '../themes/default';
-import PageHeader from '../components/pageHeader';
 import Button from '../components/button';
 import { Wrapper } from '../components/wrapper';
-import Paragraph from '../components/paragraph';
 import FormLoader from '../components/formLoader';
 import { Anchor, ButtonAnchor } from '../components/anchor';
 import { GridSplit } from '../components/grid';
@@ -29,6 +27,11 @@ const FormWrapper = styled.div`
 const InstaWrapper = styled.div`
   text-align: center;
   padding-bottom: 5rem;
+  p {
+    text-align: center;
+    padding: 0.5rem 0 2rem 0;
+    margin: 0 auto;
+  }
   svg {
     font-size: 2rem;
     line-height: 2rem;
@@ -36,10 +39,6 @@ const InstaWrapper = styled.div`
     margin-right: 0.5rem;
     position: relative;
     top: 0.15rem;
-  }
-  h3 {
-    font-weight: bold;
-    margin-top: 0;
   }
 `;
 
@@ -60,9 +59,9 @@ export default function() {
   
   return (
     <Layout>
-      <PageHeader hideDesktop>
+      <h1>
         Contact
-      </PageHeader>
+      </h1>
       <GridSplit>
         <InstaWrapper>
           <h2>
@@ -71,11 +70,11 @@ export default function() {
               baked_goodes
             </Anchor>
           </h2>
-          <Paragraph centred padding={"0 0 1rem 0"}>
-            Check out my Instagram to see my most recent bakes.<br/>
-            You can message me there to chat about an order. <br/>
+          <p>
+            Check out my Instagram to see my most recent bakes.
+            You can message me there to chat about an order.
             Or just use the contact form on this page.
-          </Paragraph>
+          </p>
           <ButtonAnchor 
             href="https://www.instagram.com/baked_goodes/" 
             text={"Follow me"}

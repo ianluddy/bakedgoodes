@@ -3,14 +3,13 @@ import Layout from '../components/layout';
 import ProductTile from '../components/productTile';
 import { GridDefault } from '../components/grid';
 import Cta from '../components/cta';
-import PageHeader from '../components/pageHeader';
 
 export default function() {
   return (
     <Layout>
-      <PageHeader hideDesktop>
+      <h1>
         Cakes 
-      </PageHeader>
+      </h1>
       <GridDefault>
         {
           cakes.map(cake => (

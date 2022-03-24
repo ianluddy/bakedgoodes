@@ -7,25 +7,23 @@ const CTAWrapper = styled(Wrapper)`
   padding: 3rem 0;
   margin: 3rem 0;
   text-align: center;
-  line-height: 2.5rem;
-`;
-
-const Headline = styled.div`
-  font-size: 1.5rem;
-  font-weight: bold;
-`;
-
-const Body = styled.div`
-  font-size: 1.1rem;
-  padding: 1rem 0 1.5rem 0;
-  line-height: 1.5rem;
+  h2 {
+    margin: 0;
+  }
+  p {
+    margin: 1.25rem auto 1.5rem auto;
+  }
 `;
 
 export default function (props) {
   return (
     <CTAWrapper {...props}>
-      <Headline>{props.headline}</Headline>
-      <Body>{props.body}</Body>
+      <h2>
+        {props.headline}
+      </h2>
+      <p>
+        {props.body}
+      </p>
       <ButtonAnchor href={props.buttonLink} text={props.buttonText} large/>
     </CTAWrapper>
   )

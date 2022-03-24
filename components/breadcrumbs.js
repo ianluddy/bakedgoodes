@@ -5,10 +5,13 @@ import { Anchor } from './anchor';
 import { useRouter } from 'next/router';
 
 const Wrapper = styled.div`
-  padding: 0rem 0 0.5rem 0;
+  padding: 1rem 0 0.5rem 0;
   color: ${theme.midGrey};
   text-transform: uppercase;
   font-size: 1rem;
+  @media (${theme.devices.md}) {
+    padding: 0 0 0.5rem 0;
+  }
 `;
 
 const Divider = styled.span`
