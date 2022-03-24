@@ -1,18 +1,18 @@
 import theme from '../themes/default';
 import styled from 'styled-components';
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import { Formik, Form, useField } from 'formik';
 import * as Yup from 'yup';
+import * as emailjs from '@emailjs/browser';
 
 import Layout from '../components/layout';
 import { OrderContext } from '../components/orderProvider';
 import { GridSplit } from '../components/grid';
-import Wrapper from '../components/wrapper';
+import { Wrapper } from '../components/wrapper';
 import Order from '../components/order';
+import FormLoader from '../components/formLoader';
 import Cta from '../components/cta';
-import Paragraph from '../components/paragraph';
 import OrderTotal from '../components/orderTotal';
-import PageHeader from '../components/pageHeader';
 import { TextArea, TextInput } from '../components/form';
 import Button from '../components/button';
 
@@ -33,13 +33,20 @@ const OrderWrapper = styled.div`
 
 const FormWrapper = styled.div`
   text-align: left;
+  position: relative;
+  p {
+    padding: 0 0 1.5rem 0;
+  }
   @media (${theme.devices.md}) {
     padding: 0 2rem;
   }
 `;
 
 export default function() {
+  const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState(null);  
   const { orders, count } = useContext(OrderContext);
+
   const initialValues = {
     name: '',
     email: '',
@@ -48,16 +55,16 @@ export default function() {
   };
   
   useEffect(() => {
-    initialValues.name = localStorage.getItem('form:name');
-    initialValues.email = localStorage.getItem('form:email');
-    initialValues.phone = localStorage.getItem('form:phone');
+    initialValues.name = localStorage.getItem('form:name') || '';
+    initialValues.email = localStorage.getItem('form:email') || '';
+    initialValues.phone = localStorage.getItem('form:phone') || '';
   });
     
   return (
     <Layout>
-      <PageHeader hide={!count}>
+      <h1>
         Checkout
-      </PageHeader>
+      </h1>
       <Cta 
         headline="Checkout"
         body="Your basket is empty :("
@@ -65,22 +72,31 @@ export default function() {
         buttonLink="/"
         hide={count && count != 0}
       />
-      <GridSplit hide={!count}>
+      <FormLoader 
+        $loading={submitting === true} 
+        $success={success === true}
+        $error={success === false}
+        loadingMsg={"Submitting"}
+        errorMsg={"Oops something went wrong, please try again later"}
+        successMsg={"I'll be in touch within 24 hours to confirm your order"}
+        id="loader"
+      />
+      <GridSplit hide={!count || submitting || success != undefined}>
         <OrderWrapper>
-          <h3> Your order </h3>
-          { 
-            orders ? orders.map((order, i) => Order(order, i)) : null
-          }
-          <TotalWrapper>
-            <OrderTotal/>
-          </TotalWrapper>
+            <h2> Your order </h2>
+            { 
+              orders ? orders.map((order, i) => Order(order, i)) : null
+            }
+            <TotalWrapper>
+              <OrderTotal/>
+            </TotalWrapper>
         </OrderWrapper>
         <FormWrapper>
-          <h3> Your details </h3>
-          <Paragraph padding={"0 0 1.5rem 0"}>
+          <h2> Your details </h2>
+          <p>
             Please fill in your details below.<br/>
             I will respond within 24 hours to confirm your order and arrange payment.
-          </Paragraph>
+          </p>
           <Formik
             enableReinitialize
             initialValues={initialValues}
@@ -92,17 +108,38 @@ export default function() {
                 .email('Invalid email address')
                 .required('Please enter your email')
                 .nullable(),
-              message: Yup.string()
-                .required('Please enter your message')
-                .nullable(),
+              phone: Yup.string().nullable(),
+              notes: Yup.string().nullable(),
             })}
-            onSubmit={(values, { setSubmitting }) => {
-              // TODO
+            onSubmit={(values) => {
+              setSubmitting(true);
+              window.scrollTo({
+                top: 0, 
+                behavior: 'smooth'
+              });
               setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-                setSubmitting(false);
-              }, 400);
-              // TODO              
+                // setSubmitting(false);
+                // setSuccess(true);
+                // return;
+                emailjs.send(
+                  'service_6wdvvxv', 
+                  'template_uiuv1uu',
+                  {
+                    from_name: values.name,
+                    reply_to: values.email,
+                    notes: values.notes || '-',
+                    phone: values.phone || '-',
+                    order: JSON.stringify(orders),
+                  }
+                ).then((response) => {
+                  setSubmitting(false);
+                  setSuccess(true);
+                }, (error) => {
+                  setSubmitting(false);
+                  setSuccess(false);
+                  throw error;
+                });
+              }, 1200);
             }}
           >
             <Form>
@@ -113,7 +150,7 @@ export default function() {
               <Button type="submit" text="Submit order" large secondary wide/>
             </Form>
           </Formik>
-        </FormWrapper>        
+        </FormWrapper>
       </GridSplit>
     </Layout>
   );

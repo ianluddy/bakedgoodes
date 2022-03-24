@@ -86,7 +86,6 @@ export default function() {
           </ButtonAnchor>
         </InstaWrapper>
         <FormWrapper>
-          <h2> Get in touch </h2>
           <Formik
             enableReinitialize
             initialValues={initialValues}
@@ -105,6 +104,9 @@ export default function() {
             onSubmit={(values) => {
               setSubmitting(true);
               setTimeout(() => {
+                // setSubmitting(false);
+                // setSuccess(true);
+                // return;
                 emailjs.send(
                   'service_6wdvvxv', 
                   'template_e0doy5b',
@@ -126,6 +128,7 @@ export default function() {
           >
           <>
             <Wrapper hide={submitting || success != undefined}>
+              <h2> Get in touch </h2>
               <Form>
                 <TextInput label="Name *" name="name" type="text" />
                 <TextInput label="Email *" name="email" type="email" />
@@ -139,7 +142,7 @@ export default function() {
               $error={success === false}
               loadingMsg={"Sending"}
               errorMsg={"Something went wrong, please try again later"}
-              successMsg={"I will be in touch within 24 hours"}
+              successMsg={"I'll be in touch within 24 hours"}
             />
           </>
           </Formik>

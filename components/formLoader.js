@@ -5,32 +5,25 @@ import { ImSpinner8 } from "react-icons/im";
 import { FaTimesCircle, FaCheckCircle } from "react-icons/fa";
 
 const Wrapper = styled.div`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
+  margin-top: 2rem;
+  text-align: center;
   display: ${props => 
     props.$loading || props.$success || props.$error ? 
     'block' : 
     'none'
   };
-  font-size: 1.1em;
-  font-weight: bold;
-  text-align: center;
   svg {
     font-size: 1.5em;
   }
 `;
 
-const Message = styled.div`
+const Message = styled.h2`
   flex-direction: column;
   align-items: center;
   height: 100%;
   display: flex;
   display: ${props => props.show ? 'flex' : 'none'};
   div {
-    margin: auto 0;
     max-width: 400px;
   }
 `;
