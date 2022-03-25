@@ -41,10 +41,14 @@ export default function ({ children }) {
       return updated;
     });
   };
+
+  const clearOrder = () => {
+    setOrders([]);
+  };
   
   return (
     <>
-      <OrderContext.Provider value={{orders, count, addOrder, updateOrder}}>
+      <OrderContext.Provider value={{orders, count, addOrder, updateOrder, clearOrder}}>
         {children}
       </OrderContext.Provider>
     </>
