@@ -7,9 +7,6 @@ import Cta from '../components/cta';
 export default function() {
   return (
     <Layout>
-      <h1>
-        Cakes 
-      </h1>
       <GridDefault>
         {
           cakes.map(cake => (
