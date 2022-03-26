@@ -42,7 +42,7 @@ const Caption = styled.div`
   font-size: 1rem;
 `;
 
-export default function({ id, title, caption, desc, src, meta, path }) {
+export default function({ id, title, caption, desc, src, meta, path, orderButton }) {
   return (
     <Link href={path}>
       <Wrapper>
@@ -52,7 +52,9 @@ export default function({ id, title, caption, desc, src, meta, path }) {
           title={title}
         />
         <Meta>
-          <Button href="#" text="Order" secondary/>
+          {
+            orderButton && <Button href="#" text="Order" secondary/>
+          }
           <Title>
             {title}
           </Title>
