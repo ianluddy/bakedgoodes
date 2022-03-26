@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
-import { Wrapper } from './wrapper';
+
+const Wrapper = styled.div`
+  display: none;
+  @media (${theme.devices.md}) {
+    display: block;
+  }
+`;
 
 const Primary = styled(Wrapper)`
   path {

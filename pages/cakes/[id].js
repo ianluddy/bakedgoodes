@@ -9,10 +9,16 @@ import Price from '../../components/price';
 import Image from '../../components/image';
 import Button from '../../components/button';
 import Select from '../../components/select';
-import { ImageWrapper, MetaWrapper, Title, PriceWrapper, Desc, ButtonWrapper } from '../../components/productMeta';
+import { 
+  ImageWrapper, 
+  MetaWrapper, 
+  Title, 
+  PriceWrapper, 
+  Desc, 
+  ButtonWrapper
+} from '../../components/productMeta';
 import { OrderContext } from '../../components/orderProvider';
 import { GridSplit } from '../../components/grid';
-import { Wrapper } from '../../components/wrapper';
 
 export async function getStaticProps({ params }) {
   const postData = getPostData(params.id);

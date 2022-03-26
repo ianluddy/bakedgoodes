@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Formik, Form, useField } from 'formik';
+import { Formik, Form as FormikForm, useField } from 'formik';
 import * as Yup from 'yup';
 import * as emailjs from '@emailjs/browser';
 import FadeIn from 'react-fade-in';
@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 
 import theme from '../themes/default';
 import Button from '../components/button';
-import { Wrapper } from '../components/wrapper';
 import FormLoader from '../components/formLoader';
 import { Anchor, ButtonAnchor } from '../components/anchor';
 import { GridSplit } from '../components/grid';
@@ -51,6 +50,33 @@ export default function() {
     email: '',
     message: '',
   };
+
+  const Form = () => {
+    return (
+      <>
+        <h2> Get in touch </h2>
+        <FormikForm>
+          <TextInput label="Name *" name="name" type="text"/>
+          <TextInput label="Email *" name="email" type="email"/>
+          <TextArea label="Message *" name="message" type="text"/>
+          <Button type="submit" text="Send message" large wide/>
+        </FormikForm>
+      </>
+    );
+  }
+
+  const Loader = () => {
+    return (
+      <FormLoader 
+        $loading={submitting === true} 
+        $success={success === true}
+        $error={success === false}
+        loadingMsg={"Sending"}
+        errorMsg={"Something went wrong, please try again later"}
+        successMsg={"I'll be in touch within 24 hours"}
+      />
+    )
+  }
   
   useEffect(() => {
     initialValues.name = localStorage.getItem('form:name') || '';
@@ -127,23 +153,9 @@ export default function() {
             }}
           >
           <>
-            <Wrapper hide={submitting || success != undefined}>
-              <h2> Get in touch </h2>
-              <Form>
-                <TextInput label="Name *" name="name" type="text" />
-                <TextInput label="Email *" name="email" type="email" />
-                <TextArea label="Message *" name="message" type="text" />
-                <Button type="submit" text="Send message" large wide/>
-              </Form>
-            </Wrapper>
-            <FormLoader 
-              $loading={submitting === true} 
-              $success={success === true}
-              $error={success === false}
-              loadingMsg={"Sending"}
-              errorMsg={"Something went wrong, please try again later"}
-              successMsg={"I'll be in touch within 24 hours"}
-            />
+            {
+              (submitting || success != undefined) ? <Loader/> : <Form/> 
+            }
           </>
           </Formik>
         </FormWrapper>

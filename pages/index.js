@@ -5,9 +5,6 @@ export default function() {
   return (
     <OrderProvider>
       <Layout>
-        <h1>
-          Home
-        </h1>
       </Layout>
     </OrderProvider>
   );

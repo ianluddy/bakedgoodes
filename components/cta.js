@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
 import { ButtonAnchor } from './anchor';
-import { Wrapper } from './wrapper';
 
-const CTAWrapper = styled(Wrapper)`
+const CTAWrapper = styled.div`
   padding: 3rem 0;
   margin: 3rem 0;
   text-align: center;
