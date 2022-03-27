@@ -8,12 +8,9 @@ import { RiCake3Line } from "react-icons/ri";
 const Footer = styled.div`
   text-align: center;
   margin: 0;
-  padding: 10rem 0 1rem 0;
+  padding: 2rem 0 1rem 0;
   font-weight: 200;
   color: ${theme.text};
-  @media (${theme.devices.md}) {
-    padding: 4rem 0 1rem 0;
-  }
 `;
 
 const Signature = styled.span`

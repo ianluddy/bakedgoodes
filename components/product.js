@@ -4,6 +4,7 @@ import { useState, useContext } from "react";
 import theme from '../themes/default';
 import Breadcrumbs from './breadcrumbs';
 import Layout from './layout';
+import Section from './section';
 import Price from './price';
 import Image from './image';
 import Button from './button';
@@ -66,44 +67,44 @@ export default function Post({ postData }) {
   const { addOrder } = useContext(OrderContext);
   return (
     <Layout>
-      <GridSplit>
-        <ImageWrapper>
-          <Image 
-            src={postData.meta.src}
-            alt={postData.meta.title}
-            title={postData.meta.title}
-          />
-        </ImageWrapper>
-        <MetaWrapper>
-          <Breadcrumbs/>
-          <Title>
-            {postData.meta.title}
-          </Title>
-          <Desc>
-            <p>
-              {postData.meta.desc} 
-            </p>
-          </Desc>
-          <div>
-            <Select 
-              options={postData.variants}
-              selected={variant}
-              setSelected={setVariant}
+      <Section padding={"0 0 2rem 0"}>
+        <GridSplit>
+          <ImageWrapper>
+            <Image 
+              src={postData.meta.src}
+              alt={postData.meta.title}
+              title={postData.meta.title}
             />
-          </div>
-          <ButtonWrapper>
-            <Button 
-              href="#" 
-              text={"Add to basket"} 
-              onClick={() => addOrder({ id: postData.id, ...postData.meta }, variant, 1)}
-              large
-              secondary
-            />
-          </ButtonWrapper>
-        </MetaWrapper>
-      </GridSplit>
-      <h2> Related products </h2>
-      <Carousel/>
+          </ImageWrapper>
+          <MetaWrapper>
+            <Breadcrumbs/>
+            <Title>
+              {postData.meta.title}
+            </Title>
+            <Desc>
+              <p>
+                {postData.meta.desc} 
+              </p>
+            </Desc>
+            <div>
+              <Select 
+                options={postData.variants}
+                selected={variant}
+                setSelected={setVariant}
+              />
+            </div>
+            <ButtonWrapper>
+              <Button 
+                href="#" 
+                text={"Add to basket"} 
+                onClick={() => addOrder({ id: postData.id, ...postData.meta }, variant, 1)}
+                large
+                secondary
+              />
+            </ButtonWrapper>
+          </MetaWrapper>
+        </GridSplit>
+      </Section>
     </Layout>
   )
 }

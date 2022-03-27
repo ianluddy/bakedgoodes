@@ -9,19 +9,15 @@ import Layout from '../components/layout';
 import { OrderContext } from '../components/orderProvider';
 import { GridSplit } from '../components/grid';
 import Order from '../components/order';
+import Section from '../components/section';
 import FormLoader from '../components/formLoader';
 import Cta from '../components/cta';
 import OrderTotal from '../components/orderTotal';
 import { TextArea, TextInput } from '../components/form';
 import Button from '../components/button';
 
-const Wrapper = styled.div`
-  h1 {
-    display: ${props => props.orderSubmitted ? 'none' : 'block'};
-  }
-`;
-
 const TotalWrapper = styled.div`
+  text-align: left;
   padding: 0 0 1rem 0;
   font-size: 1.17em;
   font-weight: bold;
@@ -40,10 +36,10 @@ const FormWrapper = styled.div`
   text-align: left;
   position: relative;
   p {
-    padding: 0 0 1.5rem 0;
+    padding: 0 0 1rem 0;
   }
   @media (${theme.devices.md}) {
-    padding: 0 2rem;
+    padding: 0 2rem 4rem 0;
   }
 `;
 
@@ -67,17 +63,20 @@ export default function() {
 
   return (
     <Layout>
-      <Wrapper orderSubmitted={submitting || success != undefined}>
+      <Section hide={submitting || success != undefined || count == 0} padding={"0"}>
         <h1>
           Checkout
         </h1>
+      </Section>
+      <Section hide={count && count != 0 || (submitting || success != undefined)}>
         <Cta 
           headline="Checkout"
           body="Your basket is empty :("
           buttonText="Back to home"
           buttonLink="/"
-          hide={count && count != 0 || (submitting || success != undefined)}
         />
+      </Section>
+      <Section hide={!submitting && success == undefined}>
         <FormLoader 
           $loading={submitting === true} 
           $success={success === true}
@@ -87,7 +86,9 @@ export default function() {
           successMsg={"I'll be in touch within 24 hours to confirm your order"}
           id="loader"
         />
-        <GridSplit hide={!count || submitting || success != undefined}>
+      </Section>
+      <Section hide={!count || submitting || success != undefined}>
+        <GridSplit>
           <OrderWrapper>
               <h2> Your order </h2>
               { 
@@ -159,7 +160,7 @@ export default function() {
             </Formik>
           </FormWrapper>
         </GridSplit>
-      </Wrapper>
+      </Section>
     </Layout>
   );
 }

@@ -10,7 +10,6 @@ export const GlobalStyle = createGlobalStyle`
     border-bottom: ${theme.fatBorder} ${theme.primary};
     border-top: ${theme.fatBorder} ${theme.primary};
   }}
-
   h1 {
     text-align: center;
     font-size: 1.6em;
@@ -33,7 +32,7 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 1.5em;
     }
     @media (${theme.devices.md}) {
-      font-size: 1.5em;
+      font-size: 1.7em;
     }
   }
   p {

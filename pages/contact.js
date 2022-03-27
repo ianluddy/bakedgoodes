@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 
 import theme from '../themes/default';
 import Button from '../components/button';
+import Section from '../components/section';
 import FormLoader from '../components/formLoader';
 import { Anchor, ButtonAnchor } from '../components/anchor';
 import { GridSplit } from '../components/grid';
@@ -18,8 +19,9 @@ const FormWrapper = styled.div`
   position: relative;
   text-align: center;
   min-height: 15rem;
+  padding: 0 0 4rem 0;
   @media (${theme.devices.md}) {
-    padding: 0 2rem;
+    padding: 0 2rem 4rem 0;
   }  
 `;
 
@@ -85,81 +87,83 @@ export default function() {
   
   return (
     <Layout>
-      <h1>
-        Contact
-      </h1>
-      <GridSplit>
-        <InstaWrapper>
-          <h2>
-            <BsInstagram/> 
-            <Anchor href="https://www.instagram.com/baked_goodes/" bold>
-              baked_goodes
-            </Anchor>
-          </h2>
-          <p>
-            Check out my Instagram to see my most recent bakes.
-            You can message me there to chat about an order.
-            Or just use the contact form on this page.
-          </p>
-          <ButtonAnchor 
-            href="https://www.instagram.com/baked_goodes/" 
-            text={"Follow me"}
-            large 
-            secondary
-            nomargin
-          >
-            <BsInstagram/>
-          </ButtonAnchor>
-        </InstaWrapper>
-        <FormWrapper>
-          <Formik
-            enableReinitialize
-            initialValues={initialValues}
-            validationSchema={Yup.object({
-              name: Yup.string()
-                .required('Please enter your name')
-                .nullable(),
-              email: Yup.string()
-                .email('Invalid email address')
-                .required('Please enter your email')
-                .nullable(),
-              message: Yup.string()
-                .required('Please enter your message')
-                .nullable(),
-            })}
-            onSubmit={(values) => {
-              setSubmitting(true);
-              setTimeout(() => {
-                // setSubmitting(false);
-                // setSuccess(true);
-                // return;
-                emailjs.send(
-                  'service_6wdvvxv', 
-                  'template_e0doy5b',
-                  {
-                    from_name: values.name,
-                    reply_to: values.email,
-                    message: values.message
-                  }
-                ).then((response) => {
-                  setSubmitting(false);
-                  setSuccess(true);
-                }, (error) => {
-                  setSubmitting(false);
-                  setSuccess(false);
-                  throw error;
-                });
-              }, 1200);
-            }}
-          >
-          <>
-            {
-              (submitting || success != undefined) ? <Loader/> : <Form/> 
-            }
-          </>
-          </Formik>
-        </FormWrapper>
-      </GridSplit>
+      <Section padding={"0 0 2rem 0"}>
+        <h1>
+          Contact
+        </h1>
+        <GridSplit>
+          <InstaWrapper>
+            <h2>
+              <BsInstagram/> 
+              <Anchor href="https://www.instagram.com/baked_goodes/" bold>
+                baked_goodes
+              </Anchor>
+            </h2>
+            <p>
+              Check out my Instagram to see my most recent bakes.
+              You can message me there to chat about an order.
+              Or just use the contact form on this page.
+            </p>
+            <ButtonAnchor 
+              href="https://www.instagram.com/baked_goodes/" 
+              text={"Follow me"}
+              large 
+              secondary
+              nomargin
+            >
+              <BsInstagram/>
+            </ButtonAnchor>
+          </InstaWrapper>
+          <FormWrapper>
+            <Formik
+              enableReinitialize
+              initialValues={initialValues}
+              validationSchema={Yup.object({
+                name: Yup.string()
+                  .required('Please enter your name')
+                  .nullable(),
+                email: Yup.string()
+                  .email('Invalid email address')
+                  .required('Please enter your email')
+                  .nullable(),
+                message: Yup.string()
+                  .required('Please enter your message')
+                  .nullable(),
+              })}
+              onSubmit={(values) => {
+                setSubmitting(true);
+                setTimeout(() => {
+                  // setSubmitting(false);
+                  // setSuccess(true);
+                  // return;
+                  emailjs.send(
+                    'service_6wdvvxv', 
+                    'template_e0doy5b',
+                    {
+                      from_name: values.name,
+                      reply_to: values.email,
+                      message: values.message
+                    }
+                  ).then((response) => {
+                    setSubmitting(false);
+                    setSuccess(true);
+                  }, (error) => {
+                    setSubmitting(false);
+                    setSuccess(false);
+                    throw error;
+                  });
+                }, 1200);
+              }}
+            >
+            <>
+              {
+                (submitting || success != undefined) ? <Loader/> : <Form/> 
+              }
+            </>
+            </Formik>
+          </FormWrapper>
+        </GridSplit>
+      </Section>
     </Layout>
   );
 }

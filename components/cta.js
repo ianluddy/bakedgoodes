@@ -3,7 +3,6 @@ import theme from '../themes/default';
 import { ButtonAnchor } from './anchor';
 
 const CTAWrapper = styled.div`
-  padding: 3rem 0;
   margin: 3rem 0;
   text-align: center;
   h2 {
