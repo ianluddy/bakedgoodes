@@ -67,7 +67,7 @@ export default function Post({ postData }) {
   const { addOrder } = useContext(OrderContext);
   return (
     <Layout>
-      <Section padding={"0 0 2rem 0"}>
+      <Section>
         <GridSplit>
           <ImageWrapper>
             <Image 
