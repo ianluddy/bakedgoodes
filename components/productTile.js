@@ -30,19 +30,23 @@ const Meta = styled.div`
   }  
 `;
 
-const Title = styled.h2`
+const Title = styled.div`
   margin: 0;
   text-align: left;
   color: ${theme.secondary};
   letter-spacing: 0.03rem;
+  font-size: ${props => props.large ? '1.5rem' : '1.2rem' }
 `;
 
 const Caption = styled.div`
   text-align: left;
   font-size: 1rem;
+  font-size: ${props => props.large ? '1.1rem' : '0.9rem' }
 `;
 
-export default function({ id, title, caption, desc, src, meta, path, orderButton }) {
+export default function({ 
+    id, title, caption, desc, src, meta, path, large
+  }) {
   return (
     <Link href={path}>
       <Wrapper>
@@ -53,14 +57,15 @@ export default function({ id, title, caption, desc, src, meta, path, orderButton
         />
         <Meta>
           {
-            orderButton && <Button href="#" text="Order" secondary/>
+            large && 
+              <Button href="#" text="Order" secondary/>
           }
-          <Title>
+          <Title large={large}>
             {title}
           </Title>
-          <Caption>
-            {caption}
-          </Caption>
+            <Caption large={large}>
+              {caption}
+            </Caption>
         </Meta>
       </Wrapper>
     </Link>

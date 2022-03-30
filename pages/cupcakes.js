@@ -20,7 +20,7 @@ export default function() {
                 desc={cupcake.meta.desc}
                 src={cupcake.meta.src}
                 link={cupcake.meta.link}
-                orderButton
+                large
               />
             ))
           }

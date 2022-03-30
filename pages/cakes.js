@@ -20,7 +20,7 @@ export default function() {
                 desc={cake.meta.desc}
                 src={cake.meta.src}
                 link={cake.meta.link}
-                orderButton
+                large
               />
             ))
           }

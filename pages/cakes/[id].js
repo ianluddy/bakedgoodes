@@ -23,5 +23,10 @@ export async function getStaticPaths() {
 }
 
 export default function Post({ postData }) {
-  return <Product postData={postData}/>;
+  return (
+    <Product 
+      postData={postData} 
+      postType={'cakes'}
+    />
+  )
 }
