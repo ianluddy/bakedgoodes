@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import 'swiper/css';
+import 'swiper/css/pagination';
 
 import Image from './image';
 import ProductTile from './productTile';
@@ -9,8 +11,11 @@ import ProductTile from './productTile';
 export default ({ products, excludeId, productType }) => {
   return (
     <Swiper
+      modules={[Pagination]}
       spaceBetween={10}
       slidesPerView={2}
+      loop={true}
+      pagination={{ clickable: true }}
       breakpoints={{
         [theme.breakpoints.xs]: {
           slidesPerView: 2,
@@ -29,7 +34,7 @@ export default ({ products, excludeId, productType }) => {
           spaceBetween: 10
         },
         [theme.breakpoints.xl]: {
-          slidesPerView: 5,
+          slidesPerView: 4,
           spaceBetween: 10
         }
       }}

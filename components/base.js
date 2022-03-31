@@ -43,4 +43,15 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 1.1em;
     }
   }
+  .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: ${theme.darkGrey};
+  }
+  .swiper-pagination-bullet-active {
+    background: ${theme.secondary};
+  }
+  .swiper {
+    padding-bottom: 2.5rem;
+  }
 `;
