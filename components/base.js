@@ -56,6 +56,6 @@ export const GlobalStyle = createGlobalStyle`
     background: ${theme.secondary};
   }
   .swiper {
-    padding-bottom: 3.5rem;
+    padding-bottom: 2.5rem;
   }
 `;
