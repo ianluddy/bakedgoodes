@@ -28,7 +28,7 @@ export default function({ Component, pageProps }) {
           <meta name="twitter:card" content="summary_large_image" />
           <link rel="preconnect" href="https://fonts.googleapis.com"/>
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous"/>
-          <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400&family=Lobster&display=swap" rel="stylesheet"/>
+          <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400&family=Lobster&family=Montserrat:wght@300;400;700&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet"/>
         </Head>
         <OrderProvider>
           <Component {...pageProps} />

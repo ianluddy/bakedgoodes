@@ -6,6 +6,7 @@ import Button from './button';
 import Link from 'next/link';
 
 const Wrapper = styled.div`
+  font-family: ${theme.fontMontserrat};
   padding: 0.5rem;
   position: relative;
   cursor: pointer;
@@ -33,15 +34,8 @@ const Meta = styled.div`
 const Title = styled.div`
   margin: 0;
   text-align: left;
-  color: ${theme.secondary};
-  letter-spacing: 0.03rem;
-  font-size: ${props => props.large ? '1.5rem' : '1.2rem' }
-`;
-
-const Caption = styled.div`
-  text-align: left;
-  font-size: 1rem;
-  font-size: ${props => props.large ? '1.1rem' : '0.9rem' }
+  color: ${theme.midGrey};
+  font-size: ${props => props.large ? '1.5rem' : '1.2rem' };
 `;
 
 export default function({ 
@@ -56,16 +50,10 @@ export default function({
           title={title}
         />
         <Meta>
-          {
-            large && 
-              <Button href="#" text="Order" secondary/>
-          }
+          <Button href="#" text="Order" secondary/>
           <Title large={large}>
             {title}
           </Title>
-            <Caption large={large}>
-              {caption}
-            </Caption>
         </Meta>
       </Wrapper>
     </Link>

@@ -3,9 +3,8 @@ import theme from '../themes/default';
 
 const Button = styled.button`
   transition: opacity ${theme.transitionTime};
-  font-family: ${theme.fontSource};
+  font-family: ${theme.fontMontserrat};
   opacity: 1;  
-  font-weight: bold;  
   text-align: center;
   text-decoration: none;
   border-radius: 5px;

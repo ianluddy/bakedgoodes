@@ -22,7 +22,7 @@ export default ({ products, excludeId, productType }) => {
           spaceBetween: 10
         },
         [theme.breakpoints.sm]: {
-          slidesPerView: 3,
+          slidesPerView: 2,
           spaceBetween: 10
         },
         [theme.breakpoints.md]: {

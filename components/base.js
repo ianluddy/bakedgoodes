@@ -10,6 +10,10 @@ export const GlobalStyle = createGlobalStyle`
     border-bottom: ${theme.fatBorder} ${theme.primary};
     border-top: ${theme.fatBorder} ${theme.primary};
   }}
+  h1, h2, h3, h4, h5 {
+    font-family: ${theme.fontMontserrat};
+    font-weight: 400;
+  }
   h1 {
     text-align: center;
     font-size: 1.6em;

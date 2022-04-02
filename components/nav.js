@@ -48,7 +48,7 @@ const NavLink = styled.div`
 const Title = styled.div`
   flex-grow: 1;
   text-shadow: 1px 1px ${theme.shadow};
-  font-family: ${theme.fontLogo};
+  font-family: ${theme.fontLobster};
   line-height: 2.2rem;
   padding-top: 0.5rem;
   margin-bottom: -1rem;

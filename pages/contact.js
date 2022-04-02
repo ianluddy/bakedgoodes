@@ -39,7 +39,7 @@ const InstaWrapper = styled.div`
     vertical-align: top;
     margin-right: 0.5rem;
     position: relative;
-    top: 0.15rem;
+    top: 0rem;
   }
 `;
 
@@ -95,7 +95,7 @@ export default function() {
           <InstaWrapper>
             <h2>
               <BsInstagram/> 
-              <Anchor href="https://www.instagram.com/baked_goodes/" bold>
+              <Anchor href="https://www.instagram.com/baked_goodes/">
                 baked_goodes
               </Anchor>
             </h2>
