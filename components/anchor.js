@@ -10,7 +10,7 @@ const AnchorWrapper = styled.a`
   cursor: pointer;
   opacity: 1;
   color: ${props => props.color ? props.color : 'inherit'};
-  font-weight: ${props => props.active || props.bold ? 'bold' : 300 };
+  font-weight: ${props => props.active || props.bold ? 500 : 300 };
   &:hover {
     opacity: ${theme.opacity};
   }

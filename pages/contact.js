@@ -95,7 +95,7 @@ export default function() {
           <InstaWrapper>
             <h2>
               <BsInstagram/> 
-              <Anchor href="https://www.instagram.com/baked_goodes/">
+              <Anchor href="https://www.instagram.com/baked_goodes/" bold>
                 baked_goodes
               </Anchor>
             </h2>
