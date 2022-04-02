@@ -22,12 +22,14 @@ const Right = styled(Drawer)`
   transform: ${props => props.visible ? "translate(-400px)" : "unset"};
   right: -400px;
   background-color: ${theme.darkGrey};
+  box-shadow: rgb(0 0 0 / 20%) 0px 8px 10px -5px, rgb(0 0 0 / 14%) 0px 16px 24px 2px, rgb(0 0 0 / 12%) 0px 6px 30px 5px;
 `;
 
 const Left = styled(Drawer)`
   transform: ${props => props.visible ? "translate(400px)" : "unset"};
   left: -400px;
   background-color: ${theme.primary};
+  box-shadow: rgb(0 0 0 / 20%) 0px 8px 10px -5px, rgb(0 0 0 / 14%) 0px 16px 24px 2px, rgb(0 0 0 / 12%) 0px 6px 30px 5px;
 `;
 
 const Close = styled.div`

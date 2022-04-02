@@ -36,14 +36,15 @@ const Layout = styled.div`
 
 const Overlay = styled.div`
   position: fixed;
-  top: 10px;
+  top: 0;
   bottom: 0;
   right: 0;
   left: 0;
   z-index: 2;
   background-color: black;
   transform: opacity ${theme.transitionTime};
-  opacity: ${props => props.visible ? "0.1" : "0"};
+  opacity: 0;
+  opacity: ${props => props.visible && "0.5"};
   display: ${props => props.visible ? "block" : "none"};
 `;
 
