@@ -13,7 +13,7 @@ import Section from '../components/section';
 import FormLoader from '../components/formLoader';
 import Cta from '../components/cta';
 import OrderTotal from '../components/orderTotal';
-import { TextArea, TextInput } from '../components/form';
+import { DateInput, TextArea, TextInput } from '../components/form';
 import Button from '../components/button';
 
 const TotalWrapper = styled.div`
@@ -51,6 +51,7 @@ export default function() {
   const initialValues = {
     name: '',
     email: '',
+    date: new Date(),
     phone: '',
     notes: '',
   };
@@ -115,6 +116,9 @@ export default function() {
                   .email('Invalid email address')
                   .required('Please enter your email')
                   .nullable(),
+                date: Yup.string()
+                  .required('Please enter a date')
+                  .nullable(),
                 phone: Yup.string().nullable(),
                 notes: Yup.string().nullable(),
               })}
@@ -134,6 +138,7 @@ export default function() {
                     {
                       from_name: values.name,
                       reply_to: values.email,
+                      date: values.date.toDateString(),
                       notes: values.notes || '-',
                       phone: values.phone || '-',
                       order: JSON.stringify(orders),
@@ -154,6 +159,7 @@ export default function() {
                 <TextInput label="Name *" name="name" type="text" />
                 <TextInput label="Email *" name="email" type="email" />
                 <TextInput label="Phone" name="phone" type="number"/>
+                <DateInput name="date"/>
                 <TextArea label="Order notes" name="notes" type="text" placeholder="Optional"/>
                 <Button type="submit" text="Submit order" large secondary wide/>
               </Form>

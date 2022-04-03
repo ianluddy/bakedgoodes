@@ -1,7 +1,29 @@
-import { useField } from 'formik';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import theme from '../themes/default';
 import styled from 'styled-components';
+import DatePicker from "react-datepicker";
+import { useField, useFormikContext } from "formik";
+import "react-datepicker/dist/react-datepicker.css";
+  
+export const DateInput = ({ ...props }) => {
+  const { setFieldValue } = useFormikContext();
+  const [field, meta] = useField(props);
+  return (
+    <FieldWrapper>
+      <DatePicker
+        {...field}
+        {...props}
+        selected={(field.value && new Date(field.value)) || null}
+        onChange={val => {
+          setFieldValue(field.name, val);
+        }}
+      />
+      {meta.touched && meta.error ? (
+        <Error>{meta.error}</Error>
+      ) : null}
+    </FieldWrapper>
+  );
+};
 
 const Error = styled.div`
   color: ${theme.red};
