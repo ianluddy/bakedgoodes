@@ -30,6 +30,7 @@ const Break = styled.div`
 `;
 
 const Socials = styled.div`
+  padding-top: 0.25rem;
 `;
 
 export default function () {
