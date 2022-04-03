@@ -5,11 +5,14 @@ import DatePicker from "react-datepicker";
 import { useField, useFormikContext } from "formik";
 import "react-datepicker/dist/react-datepicker.css";
   
-export const DateInput = ({ ...props }) => {
+export const DateInput = ({ label, ...props }) => {
   const { setFieldValue } = useFormikContext();
   const [field, meta] = useField(props);
   return (
     <FieldWrapper>
+      <div>
+        <Label htmlFor={props.id || props.name}>{label}</Label>
+      </div>
       <DatePicker
         {...field}
         {...props}

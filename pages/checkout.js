@@ -159,7 +159,7 @@ export default function() {
                 <TextInput label="Name *" name="name" type="text" />
                 <TextInput label="Email *" name="email" type="email" />
                 <TextInput label="Phone" name="phone" type="number"/>
-                <DateInput name="date"/>
+                <DateInput label="Date *" name="date"/>
                 <TextArea label="Order notes" name="notes" type="text" placeholder="Optional"/>
                 <Button type="submit" text="Submit order" large secondary wide/>
               </Form>
