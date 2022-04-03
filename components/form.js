@@ -157,3 +157,26 @@ export const Select = ({ label, ...props }) => {
     </FieldWrapper>
   );
 };
+
+export const DateInput = ({ label, ...props }) => {
+  const { setFieldValue } = useFormikContext();
+  const [field, meta] = useField(props);
+  return (
+    <FieldWrapper>
+      <div>
+        <Label htmlFor={props.id || props.name}>{label}</Label>
+      </div>
+      <DatePicker
+        {...field}
+        {...props}
+        selected={(field.value && new Date(field.value)) || null}
+        onChange={val => {
+          setFieldValue(field.name, val);
+        }}
+      />
+      {meta.touched && meta.error ? (
+        <Error>{meta.error}</Error>
+      ) : null}
+    </FieldWrapper>
+  );
+};
