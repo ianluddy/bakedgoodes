@@ -53,6 +53,25 @@ const FieldWrapper = styled.div`
   textarea {
     height: 120px;
   }
+  .react-datepicker {
+    font-family: ${theme.fontMontserrat};
+  }
+  .react-datepicker__header {
+    background: none;
+    border: none;
+  }
+  .react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--selected, .react-datepicker__quarter-text--in-selecting-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--selected, .react-datepicker__year-text--in-selecting-range, .react-datepicker__year-text--in-range{
+    background: ${theme.secondary};
+  }
+  .react-datepicker__day--keyboard-selected, .react-datepicker__month-text--keyboard-selected, .react-datepicker__quarter-text--keyboard-selected, .react-datepicker__year-text--keyboard-selected {
+    background: ${theme.secondary};
+  }
+  .react-datepicker__month-container {
+    padding: 0.5rem 2rem;
+  }
+  .react-datepicker__navigation {
+    top: 10px;
+  }
 `;
 
 const Label = styled.label`
