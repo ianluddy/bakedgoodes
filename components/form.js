@@ -17,10 +17,10 @@ const FieldWrapper = styled.div`
   input, textarea {
     font-size: 1rem;
     width: calc(100% - 2rem);
-    border: none;
-    background-color: ${theme.grey};
     padding: 1rem;
     color: ${theme.darkGrey};
+    border: 2px solid;
+    border-radius: 4px;
     font-family: ${theme.fontBody};
     
     ::placeholder {

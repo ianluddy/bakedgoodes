@@ -19,7 +19,7 @@ const AnchorWrapper = styled.a`
 const NavAnchorWrapper = styled(AnchorWrapper)`
   font-weight: 700;
   font-family: ${theme.fontNav};
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.07rem;
   font-size: 1.4rem;
   padding-bottom: 1rem;
   text-transform: uppercase;
@@ -72,7 +72,7 @@ export function SecondaryNavAnchor({ href, active, children }) {
     <Link href={href}>
       <NavAnchorWrapper 
         active={router.pathname == href} 
-        color={theme.body}
+        color={router.pathname == href ? theme.darkGrey : theme.body}
       >
         {children}
       </NavAnchorWrapper>

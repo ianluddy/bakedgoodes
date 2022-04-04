@@ -40,7 +40,7 @@ const Summary = styled.div`
   left: 2rem;
   bottom: 8rem;
   padding: 1rem 0;
-  color: ${theme.grey};
+  color: ${theme.lightGrey};
 `;
 
 const Header = styled.h2`

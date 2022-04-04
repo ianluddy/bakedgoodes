@@ -2,11 +2,10 @@ import styled from 'styled-components';
 import theme from '../themes/default';
 
 const Select = styled.select`
-  color: ${theme.text};
-  background-color: ${theme.grey};
+  color: ${theme.darkGrey};
+  border: 2px solid;
+  border-radius: 4px;
   padding: 0.5rem 1rem;
-  border-radius: 5px;
-  border: none;
   font-size: 1rem;
 `;
 
