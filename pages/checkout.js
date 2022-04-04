@@ -18,15 +18,14 @@ import Button from '../components/button';
 
 const TotalWrapper = styled.div`
   text-align: left;
-  padding: 0 0 1rem 0;
-  font-size: 1.17em;
+  padding: 0.8rem 0 1rem 0;
   font-weight: bold;
   color: ${theme.secondary};
 `;
 
 const OrderWrapper = styled.div`
   text-align: left;
-  padding-bottom: 5rem;
+  padding-bottom: 1rem;
   @media (${theme.devices.md}) {
     max-width: 400px;
   }

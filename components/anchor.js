@@ -17,17 +17,19 @@ const AnchorWrapper = styled.a`
 `;
 
 const NavAnchorWrapper = styled(AnchorWrapper)`
+  font-weight: 700;
+  font-family: ${theme.fontNav};
+  letter-spacing: 0.1rem;
   font-size: 1.4rem;
   padding-bottom: 1rem;
   text-transform: uppercase;
-  color: ${props => props.active ? props.activeColor : props.color};
   &:before, &:after {
     content: ${props => props.active ? "'•'" : "''" };
     width: 1rem;
     display: inline-block;
   }
   @media (${theme.devices.md}) {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 `;
 
@@ -56,7 +58,7 @@ export function PrimaryNavAnchor({ href, active, children }) {
     <Link href={href}>
       <NavAnchorWrapper 
         active={router.pathname == href} 
-        color={router.pathname == href ? theme.primary : theme.text}
+        color={router.pathname == href ? theme.primary : theme.lightGrey}
       >
         {children}
       </NavAnchorWrapper>

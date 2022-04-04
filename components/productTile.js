@@ -30,7 +30,7 @@ const Meta = styled.div`
   }  
 `;
 
-const Title = styled.div`
+const Title = styled.h4`
   margin: 0;
   text-align: left;
   font-size: ${props => props.large ? '1.5rem' : '1.2rem' };

@@ -22,7 +22,7 @@ const ImageWrapper = styled.div`
 
 const Meta = styled.div`
   width: calc(100% - (84px + 1.75rem));
-  padding: 0.35rem 0 0 0.75rem;
+  padding: 0.25rem 0 0 0.75rem;
   font-weight: 400;
   display: inline-block;
   vertical-align: top;
@@ -36,7 +36,6 @@ const Title = styled.div`
 const Variant = styled.div`
   font-weight: 100;
   color: ${theme.midGrey};
-  padding: 0.25rem 0;
 `;
 
 export default function (order, index) {

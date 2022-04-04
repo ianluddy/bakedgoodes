@@ -5,7 +5,8 @@ import theme from '../themes/default';
 import { OrderContext } from './orderProvider';
 import Price from './price';
 
-const Wrapper = styled.div`
+const Wrapper = styled.h2`
+  margin: 0;
   display: flex;
 `;
 

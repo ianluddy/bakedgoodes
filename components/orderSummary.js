@@ -12,7 +12,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 
 const TotalWrapper = styled.div`
   padding: 1rem 0;
-  font-size: 1.2rem;
+  margin: 0;
 `;
 
 const Placeholder = styled.div`
@@ -43,14 +43,13 @@ const Summary = styled.div`
   color: ${theme.grey};
 `;
 
-const Header = styled.div`
-  font-size: 1.4rem;
-  font-weight: bold;
+const Header = styled.h2`
   color: ${theme.body};
   position: absolute;
   top: 0;
   height: 2rem;
   padding: 2rem 0;
+  margin: 0;
   right: 2rem;
   left: 2rem;
 `;

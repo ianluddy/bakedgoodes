@@ -21,6 +21,7 @@ const FieldWrapper = styled.div`
     background-color: ${theme.grey};
     padding: 1rem;
     color: ${theme.darkGrey};
+    font-family: ${theme.fontBody};
     
     ::placeholder {
       color: ${theme.text};
@@ -31,7 +32,7 @@ const FieldWrapper = styled.div`
     height: 120px;
   }
   .react-datepicker {
-    font-family: ${theme.body};
+    font-family: ${theme.fontBody};
   }
   .react-datepicker__header {
     background: none;
@@ -53,7 +54,6 @@ const FieldWrapper = styled.div`
 
 const RadioWrapper = styled.div`
   display: flex;
-  padding: 0 0 0.5rem 0;
   opacity: 1;
   cursor: pointer;
   transition: opacity ${theme.transitionTime};
@@ -77,6 +77,7 @@ const Label = styled.label`
   display: block;
   text-align: left;
   font-size: 1.1rem;
+  padding-bottom: 0.2rem;
 `;
 
 export const TextInput = ({ label, ...props }) => {

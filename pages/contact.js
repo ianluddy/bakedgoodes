@@ -39,7 +39,7 @@ const InstaWrapper = styled.div`
     vertical-align: top;
     margin-right: 0.5rem;
     position: relative;
-    top: 0rem;
+    top: 0.2rem;
   }
 `;
 

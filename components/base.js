@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
   }}
   h1, h2, h3, h4, h5 {
     font-family: ${theme.fontHeading};
-    font-weight: 500;
+    font-weight: 600;
   }
   h1 {
     text-align: center;
