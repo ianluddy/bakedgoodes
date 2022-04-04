@@ -34,7 +34,6 @@ const Meta = styled.div`
 const Title = styled.div`
   margin: 0;
   text-align: left;
-  color: ${theme.midGrey};
   font-size: ${props => props.large ? '1.5rem' : '1.2rem' };
 `;
 

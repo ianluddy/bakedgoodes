@@ -13,7 +13,7 @@ import Section from '../components/section';
 import FormLoader from '../components/formLoader';
 import Cta from '../components/cta';
 import OrderTotal from '../components/orderTotal';
-import { DateInput, TextArea, TextInput } from '../components/form';
+import { DateInput, TextArea, TextInput, Radio } from '../components/form';
 import Button from '../components/button';
 
 const TotalWrapper = styled.div`
@@ -51,6 +51,7 @@ export default function() {
   const initialValues = {
     name: '',
     email: '',
+    delivery: 'true',
     date: new Date(),
     phone: '',
     notes: '',
@@ -116,6 +117,9 @@ export default function() {
                   .email('Invalid email address')
                   .required('Please enter your email')
                   .nullable(),
+                delivery: Yup.string()
+                  .required('Please specify delivery or collection')
+                  .nullable(),
                 date: Yup.string()
                   .required('Please enter a date')
                   .nullable(),
@@ -138,6 +142,7 @@ export default function() {
                     {
                       from_name: values.name,
                       reply_to: values.email,
+                      delivery: values.delivery === "true" ? "Delivery" : "Collection",
                       date: values.date.toDateString(),
                       notes: values.notes || '-',
                       phone: values.phone || '-',
@@ -158,8 +163,9 @@ export default function() {
               <Form>
                 <TextInput label="Name *" name="name" type="text" />
                 <TextInput label="Email *" name="email" type="email" />
-                <TextInput label="Phone" name="phone" type="number"/>
-                <DateInput label="Date *" name="date"/>
+                <Radio name="delivery" type="radio"/>
+                <DateInput label="Delivery/Collection Date *" name="date"/>
+                <TextInput label="Phone" name="phone" type="tel" placeholder="Optional"/>
                 <TextArea label="Order notes" name="notes" type="text" placeholder="Optional"/>
                 <Button type="submit" text="Submit order" large secondary wide/>
               </Form>

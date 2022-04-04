@@ -6,7 +6,6 @@ import { useRouter } from 'next/router';
 
 const Wrapper = styled.div`
   padding: 1rem 0 0.5rem 0;
-  color: ${theme.midGrey};
   text-transform: uppercase;
   font-size: 1rem;
   letter-spacing: 0.075rem;
@@ -26,7 +25,7 @@ export default function( props ) {
     <Wrapper>
       <Link href={'/' + urlParts[1]}>
         <span>
-          <Anchor color={theme.midGrey}>
+          <Anchor>
             {urlParts[1]}
           </Anchor>
         </span>
@@ -36,7 +35,7 @@ export default function( props ) {
       </Divider>
       <Link href={router.asPath}>
         <span>
-          <Anchor color={theme.midGrey} bold>
+          <Anchor bold>
             {router.query.id}
           </Anchor>
         </span>

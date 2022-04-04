@@ -44,7 +44,6 @@ const Error = styled(Message)`
 `;
 
 const Loading = styled(Message)`
-  color: ${theme.midGrey};
 `;
 
 const Loader = styled.div`

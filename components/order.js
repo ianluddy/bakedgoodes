@@ -36,6 +36,7 @@ const Title = styled.div`
 const Variant = styled.div`
   font-weight: 100;
   color: ${theme.midGrey};
+  padding: 0.25rem 0;
 `;
 
 export default function (order, index) {

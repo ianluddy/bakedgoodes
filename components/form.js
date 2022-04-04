@@ -2,31 +2,8 @@ import { useEffect, useState } from 'react';
 import theme from '../themes/default';
 import styled from 'styled-components';
 import DatePicker from "react-datepicker";
-import { useField, useFormikContext } from "formik";
+import { useField, useFormikContext, Field } from "formik";
 import "react-datepicker/dist/react-datepicker.css";
-  
-export const DateInput = ({ label, ...props }) => {
-  const { setFieldValue } = useFormikContext();
-  const [field, meta] = useField(props);
-  return (
-    <FieldWrapper>
-      <div>
-        <Label htmlFor={props.id || props.name}>{label}</Label>
-      </div>
-      <DatePicker
-        {...field}
-        {...props}
-        selected={(field.value && new Date(field.value)) || null}
-        onChange={val => {
-          setFieldValue(field.name, val);
-        }}
-      />
-      {meta.touched && meta.error ? (
-        <Error>{meta.error}</Error>
-      ) : null}
-    </FieldWrapper>
-  );
-};
 
 const Error = styled.div`
   color: ${theme.red};
@@ -71,6 +48,28 @@ const FieldWrapper = styled.div`
   }
   .react-datepicker__navigation {
     top: 10px;
+  }
+`;
+
+const RadioWrapper = styled.div`
+  display: flex;
+  padding: 0 0 0.5rem 0;
+  opacity: 1;
+  cursor: pointer;
+  transition: opacity ${theme.transitionTime};
+  position: relative;
+  right: 0.5rem;
+  :hover {
+    opacity: ${theme.opacity};
+  }
+  input {
+    width: 30px;
+    height: 18px;
+    position: relative;
+    top: 2px;
+  }
+  input, label {
+    cursor: pointer;
   }
 `;
 
@@ -138,6 +137,42 @@ export const Checkbox = ({ children, ...props }) => {
         <input type="checkbox" {...field} {...props} />
         {children}
       </Label>
+      {meta.touched && meta.error ? (
+        <Error>{meta.error}</Error>
+      ) : null}
+    </FieldWrapper>
+  );
+};
+
+export const Radio = ({ ...props }) => {
+  // TODO - make this generic
+  const { setFieldValue } = useFormikContext();
+  const [field, meta] = useField(props);
+  return (
+    <FieldWrapper>
+      <RadioWrapper>
+        <Label>
+          <input 
+            type="radio" 
+            name={field.name} 
+            value="true"
+            onChange={() => setFieldValue(field.name, "true")}
+            defaultChecked
+          />
+          Delivery in Dublin
+        </Label>
+      </RadioWrapper>
+      <RadioWrapper>
+        <Label>
+          <input 
+            type="radio" 
+            name={field.name} 
+            value="false"
+            onChange={() => setFieldValue(field.name, "false")}
+          />
+          Collection from Inchicore
+        </Label>
+      </RadioWrapper>
       {meta.touched && meta.error ? (
         <Error>{meta.error}</Error>
       ) : null}
