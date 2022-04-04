@@ -31,7 +31,7 @@ const FieldWrapper = styled.div`
     height: 120px;
   }
   .react-datepicker {
-    font-family: ${theme.fontMontserrat};
+    font-family: ${theme.body};
   }
   .react-datepicker__header {
     background: none;

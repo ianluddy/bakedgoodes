@@ -6,7 +6,6 @@ import Button from './button';
 import Link from 'next/link';
 
 const Wrapper = styled.div`
-  font-family: ${theme.fontMontserrat};
   padding: 0.5rem;
   position: relative;
   cursor: pointer;

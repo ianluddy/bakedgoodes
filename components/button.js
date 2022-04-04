@@ -3,7 +3,7 @@ import theme from '../themes/default';
 
 const Button = styled.button`
   transition: opacity ${theme.transitionTime};
-  font-family: ${theme.fontMontserrat};
+  font-family: ${theme.fontButton};
   opacity: 1;  
   text-align: center;
   text-decoration: none;

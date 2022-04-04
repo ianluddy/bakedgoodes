@@ -5,13 +5,13 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${theme.body};
     color: ${theme.text};
-    font-family: ${theme.fontSource};
+    font-family: ${theme.fontBody};
     margin: 0;
     border-bottom: ${theme.fatBorder} ${theme.primary};
     border-top: ${theme.fatBorder} ${theme.primary};
   }}
   h1, h2, h3, h4, h5 {
-    font-family: ${theme.fontMontserrat};
+    font-family: ${theme.fontHeading};
     font-weight: 500;
   }
   h1 {
