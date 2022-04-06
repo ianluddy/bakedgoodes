@@ -11,7 +11,7 @@ import Button from '../components/button';
 import Section from '../components/section';
 import FormLoader from '../components/formLoader';
 import { Anchor, ButtonAnchor } from '../components/anchor';
-import { GridSplit } from '../components/grid';
+import { GridTwoCol } from '../components/grid';
 import { TextArea, TextInput } from '../components/form';
 import Layout from '../components/layout';
 
@@ -63,7 +63,7 @@ export default function() {
           <TextInput label="Name *" name="name" type="text"/>
           <TextInput label="Email *" name="email" type="email"/>
           <TextArea label="Message *" name="message" type="text"/>
-          <Button type="submit" text="Send message" large wide/>
+          <Button type="submit" text="Send message" large wide secondary/>
         </FormikForm>
       </>
     );
@@ -93,7 +93,7 @@ export default function() {
         <h1>
           Contact
         </h1>
-        <GridSplit>
+        <GridTwoCol>
           <InstaWrapper>
             <h2>
               <BsInstagram/> 
@@ -164,7 +164,7 @@ export default function() {
             </>
             </Formik>
           </FormWrapper>
-        </GridSplit>
+        </GridTwoCol>
       </Section>
     </Layout>
   );

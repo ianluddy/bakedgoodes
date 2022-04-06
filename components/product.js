@@ -11,7 +11,7 @@ import Button from './button';
 import Select from './select';
 import Carousel from './carousel';
 import { OrderContext } from './orderProvider';
-import { GridSplit } from './grid';
+import { GridTwoCol } from './grid';
 
 import { data as cakes } from '../lib/cakes';
 import { data as cupcakes } from '../lib/cupcakes';
@@ -24,10 +24,6 @@ const productData = {
 const Title = styled.h1`
   color: ${theme.secondary};
   margin: 0.75rem 0 0.1rem 0;
-`;
-
-const CarouselWrapper = styled.div`
-  text-align: center;
 `;
 
 const ImageWrapper = styled.div`
@@ -80,7 +76,7 @@ export default function Post({ postData, postType }) {
   return (
     <Layout>
       <Section>
-        <GridSplit>
+        <GridTwoCol>
           <ImageWrapper>
             <Image 
               src={postData.meta.src}
@@ -115,19 +111,14 @@ export default function Post({ postData, postType }) {
               />
             </ButtonWrapper>
           </MetaWrapper>
-        </GridSplit>
+        </GridTwoCol>
       </Section>
       <Section>
-        <CarouselWrapper>
-          <h2>
-            Also available
-          </h2>
-          <Carousel 
-            products={productData[postType]}
-            productType={postType}
-            excludeId={postData.id}
-          />
-        </CarouselWrapper>
+        <Carousel 
+          title={"Also available"}
+          products={productData[postType]}
+          excludeId={postData.id}
+        />
       </Section>
     </Layout>
   )

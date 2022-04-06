@@ -19,17 +19,15 @@ const AnchorWrapper = styled.a`
 const NavAnchorWrapper = styled(AnchorWrapper)`
   font-weight: 700;
   font-family: ${theme.fontNav};
-  letter-spacing: 0.07rem;
   font-size: 1.4rem;
   padding-bottom: 1rem;
-  text-transform: uppercase;
   &:before, &:after {
     content: ${props => props.active ? "'•'" : "''" };
     width: 1rem;
     display: inline-block;
   }
   @media (${theme.devices.md}) {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 `;
 

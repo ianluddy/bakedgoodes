@@ -2,14 +2,14 @@ import { data as cakes } from '../lib/cakes';
 import Layout from '../components/layout';
 import Section from '../components/section';
 import ProductTile from '../components/productTile';
-import { GridDefault } from '../components/grid';
+import { GridThreeCol } from '../components/grid';
 import Cta from '../components/cta';
 
 export default function() {
   return (
     <Layout>
       <Section>
-        <GridDefault>
+        <GridThreeCol>
           {
             cakes.map(cake => (
               <ProductTile 
@@ -24,7 +24,7 @@ export default function() {
               />
             ))
           }
-        </GridDefault>
+        </GridThreeCol>
       </Section>
       <Section>
         <Cta 

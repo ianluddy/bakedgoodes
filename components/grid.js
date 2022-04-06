@@ -4,14 +4,15 @@ import FadeIn from 'react-fade-in';
 
 const Grid = styled(FadeIn)`
   flex-wrap: wrap;
-  display: ${props => props.hide ? 'none' : 'flex'};  
+  display: ${props => props.hide ? 'none' : 'flex'};
+  text-align: ${props => props.textAlign || 'initial'};
   > div {
     flex-grow: 1;
     width: calc(100%);
   }
 `;
 
-const Default = styled(Grid)`
+const ThreeCol = styled(Grid)`
   > div {
     @media (${theme.devices.sm}) {
       width: calc(50%);
@@ -25,33 +26,7 @@ const Default = styled(Grid)`
   }
 `;
 
-const Right = styled(Grid)`
-  > div:first-of-type {
-    @media (${theme.devices.sm}) {
-      width: calc(50%);
-      max-width: calc(50%);
-    }
-      
-    @media (${theme.devices.md}) {
-      width: calc(33%);
-      max-width: calc(33%);
-    }
-  }
-  
-  > div:last-of-type {
-    @media (${theme.devices.sm}) {
-      width: calc(50%);
-      max-width: calc(50%);
-    }
-      
-    @media (${theme.devices.md}) {
-      width: calc(66%);
-      max-width: calc(66%);
-    }
-  }
-`;
-
-const Split = styled(Grid)`
+const TwoCol = styled(Grid)`
   > div {
     @media (${theme.devices.md}) {
       width: calc(50%);
@@ -60,26 +35,18 @@ const Split = styled(Grid)`
   }
 `;
 
-export const GridDefault = ({ children, hide }) => {
+export const GridThreeCol = (props) => {
   return (
-    <Default delay="120" hide={hide}>
-      {children}
-    </Default>
+    <ThreeCol delay="120" {...props}>
+      {props.children}
+    </ThreeCol>
   )  
 }
 
-export const GridRight = ({ children, hide }) => {
+export const GridTwoCol = (props) => {
   return (
-    <Right delay="120" hide={hide}>
-      {children}
-    </Right>
-  )
-}
-
-export const GridSplit = ({ children, hide }) => {
-  return (
-    <Split delay="120" hide={hide}>
-      {children}
-    </Split>
+    <TwoCol delay="120" {...props}>
+      {props.children}
+    </TwoCol>
   )
 }

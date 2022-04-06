@@ -7,7 +7,7 @@ import * as emailjs from '@emailjs/browser';
 
 import Layout from '../components/layout';
 import { OrderContext } from '../components/orderProvider';
-import { GridSplit } from '../components/grid';
+import { GridTwoCol } from '../components/grid';
 import Order from '../components/order';
 import Section from '../components/section';
 import FormLoader from '../components/formLoader';
@@ -89,7 +89,7 @@ export default function() {
         />
       </Section>
       <Section hide={!count || submitting || success != undefined}>
-        <GridSplit>
+        <GridTwoCol>
           <OrderWrapper>
               <h2> Your order </h2>
               { 
@@ -170,7 +170,7 @@ export default function() {
               </Form>
             </Formik>
           </FormWrapper>
-        </GridSplit>
+        </GridTwoCol>
       </Section>
     </Layout>
   );
