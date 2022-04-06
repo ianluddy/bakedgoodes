@@ -7,7 +7,7 @@ import * as emailjs from '@emailjs/browser';
 
 import Layout from '../components/layout';
 import { OrderContext } from '../components/orderProvider';
-import { GridTwoCol } from '../components/grid';
+import Grid from '../components/grid';
 import Order from '../components/order';
 import Section from '../components/section';
 import FormLoader from '../components/formLoader';
@@ -38,7 +38,7 @@ const FormWrapper = styled.div`
     padding: 0 0 1rem 0;
   }
   @media (${theme.devices.md}) {
-    padding: 0 2rem 4rem 0;
+    padding: 0 2rem 4rem 2rem;
   }
 `;
 
@@ -89,7 +89,7 @@ export default function() {
         />
       </Section>
       <Section hide={!count || submitting || success != undefined}>
-        <GridTwoCol>
+        <Grid md={'50%'} lg={'50%'}>
           <OrderWrapper>
               <h2> Your order </h2>
               { 
@@ -170,7 +170,7 @@ export default function() {
               </Form>
             </Formik>
           </FormWrapper>
-        </GridTwoCol>
+        </Grid>
       </Section>
     </Layout>
   );

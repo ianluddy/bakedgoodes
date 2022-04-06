@@ -11,7 +11,7 @@ import Button from '../components/button';
 import Section from '../components/section';
 import FormLoader from '../components/formLoader';
 import { Anchor, ButtonAnchor } from '../components/anchor';
-import { GridTwoCol } from '../components/grid';
+import Grid from '../components/grid';
 import { TextArea, TextInput } from '../components/form';
 import Layout from '../components/layout';
 
@@ -21,7 +21,7 @@ const FormWrapper = styled.div`
   min-height: 15rem;
   padding: 0 0 4rem 0;
   @media (${theme.devices.md}) {
-    padding: 0 2rem 4rem 0;
+    padding: 0 2rem 4rem 2rem;
   }  
 `;
 
@@ -30,7 +30,7 @@ const InstaWrapper = styled.div`
   padding-bottom: 5rem;
   p {
     text-align: center;
-    padding: 0.5rem 0 2rem 0;
+    padding: 0.5rem 1rem 2rem 1rem;
     margin: 0 auto;
   }
   svg {
@@ -93,7 +93,7 @@ export default function() {
         <h1>
           Contact
         </h1>
-        <GridTwoCol>
+        <Grid md={'50%'} lg={'50%'}>
           <InstaWrapper>
             <h2>
               <BsInstagram/> 
@@ -164,7 +164,7 @@ export default function() {
             </>
             </Formik>
           </FormWrapper>
-        </GridTwoCol>
+        </Grid>
       </Section>
     </Layout>
   );

@@ -11,7 +11,7 @@ import Button from './button';
 import Select from './select';
 import Carousel from './carousel';
 import { OrderContext } from './orderProvider';
-import { GridTwoCol } from './grid';
+import Grid from './grid';
 
 import { data as cakes } from '../lib/cakes';
 import { data as cupcakes } from '../lib/cupcakes';
@@ -76,7 +76,7 @@ export default function Post({ postData, postType }) {
   return (
     <Layout>
       <Section>
-        <GridTwoCol>
+        <Grid md={'50%'} lg={'50%'}>
           <ImageWrapper>
             <Image 
               src={postData.meta.src}
@@ -111,7 +111,7 @@ export default function Post({ postData, postType }) {
               />
             </ButtonWrapper>
           </MetaWrapper>
-        </GridTwoCol>
+        </Grid>
       </Section>
       <Section>
         <Carousel 

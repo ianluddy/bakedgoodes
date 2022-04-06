@@ -2,14 +2,14 @@ import { data as cupcakes } from '../lib/cupcakes';
 import Layout from '../components/layout';
 import Section from '../components/section';
 import ProductTile from '../components/productTile';
-import { GridThreeCol } from '../components/grid';
+import Grid from '../components/grid';
 import Cta from '../components/cta';
 
 export default function() {
   return (
     <Layout>
       <Section>
-        <GridThreeCol>
+        <Grid sm={'50%'} md={'33%'} lg={'33%'}>
           {
             cupcakes.map(cupcake => (
               <ProductTile 
@@ -24,7 +24,7 @@ export default function() {
               />
             ))
           }
-        </GridThreeCol>
+        </Grid>
       </Section>
       <Section>
         <Cta 

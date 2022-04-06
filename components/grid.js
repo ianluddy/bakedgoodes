@@ -8,45 +8,27 @@ const Grid = styled(FadeIn)`
   text-align: ${props => props.textAlign || 'initial'};
   > div {
     flex-grow: 1;
-    width: calc(100%);
-  }
-`;
-
-const ThreeCol = styled(Grid)`
-  > div {
+    width: 100%;
+    max-width: 100%;
     @media (${theme.devices.sm}) {
-      width: calc(50%);
-      max-width: calc(50%);
+      width: ${props => props.sm || '100%'};
+      max-width: ${props => props.sm || '100%'};
     }
-      
     @media (${theme.devices.md}) {
-      width: calc(33%);
-      max-width: calc(33%);
+      width: ${props => props.md || '100%'};
+      max-width: ${props => props.md || '100%'};
+    }
+    @media (${theme.devices.lg}) {
+      width: ${props => props.lg || '100%'};
+      max-width: ${props => props.lg || '100%'};
     }
   }
 `;
 
-const TwoCol = styled(Grid)`
-  > div {
-    @media (${theme.devices.md}) {
-      width: calc(50%);
-      max-width: calc(50%);
-    }
-  }
-`;
-
-export const GridThreeCol = (props) => {
+export default function(props) {
   return (
-    <ThreeCol delay="120" {...props}>
+    <Grid delay="120" {...props}>
       {props.children}
-    </ThreeCol>
-  )  
-}
-
-export const GridTwoCol = (props) => {
-  return (
-    <TwoCol delay="120" {...props}>
-      {props.children}
-    </TwoCol>
+    </Grid>
   )
 }
