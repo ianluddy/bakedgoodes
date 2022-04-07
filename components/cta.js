@@ -3,7 +3,7 @@ import theme from '../themes/default';
 import { ButtonAnchor } from './anchor';
 
 const CTAWrapper = styled.div`
-  margin: ${props => props.small ? '1.5rem 0' : '3rem 0'};
+  margin: ${props => props.small ? '1rem 0' : '3rem 0'};
   text-align: center;
   h2 {
     margin: 0;

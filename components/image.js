@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import ExportedImage from "next-image-export-optimizer";
 
 const Wrapper = styled.div`
+  padding: ${props => props.padding || 'unset'};
   > span {
     position: static !important;
   }
@@ -15,7 +16,7 @@ const Wrapper = styled.div`
 
 export default function (props) {
   return (
-    <Wrapper>
+    <Wrapper {...props}>
       <ExportedImage 
         src={props.src}
         alt={props.alt}
