@@ -59,7 +59,7 @@ const Footer = styled.div`
   position: absolute;
   color: ${theme.body};
   bottom: 0;
-  height: 8rem;
+  height: 9rem;
   right: 2rem;
   left: 2rem;
 `;

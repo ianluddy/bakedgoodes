@@ -36,7 +36,7 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 1.5em;
     }
     @media (${theme.devices.md}) {
-      font-size: 1.7em;
+      font-size: 1.6em;
     }
   }
   p {
