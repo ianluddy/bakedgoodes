@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import theme from '../themes/default';
 import ExportedImage from "next-image-export-optimizer";
 
 const Wrapper = styled.div`
@@ -11,6 +11,7 @@ const Wrapper = styled.div`
     width: auto !important;
     height: auto !important;
     position: static !important;
+    border-radius: ${props => props.borderRadius && theme.borderRadius};
   }
 `;
 

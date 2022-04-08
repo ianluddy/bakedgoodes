@@ -3,6 +3,7 @@ import theme from '../themes/default';
 import Grid from './grid';
 import Image from './image';
 import Button from './button';
+import Cta from './cta';
 import Link from 'next/link';
 
 const Wrapper = styled.div`
@@ -10,9 +11,6 @@ const Wrapper = styled.div`
   position: relative;
   cursor: pointer;
   transition: transform ${theme.transitionTime};
-  img {
-    border-radius: ${theme.borderRadius};
-  }
   @media (${theme.devices.sm}) {
     :hover {
       transform: scale(1.03);
@@ -36,24 +34,45 @@ const Title = styled.h4`
   font-size: ${props => props.large ? '1.5rem' : '1.2rem' };
 `;
 
-export default function({ 
-    id, title, caption, desc, src, meta, path, large
-  }) {
+export const Small = (props) => {
   return (
-    <Link href={path}>
+    <Link href={props.path}>
       <Wrapper>
         <Image 
-          src={src}
-          alt={title}
-          title={title}
+          src={props.src}
+          alt={props.title}
+          title={props.title}
+          borderRadius
         />
         <Meta>
           <Button href="#" text="Order" secondary/>
-          <Title large={large}>
-            {title}
+          <Title large={props.large}>
+            {props.title}
           </Title>
         </Meta>
       </Wrapper>
     </Link>
   )
+}
+
+export const Large = (props) => {
+  return (
+    <Wrapper>
+      <Link href={props.href}>
+        <Image 
+          padding={'0.5rem'}
+          alt={props.title}
+          title={props.title}
+          {...props}
+        />
+      </Link>
+      <Cta
+        headline={props.title}
+        body={props.body}
+        buttonText={props.buttonText}
+        buttonLink={props.href}
+        small
+      />
+    </Wrapper>
+  );
 }

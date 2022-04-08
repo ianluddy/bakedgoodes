@@ -32,9 +32,6 @@ const ImageWrapper = styled.div`
   right: 1rem;
   padding-bottom: 1rem;
   @media (${theme.devices.md}) {
-    img {
-      border-radius: ${theme.borderRadius};
-    }
     width: initial;
     position: static;
     padding: 1rem;
@@ -82,6 +79,7 @@ export default function Post({ postData, postType }) {
               src={postData.meta.src}
               alt={postData.meta.title}
               title={postData.meta.title}
+              borderRadius
             />
           </ImageWrapper>
           <MetaWrapper>

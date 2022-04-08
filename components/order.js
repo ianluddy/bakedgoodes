@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 import theme from '../themes/default';
 import { OrderContext } from './orderProvider';
 import QuantityPicker from './quantityPicker';
@@ -15,9 +14,6 @@ const Wrapper = styled.div`
 const ImageWrapper = styled.div`
   width: 84px;
   display: inline-block;
-  img {
-    border-radius: ${theme.borderRadius};
-  }
 `;
 
 const Meta = styled.div`
@@ -46,6 +42,7 @@ export default function (order, index) {
           alt={order.product.title}
           title={order.product.title}
           src={order.product.src}
+          borderRadius
         />
       </ImageWrapper>
       <Meta>

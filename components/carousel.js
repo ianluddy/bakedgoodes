@@ -7,7 +7,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 
 import Image from './image';
-import ProductTile from './productTile';
+import { Small as ProductTile } from './productTile';
 
 const Wrapper = styled.div`
   text-align: center;

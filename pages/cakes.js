@@ -1,7 +1,7 @@
 import { data as cakes } from '../lib/cakes';
 import Layout from '../components/layout';
 import Section from '../components/section';
-import ProductTile from '../components/productTile';
+import { Small as ProductTile } from '../components/productTile';
 import Grid from '../components/grid';
 import Cta from '../components/cta';
 

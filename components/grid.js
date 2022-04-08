@@ -5,7 +5,7 @@ import FadeIn from 'react-fade-in';
 const Grid = styled(FadeIn)`
   flex-wrap: wrap;
   display: ${props => props.hide ? 'none' : 'flex'};
-  text-align: ${props => props.textAlign || 'initial'};
+  text-align: ${props => props.align || 'initial'};
   > div {
     flex-grow: 1;
     width: 100%;
@@ -22,6 +22,10 @@ const Grid = styled(FadeIn)`
       width: ${props => props.lg || '100%'};
       max-width: ${props => props.lg || '100%'};
     }
+  }
+  p {
+    margin: ${props => props.align == 'center' && '0 auto'};
+    max-width: ${props => props.align == 'center' && '600px'};
   }
 `;
 
