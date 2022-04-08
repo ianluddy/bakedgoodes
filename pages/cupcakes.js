@@ -16,10 +16,8 @@ export default function() {
                 key={cupcake.id}
                 path={`/cupcakes/${cupcake.id}`}
                 title={cupcake.meta.title}
-                caption={cupcake.meta.caption}
-                desc={cupcake.meta.desc}
                 src={cupcake.meta.src}
-                link={cupcake.meta.link}
+                buttonText="Order"
                 large
               />
             ))

@@ -45,7 +45,7 @@ export const Small = (props) => {
           borderRadius
         />
         <Meta>
-          <Button href="#" text="Order" secondary/>
+          <Button text={props.buttonText} secondary/>
           <Title large={props.large}>
             {props.title}
           </Title>
@@ -58,7 +58,7 @@ export const Small = (props) => {
 export const Large = (props) => {
   return (
     <Wrapper>
-      <Link href={props.href}>
+      <Link href={props.path}>
         <Image 
           padding={'0.5rem'}
           alt={props.title}
@@ -70,7 +70,7 @@ export const Large = (props) => {
         headline={props.title}
         body={props.body}
         buttonText={props.buttonText}
-        buttonLink={props.href}
+        buttonLink={props.path}
         small
       />
     </Wrapper>

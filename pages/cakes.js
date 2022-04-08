@@ -16,10 +16,8 @@ export default function() {
                 key={cake.id}
                 path={`/cakes/${cake.id}`}
                 title={cake.meta.title}
-                caption={cake.meta.caption}
-                desc={cake.meta.desc}
                 src={cake.meta.src}
-                link={cake.meta.link}
+                buttonText="Order"
                 large
               />
             ))

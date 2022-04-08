@@ -58,10 +58,8 @@ export default ({ title, products, excludeId }) => {
               key={product.id}
               path={product.meta.path}
               title={product.meta.title}
-              caption={product.meta.caption}
-              desc={product.meta.desc}
               src={product.meta.src}
-              link={product.meta.link}
+              buttonText="Order"
             />
           </SwiperSlide>
         ))
