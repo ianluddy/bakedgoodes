@@ -63,7 +63,7 @@ export const Small = (props) => {
           borderRadius
         />
         <Meta>
-          <Button text={props.buttonText} secondary/>
+          { props.buttonText && <Button text={props.buttonText} secondary/> }
           <Title large={props.large}>
             {props.title}
           </Title>

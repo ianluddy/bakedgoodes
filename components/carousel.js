@@ -59,7 +59,6 @@ export default ({ title, products, excludeId }) => {
               path={product.meta.path}
               title={product.meta.title}
               src={product.meta.src}
-              buttonText="Order"
             />
           </SwiperSlide>
         ))
