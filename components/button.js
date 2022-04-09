@@ -2,9 +2,8 @@ import styled from 'styled-components';
 import theme from '../themes/default';
 
 const Button = styled.button`
-  transition: opacity ${theme.transitionTime};
+  transition: background-color ${theme.transitionTime};
   font-family: ${theme.fontButton};
-  opacity: 1;  
   text-align: center;
   text-decoration: none;
   border-radius: 5px;
@@ -15,18 +14,17 @@ const Button = styled.button`
   outline: none;
   vertical-align: baseline;
   user-select: none;
-  -webkit-user-select: none;
   touch-action: manipulation;
   cursor: pointer;
   font-size: ${props => props.large ? '1.2rem' : '1rem'};  
   padding: ${props => props.large ? '14px 22px' : '8px 18px'};
   background-color: ${props => props.secondary ? theme.secondary : theme.primary};
-  color: ${props => props.secondary ? theme.body : theme.body};
+  color: ${theme.body};
   display: ${props => props.wide ? "block" : "inline-block"};
   width: ${props => props.wide ? "100%" : "auto"};
   margin: ${props => props.nomargin ? "0" : "initial"};
   &:hover {
-    opacity: ${theme.opacity};
+    background-color: ${props => props.secondary ? theme.secondaryLight : theme.primaryLight};
   }
 }
 `;

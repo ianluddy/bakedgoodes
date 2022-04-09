@@ -34,6 +34,24 @@ const Title = styled.h4`
   font-size: ${props => props.large ? '1.5rem' : '1.2rem' };
 `;
 
+const ImageCTA = styled.div`
+  transition: background-color ${theme.transitionTime};
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 0;
+  height: 4rem;
+  background-color: ${theme.secondary};
+  h3 {
+    margin: 0;
+    padding: 1rem 0;
+    color: ${theme.body};
+  }
+  :hover {
+    background-color: ${theme.secondaryLight};
+  }
+`;
+
 export const Small = (props) => {
   return (
     <Link href={props.path}>
@@ -56,6 +74,26 @@ export const Small = (props) => {
 }
 
 export const Large = (props) => {
+  return (
+    <Wrapper>
+      <Link href={props.path}>
+        <div>
+          <Image 
+            padding={'0.5rem'}
+            alt={props.title}
+            title={props.title}
+            {...props}
+          />
+          <ImageCTA>
+            <h3>{props.title}</h3>
+          </ImageCTA>
+        </div>
+      </Link>
+    </Wrapper>
+  );
+}
+
+export const LargeWithCTA = (props) => {
   return (
     <Wrapper>
       <Link href={props.path}>

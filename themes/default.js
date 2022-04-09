@@ -1,8 +1,10 @@
 const theme = {
   text: "#666370",
   body: "#FFFFFF",
-  primary: "#e7859c",    
+  primary: "#e7859c",
+  primaryLight: "#eb9daf",
   secondary: "#79CAC2",
+  secondaryLight: "#93d4ce",
   shadow: "#CCCCCC",
   lightGrey: "#d0d0d0",
   midGrey: "#a0a0a0",
