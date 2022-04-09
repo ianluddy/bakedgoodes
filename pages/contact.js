@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import styled from 'styled-components';
 import { Formik, Form as FormikForm, useField } from 'formik';
 import * as Yup from 'yup';
@@ -126,50 +127,56 @@ export default function() {
   };
   
   return (
-    <Layout>
-      <Section padding={"0 0 2rem 0"}>
-        <h1>
-          Contact
-        </h1>
-        <Grid md={'50%'} lg={'50%'}>
-          <InstaWrapper>
-            <h2>
-              <BsInstagram/> 
-              <Anchor href="https://www.instagram.com/baked_goodes/" bold>
-                baked_goodes
-              </Anchor>
-            </h2>
-            <p>
-              Check out my Instagram to see my most recent bakes.
-              You can message me there to chat about an order.
-              Or just use the contact form on this page.
-            </p>
-            <ButtonAnchor 
-              href="https://www.instagram.com/baked_goodes/" 
-              text={"Follow me"}
-              large 
-              secondary
-              nomargin
-            >
-              <BsInstagram/>
-            </ButtonAnchor>
-          </InstaWrapper>
-          <FormWrapper>
-            <Formik
-              enableReinitialize
-              initialValues={initialValues}
-              validationSchema={validationSchema}
-              onSubmit={handleSubmit}
-            >
-            <>
-              {
-                (submitting || success != undefined) ? <Loader/> : <Form/> 
-              }
-            </>
-            </Formik>
-          </FormWrapper>
-        </Grid>
-      </Section>
-    </Layout>
+    <>
+      <Head>
+        <title>Baked Goodes - Contact</title>
+        <meta name="description" content="Indulge yourself with some delicious home baked goods made with love in Dublin 8"/>
+      </Head>
+      <Layout>
+        <Section padding={"0 0 2rem 0"}>
+          <h1>
+            Contact
+          </h1>
+          <Grid md={'50%'} lg={'50%'}>
+            <InstaWrapper>
+              <h2>
+                <BsInstagram/> 
+                <Anchor href="https://www.instagram.com/baked_goodes/" bold>
+                  baked_goodes
+                </Anchor>
+              </h2>
+              <p>
+                Check out my Instagram to see my most recent bakes.
+                You can message me there to chat about an order.
+                Or just use the contact form on this page.
+              </p>
+              <ButtonAnchor 
+                href="https://www.instagram.com/baked_goodes/" 
+                text={"Follow me"}
+                large 
+                secondary
+                nomargin
+              >
+                <BsInstagram/>
+              </ButtonAnchor>
+            </InstaWrapper>
+            <FormWrapper>
+              <Formik
+                enableReinitialize
+                initialValues={initialValues}
+                validationSchema={validationSchema}
+                onSubmit={handleSubmit}
+              >
+              <>
+                {
+                  (submitting || success != undefined) ? <Loader/> : <Form/> 
+                }
+              </>
+              </Formik>
+            </FormWrapper>
+          </Grid>
+        </Section>
+      </Layout>
+    </>
   );
 }

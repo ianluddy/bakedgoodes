@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import theme from '../themes/default';
 import styled from 'styled-components';
 import { useContext, useEffect, useState, useRef } from "react";
@@ -115,67 +116,73 @@ export default function() {
   });
 
   return (
-    <Layout>
-      <Section hide={submitting || success != undefined || count == 0} padding={"0"}>
-        <h1>
-          Checkout
-        </h1>
-      </Section>
-      <Section hide={count && count != 0 || (submitting || success != undefined)}>
-        <Cta 
-          headline="Checkout"
-          body="Your basket is empty :("
-          buttonText="Back to home"
-          buttonLink="/"
-        />
-      </Section>
-      <Section hide={!submitting && success == undefined}>
-        <FormLoader 
-          $loading={submitting === true} 
-          $success={success === true}
-          $error={success === false}
-          loadingMsg={"Ordering"}
-          errorMsg={"Oops something went wrong, please try again later"}
-          successMsg={"I'll be in touch within 24 hours to confirm your order"}
-          id="loader"
-        />
-      </Section>
-      <Section hide={!count || submitting || success != undefined}>
-        <Grid md={'50%'} lg={'50%'}>
-          <OrderWrapper>
-              <h2> Your order </h2>
-              { 
-                orders ? orders.map((order, i) => Order(order, i)) : null
-              }
-              <TotalWrapper>
-                <OrderTotal/>
-              </TotalWrapper>
-          </OrderWrapper>
-          <FormWrapper>
-            <h2> Your details </h2>
-            <p>
-              Please fill in your details below.<br/>
-              I will respond within 24 hours to confirm your order and arrange payment.
-            </p>
-            <Formik
-              enableReinitialize
-              initialValues={initialValues}
-              validationSchema={validationSchema}
-              onSubmit={handleSubmit}
-            >
-              <Form>
-                <TextInput label="Name *" name="name" type="text" />
-                <TextInput label="Email *" name="email" type="email" />
-                <Radio name="delivery" type="radio"/>
-                <DateInput label="Delivery/Collection Date *" name="date"/>
-                <TextInput label="Phone" name="phone" type="tel" placeholder="Optional"/>
-                <TextArea label="Order notes" name="notes" type="text" placeholder="Optional"/>
-                <Button type="submit" text="Submit order" large secondary wide/>
-              </Form>
-            </Formik>
-          </FormWrapper>
-        </Grid>
-      </Section>
-    </Layout>
+    <>
+      <Head>
+        <title>Baked Goodes - Checkout</title>
+        <meta name="robots" content="noindex, nofollow"/>
+      </Head>
+      <Layout>
+        <Section hide={submitting || success != undefined || count == 0} padding={"0"}>
+          <h1>
+            Checkout
+          </h1>
+        </Section>
+        <Section hide={count && count != 0 || (submitting || success != undefined)}>
+          <Cta 
+            headline="Checkout"
+            body="Your basket is empty :("
+            buttonText="Back to home"
+            buttonLink="/"
+          />
+        </Section>
+        <Section hide={!submitting && success == undefined}>
+          <FormLoader 
+            $loading={submitting === true} 
+            $success={success === true}
+            $error={success === false}
+            loadingMsg={"Ordering"}
+            errorMsg={"Oops something went wrong, please try again later"}
+            successMsg={"I'll be in touch within 24 hours to confirm your order"}
+            id="loader"
+          />
+        </Section>
+        <Section hide={!count || submitting || success != undefined}>
+          <Grid md={'50%'} lg={'50%'}>
+            <OrderWrapper>
+                <h2> Your order </h2>
+                { 
+                  orders ? orders.map((order, i) => Order(order, i)) : null
+                }
+                <TotalWrapper>
+                  <OrderTotal/>
+                </TotalWrapper>
+            </OrderWrapper>
+            <FormWrapper>
+              <h2> Your details </h2>
+              <p>
+                Please fill in your details below.<br/>
+                I will respond within 24 hours to confirm your order and arrange payment.
+              </p>
+              <Formik
+                enableReinitialize
+                initialValues={initialValues}
+                validationSchema={validationSchema}
+                onSubmit={handleSubmit}
+              >
+                <Form>
+                  <TextInput label="Name *" name="name" type="text" />
+                  <TextInput label="Email *" name="email" type="email" />
+                  <Radio name="delivery" type="radio"/>
+                  <DateInput label="Delivery/Collection Date *" name="date"/>
+                  <TextInput label="Phone" name="phone" type="tel" placeholder="Optional"/>
+                  <TextArea label="Order notes" name="notes" type="text" placeholder="Optional"/>
+                  <Button type="submit" text="Submit order" large secondary wide/>
+                </Form>
+              </Formik>
+            </FormWrapper>
+          </Grid>
+        </Section>
+      </Layout>
+    </>
   );
 }
