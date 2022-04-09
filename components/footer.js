@@ -22,6 +22,9 @@ const Signature = styled.span`
     position: relative;
     top: 0.3rem;
   }
+  span {
+    margin: 0 0.5rem;
+  }
 `;
 
 const Break = styled.div`
@@ -42,7 +45,9 @@ export default function () {
         © {new Date().getFullYear()} Baked Goodes
       </Signature>
       <Signature>
-        <RiCake3Line/> Baked in Inchicore, Dublin 8
+        <span>📍 Dublin 8</span>
+        <span>📝 HSE Registered</span>
+        <span>📋 HACCP Certified</span>
       </Signature>
       <Signature>
         Baked Goodes bakes with nuts and nut products. <br/>
