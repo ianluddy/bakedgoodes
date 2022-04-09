@@ -205,6 +205,7 @@ export const DateInput = ({ label, ...props }) => {
       <DatePicker
         {...field}
         {...props}
+        dateFormat="dd/MM/yyyyy"
         selected={(field.value && new Date(field.value)) || null}
         onChange={val => {
           setFieldValue(field.name, val);

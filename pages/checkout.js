@@ -56,6 +56,58 @@ export default function() {
     notes: '',
   };
 
+  const validationSchema = Yup.object({
+    name: Yup.string()
+      .required('Please enter your name')
+      .nullable(),
+    email: Yup.string()
+      .email('Invalid email address')
+      .required('Please enter your email')
+      .nullable(),
+    delivery: Yup.string()
+      .required('Please specify delivery or collection')
+      .nullable(),
+    date: Yup.string()
+      .required('Please enter a date')
+      .nullable(),
+    phone: Yup.string().nullable(),
+    notes: Yup.string().nullable(),
+  });
+
+  const handleSubmit = (values) => {
+    setSubmitting(true);
+    window.scrollTo({
+      top: 0, 
+      behavior: 'smooth'
+    });
+    setTimeout(() => {
+      // setSubmitting(false);
+      // setSuccess(true);
+      // return;
+      emailjs.send(
+        'service_6wdvvxv', 
+        'template_uiuv1uu',
+        {
+          from_name: values.name,
+          reply_to: values.email,
+          delivery: values.delivery === "true" ? "Delivery" : "Collection",
+          date: values.date.toDateString(),
+          notes: values.notes || '-',
+          phone: values.phone || '-',
+          order: JSON.stringify(orders),
+        }
+      ).then((response) => {
+        setSubmitting(false);
+        setSuccess(true);
+        clearOrder();
+      }, (error) => {
+        setSubmitting(false);
+        setSuccess(false);
+        throw error;
+      });
+    }, 1200);
+  };
+
   useEffect(() => {
     initialValues.name = localStorage.getItem('form:name') || '';
     initialValues.email = localStorage.getItem('form:email') || '';
@@ -108,56 +160,8 @@ export default function() {
             <Formik
               enableReinitialize
               initialValues={initialValues}
-              validationSchema={Yup.object({
-                name: Yup.string()
-                  .required('Please enter your name')
-                  .nullable(),
-                email: Yup.string()
-                  .email('Invalid email address')
-                  .required('Please enter your email')
-                  .nullable(),
-                delivery: Yup.string()
-                  .required('Please specify delivery or collection')
-                  .nullable(),
-                date: Yup.string()
-                  .required('Please enter a date')
-                  .nullable(),
-                phone: Yup.string().nullable(),
-                notes: Yup.string().nullable(),
-              })}
-              onSubmit={(values) => {
-                setSubmitting(true);
-                window.scrollTo({
-                  top: 0, 
-                  behavior: 'smooth'
-                });
-                setTimeout(() => {
-                  // setSubmitting(false);
-                  // setSuccess(true);
-                  // return;
-                  emailjs.send(
-                    'service_6wdvvxv', 
-                    'template_uiuv1uu',
-                    {
-                      from_name: values.name,
-                      reply_to: values.email,
-                      delivery: values.delivery === "true" ? "Delivery" : "Collection",
-                      date: values.date.toDateString(),
-                      notes: values.notes || '-',
-                      phone: values.phone || '-',
-                      order: JSON.stringify(orders),
-                    }
-                  ).then((response) => {
-                    setSubmitting(false);
-                    setSuccess(true);
-                    clearOrder();
-                  }, (error) => {
-                    setSubmitting(false);
-                    setSuccess(false);
-                    throw error;
-                  });
-                }, 1200);
-              }}
+              validationSchema={validationSchema}
+              onSubmit={handleSubmit}
             >
               <Form>
                 <TextInput label="Name *" name="name" type="text" />

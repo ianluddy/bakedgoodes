@@ -36,11 +36,15 @@ const Message = styled.div`
 `;
 
 const Success = styled(Message)`
-  color: ${theme.secondary};
+  svg {
+    color: ${theme.secondary};
+  }
 `;
 
 const Error = styled(Message)`
-  color: ${theme.red};
+  svg {
+    color: ${theme.red};
+  }
 `;
 
 const Loading = styled(Message)`

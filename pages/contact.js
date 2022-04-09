@@ -86,6 +86,44 @@ export default function() {
     initialValues.name = localStorage.getItem('form:name') || '';
     initialValues.email = localStorage.getItem('form:email') || '';
   }, []);
+
+  const validationSchema = Yup.object({
+    name: Yup.string()
+      .required('Please enter your name')
+      .nullable(),
+    email: Yup.string()
+      .email('Invalid email address')
+      .required('Please enter your email')
+      .nullable(),
+    message: Yup.string()
+      .required('Please enter your message')
+      .nullable(),
+  });
+
+  const handleSubmit = (values) => {
+    setSubmitting(true);
+    setTimeout(() => {
+      // setSubmitting(false);
+      // setSuccess(true);
+      // return;
+      emailjs.send(
+        'service_6wdvvxv', 
+        'template_e0doy5b',
+        {
+          from_name: values.name,
+          reply_to: values.email,
+          message: values.message
+        }
+      ).then((response) => {
+        setSubmitting(false);
+        setSuccess(true);
+      }, (error) => {
+        setSubmitting(false);
+        setSuccess(false);
+        throw error;
+      });
+    }, 1200);
+  };
   
   return (
     <Layout>
@@ -120,42 +158,8 @@ export default function() {
             <Formik
               enableReinitialize
               initialValues={initialValues}
-              validationSchema={Yup.object({
-                name: Yup.string()
-                  .required('Please enter your name')
-                  .nullable(),
-                email: Yup.string()
-                  .email('Invalid email address')
-                  .required('Please enter your email')
-                  .nullable(),
-                message: Yup.string()
-                  .required('Please enter your message')
-                  .nullable(),
-              })}
-              onSubmit={(values) => {
-                setSubmitting(true);
-                setTimeout(() => {
-                  // setSubmitting(false);
-                  // setSuccess(true);
-                  // return;
-                  emailjs.send(
-                    'service_6wdvvxv', 
-                    'template_e0doy5b',
-                    {
-                      from_name: values.name,
-                      reply_to: values.email,
-                      message: values.message
-                    }
-                  ).then((response) => {
-                    setSubmitting(false);
-                    setSuccess(true);
-                  }, (error) => {
-                    setSubmitting(false);
-                    setSuccess(false);
-                    throw error;
-                  });
-                }, 1200);
-              }}
+              validationSchema={validationSchema}
+              onSubmit={handleSubmit}
             >
             <>
               {
