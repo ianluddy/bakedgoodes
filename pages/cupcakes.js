@@ -6,12 +6,12 @@ import { Small as ProductTile } from '../components/productTile';
 import Grid from '../components/grid';
 import Cta from '../components/cta';
 
-export default function() {
+export default function(props) {
   return (
     <>
       <Head>
-      <title>Baked Goodes - Cupcakes</title>
-      <meta name="description" content="Indulge yourself with some delicious home baked goods made with love in Dublin 8"/>
+        <title>{props.siteName} - Cupcakes</title>
+        <meta name="description" content="Indulge yourself with some delicious home baked goods made with love in Dublin 8"/>
       </Head>
       <Layout>
         <Section>

@@ -3,11 +3,11 @@ import Layout from '../components/layout';
 import Cta from '../components/cta';
 import Section from '../components/section';
 
-export default function() {
+export default function(props) {
   return (
     <>
       <Head>
-        <title>Baked Goodes - 404</title>
+        <title>{props.siteName} - 404</title>
         <meta name="robots" content="noindex, nofollow"/>
       </Head>
       <Layout>

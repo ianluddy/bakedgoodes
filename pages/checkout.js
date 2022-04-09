@@ -43,7 +43,7 @@ const FormWrapper = styled.div`
   }
 `;
 
-export default function() {
+export default function(props) {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(null);  
   const { orders, count, clearOrder } = useContext(OrderContext);
@@ -118,7 +118,7 @@ export default function() {
   return (
     <>
       <Head>
-        <title>Baked Goodes - Checkout</title>
+        <title>{props.siteName} - Checkout</title>
         <meta name="robots" content="noindex, nofollow"/>
       </Head>
       <Layout>

@@ -46,7 +46,7 @@ const InstaWrapper = styled.div`
   }
 `;
 
-export default function() {
+export default function(props) {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(null);
 
@@ -129,7 +129,7 @@ export default function() {
   return (
     <>
       <Head>
-        <title>Baked Goodes - Contact</title>
+        <title>{props.siteName} - Contact</title>
         <meta name="description" content="Indulge yourself with some delicious home baked goods made with love in Dublin 8"/>
       </Head>
       <Layout>

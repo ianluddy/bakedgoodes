@@ -10,7 +10,7 @@ const name = 'Baked Goodes';
 export const siteTitle = 'Home baking from Dublin 8';
 
 export default function({ Component, pageProps }) {
-  init("u4Pqy4omgBsiy3ghJ");
+  init("u4Pqy4omgBsiy3ghJ"); // Email JS
   return (
     <>
       <GlobalStyle />
@@ -27,7 +27,7 @@ export default function({ Component, pageProps }) {
           <link rel="shortcut icon" href="images/favicon/favicon.ico" />
         </Head>
         <OrderProvider>
-          <Component {...pageProps} />
+          <Component {...pageProps} siteName={name}/>
         </OrderProvider>
       </ThemeProvider>
     </>
