@@ -169,15 +169,17 @@ export default function(props) {
                 validationSchema={validationSchema}
                 onSubmit={handleSubmit}
               >
-                <Form>
-                  <TextInput label="Name *" name="name" type="text" />
-                  <TextInput label="Email *" name="email" type="email" />
-                  <Radio name="delivery" type="radio"/>
-                  <DateInput label="Delivery/Collection Date *" name="date"/>
-                  <TextInput label="Phone" name="phone" type="tel" placeholder="Optional"/>
-                  <TextArea label="Order notes" name="notes" type="text" placeholder="Optional"/>
-                  <Button type="submit" text="Submit order" large secondary wide/>
-                </Form>
+                {(props) => (
+                  <Form>
+                    <TextInput label="Name *" name="name" type="text" />
+                    <TextInput label="Email *" name="email" type="email" />
+                    <Radio name="delivery" type="radio"/>
+                    <DateInput label={props.values.delivery == 'true' ? 'Delivery Date *' : 'Collection Date *'} name="date"/>
+                    <TextInput label="Phone" name="phone" type="tel" placeholder="Optional"/>
+                    <TextArea label="Order notes" name="notes" type="text" placeholder="Optional"/>
+                    <Button type="submit" text="Submit order" large secondary wide/>
+                  </Form>
+                )}
               </Formik>
             </FormWrapper>
           </Grid>
