@@ -200,6 +200,9 @@ export const DateInput = ({ label, ...props }) => {
   const isNotPast = (date) => {
     return date > new Date();
   };
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const [date, setDate] = useState(tomorrow);
   return (
     <FieldWrapper>
       <div>
@@ -209,8 +212,9 @@ export const DateInput = ({ label, ...props }) => {
         {...field}
         {...props}
         dateFormat="dd/MM/yyyyy"
-        selected={(field.value && new Date(field.value)) || null}
+        selected={date}
         onChange={val => {
+          setDate(val);
           setFieldValue(field.name, val);
         }}
         filterDate={isNotPast}
