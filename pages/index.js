@@ -11,6 +11,7 @@ import {
 } from '../components/productTile';
 import Carousel from '../components/carousel';
 import Cta from '../components/cta';
+import Map from '../components/map';
 import Image from '../components/image';
 import Grid from '../components/grid';
 
@@ -92,6 +93,25 @@ const Categories = () => {
   );
 }
 
+const Delivery = () => {
+  return(
+    <Grid sm={'100%'} md={'50%'} lg={'50%'}>
+      <div>
+        <Cta
+          padding='3rem 0'
+          headline='Delivery'
+          body='Delivery is available in Dublin, or you can collect from Inchicore. Get in touch to find out about availability.'
+          buttonText='Shop now'
+          buttonLink='/cakes'
+        />
+      </div>
+      <div>
+        <Map/> 
+      </div>
+    </Grid>
+  );
+}
+
 const Bio = () => {
   return(
     <Grid align={'center'}>
@@ -123,21 +143,21 @@ export default function(props) {
               <CakeTypes/>
             </Section>
             <Section>
+              <BestSellers/>
+            </Section>
+            <Section>
               <Bio/>
+            </Section>
+            <Section>
+              <Delivery/>
             </Section>
             <Section>
               <Categories/>
             </Section>
             <Section>
-              <Bio/>
-            </Section>
-            <Section>
-              <BestSellers/>
-            </Section>
-            <Section>
               <Cta 
-                headline="Fancy something else?"
-                body="Plenty of options available, get in touch!"
+                headline="Fancy something special?"
+                body="Get in touch and we can discuss a bespoke bake for your special occasion"
                 buttonText="Contact me"
                 buttonLink="/contact"
               />
