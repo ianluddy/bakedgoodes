@@ -197,6 +197,9 @@ export const Select = ({ label, ...props }) => {
 export const DateInput = ({ label, ...props }) => {
   const { setFieldValue } = useFormikContext();
   const [field, meta] = useField(props);
+  const isNotPast = (date) => {
+    return date > new Date();
+  };
   return (
     <FieldWrapper>
       <div>
@@ -210,6 +213,7 @@ export const DateInput = ({ label, ...props }) => {
         onChange={val => {
           setFieldValue(field.name, val);
         }}
+        filterDate={isNotPast}
       />
       {meta.touched && meta.error ? (
         <Error>{meta.error}</Error>
