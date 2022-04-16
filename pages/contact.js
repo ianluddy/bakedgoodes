@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 
 import theme from '../themes/default';
 import Button from '../components/button';
+import Map from '../components/map';
+import Cta from '../components/cta';
 import Section from '../components/section';
 import FormLoader from '../components/formLoader';
 import { Anchor, ButtonAnchor } from '../components/anchor';
@@ -16,34 +18,18 @@ import Grid from '../components/grid';
 import { TextArea, TextInput } from '../components/form';
 import Layout from '../components/layout';
 
+const MapWrapper = styled.div`
+  padding: 1rem 0 2rem 0;
+`;
+
 const FormWrapper = styled.div`
   position: relative;
   text-align: center;
   min-height: 15rem;
   padding: 0 0 4rem 0;
   @media (${theme.devices.md}) {
-    padding: 0 2rem 4rem 2rem;
+    padding: 1.5rem 2rem 4rem 2rem;
   }  
-`;
-
-const InstaWrapper = styled.div`
-  text-align: center;
-  padding-bottom: 5rem;
-  p {
-    text-align: center;
-    padding: 0.5rem 1rem 2rem 1rem;
-    margin: 0 auto;
-  }
-  svg {
-    font-size: 2rem;
-    line-height: 2rem;
-    vertical-align: top;
-    margin-right: 0.5rem;
-    position: relative;
-    @media (${theme.devices.md}) {
-      top: 0.2rem;
-    }
-  }
 `;
 
 export default function(props) {
@@ -138,28 +124,17 @@ export default function(props) {
             Contact
           </h1>
           <Grid md={'50%'} lg={'50%'}>
-            <InstaWrapper>
-              <h2>
-                <BsInstagram/> 
+            <Cta
+              headline={[
+                <BsInstagram/> ,
                 <Anchor href="https://www.instagram.com/baked_goodes/" bold>
                   baked_goodes
                 </Anchor>
-              </h2>
-              <p>
-                Check out my Instagram to see my most recent bakes.
-                You can message me there to chat about an order.
-                Or just use the contact form on this page.
-              </p>
-              <ButtonAnchor 
-                href="https://www.instagram.com/baked_goodes/" 
-                text={"Follow me"}
-                large 
-                secondary
-                nomargin
-              >
-                <BsInstagram/>
-              </ButtonAnchor>
-            </InstaWrapper>
+              ]}
+              body="Check out my Instagram to see my most recent bakes. You can message me there to chat about an order. Or just use the contact form on this page."
+              buttonText="Follow me"
+              buttonLink="https://www.instagram.com/baked_goodes/"
+            />
             <FormWrapper>
               <Formik
                 enableReinitialize
@@ -174,6 +149,11 @@ export default function(props) {
               </>
               </Formik>
             </FormWrapper>
+          </Grid>
+          <Grid>
+            <MapWrapper>
+              <Map/>
+            </MapWrapper>
           </Grid>
         </Section>
       </Layout>

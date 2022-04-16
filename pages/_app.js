@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import { ThemeProvider } from "styled-components";
 import{ init } from '@emailjs/browser';
+import TagManager from 'react-gtm-module';
+import { useEffect } from 'react';
 
 import theme from '../themes/default';
 import OrderProvider from '../components/orderProvider';
@@ -11,6 +13,11 @@ export const siteTitle = 'Home baking from Dublin 8';
 
 export default function({ Component, pageProps }) {
   init("u4Pqy4omgBsiy3ghJ"); // Email JS
+
+  useEffect(() => {
+      TagManager.initialize({ gtmId: 'GTM-5FGM2ZM' });
+  }, []);
+
   return (
     <>
       <GlobalStyle />

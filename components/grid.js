@@ -24,8 +24,9 @@ const Grid = styled(FadeIn)`
     }
   }
   p {
-    margin: ${props => props.align == 'center' && '0 auto'};
-    max-width: ${props => props.align == 'center' && '600px'};
+    margin-left: ${props => props.align == 'center' && 'auto'};
+    margin-right: ${props => props.align == 'center' && 'auto'};
+    max-width: ${props => props.align == 'center' && theme.textMaxWidth};
   }
 `;
 

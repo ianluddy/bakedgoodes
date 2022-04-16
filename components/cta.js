@@ -7,9 +7,22 @@ const CTAWrapper = styled.div`
   text-align: center;
   h2 {
     margin: 0;
+    a {
+      font-weight: 600;
+    }
   }
   p {
     margin: ${props => props.small ? '0.5rem auto 1rem auto' : '1.25rem auto 1.5rem auto'};
+  }
+  svg {
+    font-size: 2rem;
+    line-height: 2rem;
+    vertical-align: top;
+    margin-right: 0.5rem;
+    position: relative;
+    @media (${theme.devices.md}) {
+      top: 0.15rem;
+    }
   }
 `;
 
