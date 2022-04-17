@@ -57,6 +57,21 @@ export default function(props) {
     notes: '',
   };
 
+  const stringifyOrder = (data) => {
+    let htmlString = '';
+    for( var item of data ) {
+      htmlString += `
+        <div>
+          <div>${item.product.title}</div>
+          <div>${item.variant.title}</div>
+          <div>Quantity: ${item.quantity}</div>
+        </div>
+        <br/>
+      `;
+    }
+    return htmlString;
+  }
+
   const validationSchema = Yup.object({
     name: Yup.string()
       .required('Please enter your name')
@@ -95,7 +110,10 @@ export default function(props) {
           date: values.date.toDateString(),
           notes: values.notes || '-',
           phone: values.phone || '-',
-          order: JSON.stringify(orders),
+          order: stringifyOrder(orders),
+          total: orders && orders.length && orders.reduce(
+            (prev, next) => prev + next.quantity * next.variant.price
+          , 0) || 0
         }
       ).then((response) => {
         setSubmitting(false);
