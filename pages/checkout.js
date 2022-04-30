@@ -208,7 +208,7 @@ export default function (props) {
                 <br />I will respond within 24 hours to confirm your order and
                 arrange payment.
               </p>
-              <Formik             enableReinitialize
+              <Formik              enableReinitialize
                 initialValues={initialValues}
                 validationSchema={validationSchema}
                 onSubmit={handleSubmit}
