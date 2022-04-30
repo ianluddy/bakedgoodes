@@ -14,7 +14,7 @@ import Section from '../components/section';
 import FormLoader from '../components/formLoader';
 import Cta from '../components/cta';
 import OrderTotal from '../components/orderTotal';
-import { DateInput, TextArea, TextInput, Radio } from '../components/form';
+import { Select, DateInput, TextArea, TextInput, Radio } from '../components/form';
 import Button from '../components/button';
 
 const TotalWrapper = styled.div`
@@ -55,6 +55,20 @@ export default function(props) {
     date: new Date(),
     phone: '',
     notes: '',
+  };
+
+  const deliveryMap = {
+    'Dublin 1': 8,
+    'Dublin 2': 8,
+    'Dublin 4': 8,
+    'Dublin 6': 8,
+    'Dublin 6W': 8,
+    'Dublin 7': 8,
+    'Dublin 8': 5,
+    'Dublin 9': 10,
+    'Dublin 10': 10,
+    'Dublin 12': 8,
+    'Dublin 14': 10,
   };
 
   const stringifyOrder = (data) => {
