@@ -16,26 +16,28 @@ const Button = styled.button`
   user-select: none;
   touch-action: manipulation;
   cursor: pointer;
-  font-size: ${props => props.large ? '1.2rem' : '1rem'};  
-  padding: ${props => props.large ? '14px 22px' : '8px 18px'};
-  background-color: ${props => props.secondary ? theme.secondary : theme.primary};
+  font-size: ${(props) => (props.large ? '1.2rem' : '1rem')};  
+  padding: ${(props) => (props.large ? '14px 22px' : '8px 18px')};
+  background-color: ${(props) =>
+    props.secondary ? theme.secondary : theme.primary};
   color: ${theme.body};
-  display: ${props => props.wide ? "block" : "inline-block"};
-  width: ${props => props.wide ? "100%" : "auto"};
-  margin: ${props => props.nomargin ? "0" : "initial"};
+  display: ${(props) => (props.wide ? 'block' : 'inline-block')};
+  width: ${(props) => (props.wide ? '100%' : 'auto')};
+  margin: ${(props) => (props.nomargin ? '0' : 'initial')};
   &:hover {
-    background-color: ${props => props.secondary ? theme.secondaryLight : theme.primaryLight};
+    background-color: ${(props) =>
+      props.secondary ? theme.secondaryLight : theme.primaryLight};
   }
 }
 `;
 
-export default function(props) {
+export default function (props) {
   return (
-    <Button 
-      onClick={props.onClick} 
-      href={props.href} 
-      type={props.type} 
-      large={props.large} 
+    <Button
+      onClick={props.onClick}
+      href={props.href}
+      type={props.type}
+      large={props.large}
       secondary={props.secondary}
       wide={props.wide}
       nomargin={props.nomargin}

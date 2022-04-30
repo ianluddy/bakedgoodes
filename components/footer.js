@@ -3,7 +3,7 @@ import theme from '../themes/default';
 import { Instagram, Facebook } from './socials';
 import { Anchor } from './anchor';
 import { SecondarySquiggle } from './squiggle';
-import { RiCake3Line } from "react-icons/ri";
+import { RiCake3Line } from 'react-icons/ri';
 
 const Footer = styled.div`
   text-align: center;
@@ -39,27 +39,28 @@ const Socials = styled.div`
 export default function () {
   return (
     <Footer>
-      <Break/>
-      <SecondarySquiggle/>
-      <Signature>
-        © {new Date().getFullYear()} Baked Goodes
-      </Signature>
+      <Break />
+      <SecondarySquiggle />
+      <Signature>© {new Date().getFullYear()} Baked Goodes</Signature>
       <Signature>
         <span>📍 Dublin 8</span>
         <span>📝 HSE Registered</span>
         <span>📋 HACCP Certified</span>
       </Signature>
       <Signature>
-        Baked Goodes bakes with nuts and nut products. <br/>
-        We are not a nut free bakery.<br/>
+        Baked Goodes bakes with nuts and nut products. <br />
+        We are not a nut free bakery.
+        <br />
       </Signature>
       <Signature>
-        <Anchor href="mailto:order@bakedgoodes.ie" color={theme.primary} bold>order@bakedgoodes.ie</Anchor>
+        <Anchor href="mailto:order@bakedgoodes.ie" color={theme.primary} bold>
+          order@bakedgoodes.ie
+        </Anchor>
       </Signature>
       <Socials>
-        <Instagram/>
-        <Facebook/>
+        <Instagram />
+        <Facebook />
       </Socials>
     </Footer>
-  )
+  );
 }

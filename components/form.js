@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import theme from '../themes/default';
 import styled from 'styled-components';
-import DatePicker from "react-datepicker";
-import { useField, useFormikContext, Field } from "formik";
-import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from 'react-datepicker';
+import { useField, useFormikContext, Field } from 'formik';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const Error = styled.div`
   color: ${theme.red};
@@ -13,8 +13,9 @@ const Error = styled.div`
 
 const FieldWrapper = styled.div`
   margin-bottom: 1.5rem;
-  
-  input, textarea {
+
+  input,
+  textarea {
     font-size: 1rem;
     width: calc(100% - 2rem);
     padding: 1rem;
@@ -22,7 +23,7 @@ const FieldWrapper = styled.div`
     border: 2px solid;
     border-radius: 4px;
     font-family: ${theme.fontBody};
-    
+
     ::placeholder {
       color: ${theme.text};
       opacity: 0.5;
@@ -38,10 +39,24 @@ const FieldWrapper = styled.div`
     background: none;
     border: none;
   }
-  .react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--selected, .react-datepicker__quarter-text--in-selecting-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--selected, .react-datepicker__year-text--in-selecting-range, .react-datepicker__year-text--in-range{
+  .react-datepicker__day--selected,
+  .react-datepicker__day--in-selecting-range,
+  .react-datepicker__day--in-range,
+  .react-datepicker__month-text--selected,
+  .react-datepicker__month-text--in-selecting-range,
+  .react-datepicker__month-text--in-range,
+  .react-datepicker__quarter-text--selected,
+  .react-datepicker__quarter-text--in-selecting-range,
+  .react-datepicker__quarter-text--in-range,
+  .react-datepicker__year-text--selected,
+  .react-datepicker__year-text--in-selecting-range,
+  .react-datepicker__year-text--in-range {
     background: ${theme.secondary};
   }
-  .react-datepicker__day--keyboard-selected, .react-datepicker__month-text--keyboard-selected, .react-datepicker__quarter-text--keyboard-selected, .react-datepicker__year-text--keyboard-selected {
+  .react-datepicker__day--keyboard-selected,
+  .react-datepicker__month-text--keyboard-selected,
+  .react-datepicker__quarter-text--keyboard-selected,
+  .react-datepicker__year-text--keyboard-selected {
     background: ${theme.secondary};
   }
   .react-datepicker__month-container {
@@ -68,7 +83,8 @@ const RadioWrapper = styled.div`
     position: relative;
     top: 2px;
   }
-  input, label {
+  input,
+  label {
     cursor: pointer;
   }
 `;
@@ -87,9 +103,9 @@ export const TextInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
 
   useEffect(() => {
-    if( field.value ) {
+    if (field.value) {
       localStorage.setItem(
-        `form:${field.name}`, 
+        `form:${field.name}`,
         field.value.length > 1 ? field.value : ''
       );
     }
@@ -101,9 +117,7 @@ export const TextInput = ({ label, ...props }) => {
         <Label htmlFor={props.id || props.name}>{label}</Label>
       </div>
       <input className="text-input" {...field} {...props} />
-      {meta.touched && meta.error ? (
-        <Error>{meta.error}</Error>
-      ) : null}
+      {meta.touched && meta.error ? <Error>{meta.error}</Error> : null}
     </FieldWrapper>
   );
 };
@@ -115,13 +129,11 @@ export const TextArea = ({ label, ...props }) => {
   const [field, meta] = useField(props);
   return (
     <FieldWrapper>
-      <div>    
+      <div>
         <Label htmlFor={props.id || props.name}>{label}</Label>
       </div>
       <textarea className="text-input" {...field} {...props} />
-      {meta.touched && meta.error ? (
-        <Error>{meta.error}</Error>
-      ) : null}
+      {meta.touched && meta.error ? <Error>{meta.error}</Error> : null}
     </FieldWrapper>
   );
 };
@@ -138,9 +150,7 @@ export const Checkbox = ({ children, ...props }) => {
         <input type="checkbox" {...field} {...props} />
         {children}
       </Label>
-      {meta.touched && meta.error ? (
-        <Error>{meta.error}</Error>
-      ) : null}
+      {meta.touched && meta.error ? <Error>{meta.error}</Error> : null}
     </FieldWrapper>
   );
 };
@@ -153,11 +163,11 @@ export const Radio = ({ ...props }) => {
     <FieldWrapper>
       <RadioWrapper>
         <Label>
-          <input 
-            type="radio" 
-            name={field.name} 
+          <input
+            type="radio"
+            name={field.name}
             value="true"
-            onChange={() => setFieldValue(field.name, "true")}
+            onChange={() => setFieldValue(field.name, 'true')}
             defaultChecked
           />
           Delivery in Dublin
@@ -165,18 +175,16 @@ export const Radio = ({ ...props }) => {
       </RadioWrapper>
       <RadioWrapper>
         <Label>
-          <input 
-            type="radio" 
-            name={field.name} 
+          <input
+            type="radio"
+            name={field.name}
             value="false"
-            onChange={() => setFieldValue(field.name, "false")}
+            onChange={() => setFieldValue(field.name, 'false')}
           />
           Collection from Inchicore
         </Label>
       </RadioWrapper>
-      {meta.touched && meta.error ? (
-        <Error>{meta.error}</Error>
-      ) : null}
+      {meta.touched && meta.error ? <Error>{meta.error}</Error> : null}
     </FieldWrapper>
   );
 };
@@ -187,9 +195,7 @@ export const Select = ({ label, ...props }) => {
     <FieldWrapper>
       <Label htmlFor={props.id || props.name}>{label}</Label>
       <select {...field} {...props} />
-      {meta.touched && meta.error ? (
-        <Error>{meta.error}</Error>
-      ) : null}
+      {meta.touched && meta.error ? <Error>{meta.error}</Error> : null}
     </FieldWrapper>
   );
 };
@@ -206,9 +212,9 @@ export const DateInput = ({ label, ...props }) => {
 
   useEffect(() => {
     setDate(date);
-    setTimeout(() => { 
-      setFieldValue(props.name, date); }
-    , 10); // TODO - not this
+    setTimeout(() => {
+      setFieldValue(props.name, date);
+    }, 10); // TODO - not this
   }, []);
 
   return (
@@ -221,15 +227,13 @@ export const DateInput = ({ label, ...props }) => {
         {...props}
         dateFormat="dd/MM/yyyyy"
         selected={date}
-        onChange={val => {
+        onChange={(val) => {
           setDate(val);
           setFieldValue(field.name, val);
         }}
         filterDate={isNotPast}
       />
-      {meta.touched && meta.error ? (
-        <Error>{meta.error}</Error>
-      ) : null}
+      {meta.touched && meta.error ? <Error>{meta.error}</Error> : null}
     </FieldWrapper>
   );
 };

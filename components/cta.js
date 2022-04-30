@@ -3,8 +3,8 @@ import theme from '../themes/default';
 import { ButtonAnchor } from './anchor';
 
 const CTAWrapper = styled.div`
-  padding: ${props => props.padding};
-  margin: ${props => props.small ? '1rem 0' : '3rem 0'};
+  padding: ${(props) => props.padding};
+  margin: ${(props) => (props.small ? '1rem 0' : '3rem 0')};
   text-align: center;
   h2 {
     margin: 0;
@@ -13,7 +13,8 @@ const CTAWrapper = styled.div`
     }
   }
   p {
-    margin: ${props => props.small ? '0.5rem auto 1rem auto' : '1.25rem auto 1.5rem auto'};
+    margin: ${(props) =>
+      props.small ? '0.5rem auto 1rem auto' : '1.25rem auto 1.5rem auto'};
     padding: 0 2.5rem;
   }
   svg {
@@ -31,12 +32,8 @@ const CTAWrapper = styled.div`
 export default function (props) {
   return (
     <CTAWrapper {...props}>
-      <h2>
-        {props.headline}
-      </h2>
-      <p>
-        {props.body}
-      </p>
+      <h2>{props.headline}</h2>
+      <p>{props.body}</p>
       <ButtonAnchor
         href={props.buttonLink}
         text={props.buttonText}
@@ -44,5 +41,5 @@ export default function (props) {
         large
       />
     </CTAWrapper>
-  )
+  );
 }

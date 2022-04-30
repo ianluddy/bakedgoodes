@@ -16,7 +16,7 @@ const PrimaryWrapper = styled.div`
     position: static;
     padding: 0;
   }
-`
+`;
 const LinkWrapper = styled.div`
   text-align: center;
   align-items: center;
@@ -43,7 +43,7 @@ const NavLink = styled.div`
   @media (${theme.devices.md}) {
     padding: 0 0.3rem;
   }
-`
+`;
 
 const Title = styled.div`
   flex-grow: 1;
@@ -61,13 +61,13 @@ const Title = styled.div`
   @media (${theme.devices.xs}) {
     font-size: 2.5em;
   }
-  
+
   @media (${theme.devices.sm}) {
     font-size: 3em;
     line-height: initial;
     padding-top: 0.25rem;
   }
-  
+
   @media (${theme.devices.md}) {
     padding-top: 0;
     font-size: 4em;
@@ -78,7 +78,7 @@ const Title = styled.div`
 const SecondaryWrapper = styled.div`
   display: none;
   position: absolute;
-  z-index: 1;  
+  z-index: 1;
   top: 0;
   bottom: 0;
   right: 0;
@@ -87,7 +87,7 @@ const SecondaryWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-`
+`;
 
 const SecondaryInner = styled.div`
   display: flex;
@@ -100,7 +100,11 @@ export function SecondaryNav({ setOpen }) {
   return (
     <>
       <SecondaryWrapper>
-        <SecondaryInner onClick={() => {setOpen(false);}}>
+        <SecondaryInner
+          onClick={() => {
+            setOpen(false);
+          }}
+        >
           <SecondaryNavAnchor href="/">Home</SecondaryNavAnchor>
           <SecondaryNavAnchor href="/cakes">Cakes</SecondaryNavAnchor>
           <SecondaryNavAnchor href="/cupcakes">Cupcakes</SecondaryNavAnchor>
@@ -109,23 +113,21 @@ export function SecondaryNav({ setOpen }) {
         </SecondaryInner>
       </SecondaryWrapper>
     </>
-  )
+  );
 }
 
 export function PrimaryNav() {
   return (
     <PrimaryWrapper>
       <Title>
-        <Link href="/">
-          Baked Goodes
-        </Link>
+        <Link href="/">Baked Goodes</Link>
       </Title>
       <LinkWrapper>
         <LinkInner>
           <NavLink>
             <PrimaryNavAnchor href="/">Home</PrimaryNavAnchor>
           </NavLink>
-          <NavLink>          
+          <NavLink>
             <PrimaryNavAnchor href="/cakes">Cakes</PrimaryNavAnchor>
           </NavLink>
           <NavLink>
@@ -139,7 +141,7 @@ export function PrimaryNav() {
           </NavLink>
         </LinkInner>
       </LinkWrapper>
-      <PrimarySquiggle/>
+      <PrimarySquiggle />
     </PrimaryWrapper>
-  )
+  );
 }

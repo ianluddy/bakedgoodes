@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useState, useContext } from "react";
+import { useState, useContext } from 'react';
 
 import theme from '../themes/default';
 import Breadcrumbs from './breadcrumbs';
@@ -18,7 +18,7 @@ import { data as cupcakes } from '../lib/cupcakes';
 
 const productData = {
   cakes,
-  cupcakes
+  cupcakes,
 };
 
 const Title = styled.h1`
@@ -75,7 +75,7 @@ export default function Post({ postData, postType }) {
       <Section>
         <Grid md={'50%'} lg={'50%'}>
           <ImageWrapper>
-            <Image 
+            <Image
               src={postData.meta.src}
               alt={postData.meta.title}
               title={postData.meta.title}
@@ -83,27 +83,25 @@ export default function Post({ postData, postType }) {
             />
           </ImageWrapper>
           <MetaWrapper>
-            <Breadcrumbs/>
-            <Title>
-              {postData.meta.title}
-            </Title>
+            <Breadcrumbs />
+            <Title>{postData.meta.title}</Title>
             <Desc>
-              <p>
-                {postData.meta.desc} 
-              </p>
+              <p>{postData.meta.desc}</p>
             </Desc>
             <div>
-              <Select 
+              <Select
                 options={postData.variants}
                 selected={variant}
                 setSelected={setVariant}
               />
             </div>
             <ButtonWrapper>
-              <Button 
-                href="#" 
-                text={"Add to basket"} 
-                onClick={() => addOrder({ id: postData.id, ...postData.meta }, variant, 1)}
+              <Button
+                href="#"
+                text={'Add to basket'}
+                onClick={() =>
+                  addOrder({ id: postData.id, ...postData.meta }, variant, 1)
+                }
                 large
                 secondary
               />
@@ -112,12 +110,12 @@ export default function Post({ postData, postType }) {
         </Grid>
       </Section>
       <Section>
-        <Carousel 
-          title={"Also available"}
+        <Carousel
+          title={'Also available'}
           products={productData[postType]}
           excludeId={postData.id}
         />
       </Section>
     </Layout>
-  )
+  );
 }

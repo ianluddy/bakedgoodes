@@ -18,28 +18,22 @@ const Divider = styled.span`
   padding: 0 0.25rem;
 `;
 
-export default function( props ) {
+export default function (props) {
   const router = useRouter();
   const urlParts = router.asPath.split('/');
   return (
     <Wrapper>
       <Link href={'/' + urlParts[1]}>
         <span>
-          <Anchor>
-            {urlParts[1]}
-          </Anchor>
+          <Anchor>{urlParts[1]}</Anchor>
         </span>
       </Link>
-      <Divider>
-        /
-      </Divider>
+      <Divider>/</Divider>
       <Link href={router.asPath}>
         <span>
-          <Anchor bold>
-            {router.query.id}
-          </Anchor>
+          <Anchor bold>{router.query.id}</Anchor>
         </span>
       </Link>
     </Wrapper>
-  )
+  );
 }

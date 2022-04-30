@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import theme from '../themes/default';
 import { useContext } from 'react';
 import { OrderContext } from './orderProvider';
-import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
+import { FaMinusCircle, FaPlusCircle } from 'react-icons/fa';
 
 const Wrapper = styled.div`
   display: inline-block;
@@ -31,9 +31,9 @@ export default function ({ order, index }) {
 
   return (
     <Wrapper>
-      <FaMinusCircle onClick={() => updateOrder(index, order.quantity - 1)}/>
+      <FaMinusCircle onClick={() => updateOrder(index, order.quantity - 1)} />
       <Value>{order.quantity}</Value>
-      <FaPlusCircle onClick={() => updateOrder(index, order.quantity + 1)}/>
+      <FaPlusCircle onClick={() => updateOrder(index, order.quantity + 1)} />
     </Wrapper>
-  )
-};
+  );
+}

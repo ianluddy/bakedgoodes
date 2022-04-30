@@ -1,17 +1,14 @@
 import theme from '../themes/default';
 import styled from 'styled-components';
 
-import { ImSpinner8 } from "react-icons/im";
-import { FaTimesCircle, FaCheckCircle } from "react-icons/fa";
+import { ImSpinner8 } from 'react-icons/im';
+import { FaTimesCircle, FaCheckCircle } from 'react-icons/fa';
 
 const Wrapper = styled.div`
   margin-top: 1rem;
   text-align: center;
-  display: ${props => 
-    props.$loading || props.$success || props.$error ? 
-    'block' : 
-    'none'
-  };
+  display: ${(props) =>
+    props.$loading || props.$success || props.$error ? 'block' : 'none'};
   svg {
     font-size: 2em;
   }
@@ -22,7 +19,7 @@ const Message = styled.div`
   align-items: center;
   height: 100%;
   display: flex;
-  display: ${props => props.show ? 'flex' : 'none'};
+  display: ${(props) => (props.show ? 'flex' : 'none')};
   div {
     max-width: 300px;
   }
@@ -47,8 +44,7 @@ const Error = styled(Message)`
   }
 `;
 
-const Loading = styled(Message)`
-`;
+const Loading = styled(Message)``;
 
 const Loader = styled.div`
   svg {
@@ -68,39 +64,31 @@ const Loader = styled.div`
     100% {
       transform: rotate(360deg);
     }
-  }  
+  }
 `;
 
-export default function(props) {
+export default function (props) {
   return (
     <Wrapper {...props}>
       <Loading show={props.$loading}>
         <Loader>
           <h2>
-            {props.loadingMsg} <ImSpinner8/>
+            {props.loadingMsg} <ImSpinner8 />
           </h2>
         </Loader>
       </Loading>
       <Success show={props.$success}>
         <div>
-          <h2>
-            Thanks!
-          </h2>
-          <p>
-            {props.successMsg}
-          </p>
-          <FaCheckCircle/> 
+          <h2>Thanks!</h2>
+          <p>{props.successMsg}</p>
+          <FaCheckCircle />
         </div>
       </Success>
       <Error show={props.$error}>
         <div>
-          <h2>
-            Hmmmmm 
-          </h2>
-          <p>
-            {props.errorMsg}
-          </p>
-          <FaTimesCircle/>
+          <h2>Hmmmmm</h2>
+          <p>{props.errorMsg}</p>
+          <FaTimesCircle />
         </div>
       </Error>
     </Wrapper>

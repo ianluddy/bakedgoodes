@@ -6,32 +6,33 @@ import { Small as ProductTile } from '../components/productTile';
 import Grid from '../components/grid';
 import Cta from '../components/cta';
 
-export default function(props) {
+export default function (props) {
   return (
     <>
       <Head>
         <title>{props.siteName} - Cupcakes</title>
-        <meta name="description" content="Indulge yourself with some delicious home baked goods made with love in Dublin 8"/>
+        <meta
+          name="description"
+          content="Indulge yourself with some delicious home baked goods made with love in Dublin 8"
+        />
       </Head>
       <Layout>
         <Section>
           <Grid sm={'50%'} md={'33%'} lg={'33%'}>
-            {
-              cupcakes.map(cupcake => (
-                <ProductTile 
-                  key={cupcake.id}
-                  path={`/cupcakes/${cupcake.id}`}
-                  title={cupcake.meta.title}
-                  src={cupcake.meta.src}
-                  buttonText="Order"
-                  large
-                />
-              ))
-            }
+            {cupcakes.map((cupcake) => (
+              <ProductTile
+                key={cupcake.id}
+                path={`/cupcakes/${cupcake.id}`}
+                title={cupcake.meta.title}
+                src={cupcake.meta.src}
+                buttonText="Order"
+                large
+              />
+            ))}
           </Grid>
         </Section>
         <Section>
-          <Cta 
+          <Cta
             headline="Fancy something else?"
             body="Plenty of options available, get in touch!"
             buttonText="Contact me"

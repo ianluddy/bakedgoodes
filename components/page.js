@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
 
-const Page = styled.div`  
+const Page = styled.div`
   text-align: center;
   min-height: 80vh;
   position: relative;
@@ -11,7 +11,5 @@ const Page = styled.div`
 `;
 
 export default function ({ children }) {
-  return (
-    <Page>{children}</Page>
-  )
+  return <Page>{children}</Page>;
 }

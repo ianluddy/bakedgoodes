@@ -1,4 +1,4 @@
-import { useEffect, useState, createContext } from "react";
+import { useEffect, useState, createContext } from 'react';
 
 export const OrderContext = createContext();
 const OrderTTL = 60000 * 60 * 24 * 7; // 1 Week
@@ -10,32 +10,38 @@ export default function ({ children }) {
   useEffect(() => {
     console.log(orders);
     setCount(orderCount(orders));
-    if( orders != undefined ) {
-      localStorage.setItem("orders", JSON.stringify(orders));
-      localStorage.setItem("orderStamp", Date.now() + OrderTTL);
+    if (orders != undefined) {
+      localStorage.setItem('orders', JSON.stringify(orders));
+      localStorage.setItem('orderStamp', Date.now() + OrderTTL);
     }
   }, [orders]);
-  
+
   useEffect(() => {
-    const stamp = localStorage.getItem("orderStasmp");
+    const stamp = localStorage.getItem('orderStasmp');
     const expired = stamp && stamp < Date.now();
-    const orders = expired ? [] : (JSON.parse(localStorage.getItem("orders")) || []);
+    const orders = expired
+      ? []
+      : JSON.parse(localStorage.getItem('orders')) || [];
     const count = orderCount(orders);
     setOrders(count ? orders : []);
   }, []);
-  
+
   const orderCount = (orders) => {
-    return orders ? orders.filter(order => {return order.quantity > 0}).length : 0;
+    return orders
+      ? orders.filter((order) => {
+          return order.quantity > 0;
+        }).length
+      : 0;
   };
 
   const addOrder = (product, variant, quantity) => {
-    setOrders(prevState => {
-      return [...prevState, { product, variant, quantity }]
+    setOrders((prevState) => {
+      return [...prevState, { product, variant, quantity }];
     });
   };
-  
+
   const updateOrder = (index, quantity) => {
-    setOrders(prevState => {
+    setOrders((prevState) => {
       const updated = [...prevState];
       updated[index].quantity = quantity;
       return updated;
@@ -45,12 +51,14 @@ export default function ({ children }) {
   const clearOrder = () => {
     setOrders([]);
   };
-  
+
   return (
     <>
-      <OrderContext.Provider value={{orders, count, addOrder, updateOrder, clearOrder}}>
+      <OrderContext.Provider
+        value={{ orders, count, addOrder, updateOrder, clearOrder }}
+      >
         {children}
       </OrderContext.Provider>
     </>
-  )
-};
+  );
+}

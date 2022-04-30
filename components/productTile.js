@@ -25,13 +25,13 @@ const Meta = styled.div`
     position: absolute;
     top: -2.5rem;
     right: 0.5rem;
-  }  
+  }
 `;
 
 const Title = styled.h4`
   margin: 0;
   text-align: left;
-  font-size: ${props => props.large ? '1.5rem' : '1.2rem' };
+  font-size: ${(props) => (props.large ? '1.5rem' : '1.2rem')};
 `;
 
 const ImageCTA = styled.div`
@@ -56,29 +56,27 @@ export const Small = (props) => {
   return (
     <Link href={props.path}>
       <Wrapper>
-        <Image 
+        <Image
           src={props.src}
           alt={props.title}
           title={props.title}
           borderRadius
         />
         <Meta>
-          { props.buttonText && <Button text={props.buttonText} secondary/> }
-          <Title large={props.large}>
-            {props.title}
-          </Title>
+          {props.buttonText && <Button text={props.buttonText} secondary />}
+          <Title large={props.large}>{props.title}</Title>
         </Meta>
       </Wrapper>
     </Link>
-  )
-}
+  );
+};
 
 export const Large = (props) => {
   return (
     <Wrapper>
       <Link href={props.path}>
         <div>
-          <Image 
+          <Image
             padding={'0.5rem'}
             alt={props.title}
             title={props.title}
@@ -91,13 +89,13 @@ export const Large = (props) => {
       </Link>
     </Wrapper>
   );
-}
+};
 
 export const LargeWithCTA = (props) => {
   return (
     <Wrapper>
       <Link href={props.path}>
-        <Image 
+        <Image
           padding={'0.5rem'}
           alt={props.title}
           title={props.title}
@@ -113,4 +111,4 @@ export const LargeWithCTA = (props) => {
       />
     </Wrapper>
   );
-}
+};

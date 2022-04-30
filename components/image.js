@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
-import ExportedImage from "next-image-export-optimizer";
+import ExportedImage from 'next-image-export-optimizer';
 
 const Wrapper = styled.div`
-  padding: ${props => props.padding || 'unset'};
+  padding: ${(props) => props.padding || 'unset'};
   > span {
     position: static !important;
   }
@@ -11,14 +11,14 @@ const Wrapper = styled.div`
     width: auto !important;
     height: auto !important;
     position: static !important;
-    border-radius: ${props => props.borderRadius && theme.borderRadius};
+    border-radius: ${(props) => props.borderRadius && theme.borderRadius};
   }
 `;
 
 export default function (props) {
   return (
     <Wrapper {...props}>
-      <ExportedImage 
+      <ExportedImage
         src={props.src}
         alt={props.alt}
         width={props.width}
@@ -26,5 +26,5 @@ export default function (props) {
         objectFit="cover"
       />
     </Wrapper>
-  )
+  );
 }

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useState, useContext } from "react";
+import { useState, useContext } from 'react';
 
 import theme from '../../themes/default';
 import { getAllPostIds, getPostData } from '../../lib/cupcakes';
@@ -9,24 +9,19 @@ export async function getStaticProps({ params }) {
   const postData = getPostData(params.id);
   return {
     props: {
-      postData
-    }
-  }
+      postData,
+    },
+  };
 }
 
 export async function getStaticPaths() {
   const paths = getAllPostIds();
   return {
     paths,
-    fallback: false
-  }
+    fallback: false,
+  };
 }
 
 export default function Post({ postData }) {
-  return (
-    <Product 
-      postData={postData} 
-      postType={'cupcakes'}
-    />
-  );
+  return <Product postData={postData} postType={'cupcakes'} />;
 }

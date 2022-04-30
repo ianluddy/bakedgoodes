@@ -7,7 +7,7 @@ import Image from './image';
 
 const Wrapper = styled.div`
   padding-bottom: 0.75rem;
-  display: ${props => props.visible ? "block" : "none"};
+  display: ${(props) => (props.visible ? 'block' : 'none')};
   text-align: left;
 `;
 
@@ -38,7 +38,7 @@ export default function (order, index) {
   return (
     <Wrapper key={index} visible={order.quantity > 0}>
       <ImageWrapper>
-        <Image 
+        <Image
           alt={order.product.title}
           title={order.product.title}
           src={order.product.src}
@@ -49,10 +49,14 @@ export default function (order, index) {
         <Title>{order.product.title}</Title>
         <Variant>{order.variant.shortTitle}</Variant>
         <div>
-          <Price weight={600} color={theme.secondary} value={order.variant.price * order.quantity}></Price>
-          <QuantityPicker order={order} index={index}/>
+          <Price
+            weight={600}
+            color={theme.secondary}
+            value={order.variant.price * order.quantity}
+          ></Price>
+          <QuantityPicker order={order} index={index} />
         </div>
       </Meta>
     </Wrapper>
-  )
+  );
 }

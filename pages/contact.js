@@ -4,8 +4,8 @@ import { Formik, Form as FormikForm, useField } from 'formik';
 import * as Yup from 'yup';
 import * as emailjs from '@emailjs/browser';
 import FadeIn from 'react-fade-in';
-import { BsInstagram } from "react-icons/bs";
-import { useEffect, useState } from "react";
+import { BsInstagram } from 'react-icons/bs';
+import { useEffect, useState } from 'react';
 
 import theme from '../themes/default';
 import Button from '../components/button';
@@ -29,10 +29,10 @@ const FormWrapper = styled.div`
   padding: 0 0 4rem 0;
   @media (${theme.devices.md}) {
     padding: 1.5rem 2rem 4rem 2rem;
-  }  
+  }
 `;
 
-export default function(props) {
+export default function (props) {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(null);
 
@@ -47,44 +47,40 @@ export default function(props) {
       <>
         <h2> Get in touch </h2>
         <FormikForm>
-          <TextInput label="Name *" name="name" type="text"/>
-          <TextInput label="Email *" name="email" type="email"/>
-          <TextArea label="Message *" name="message" type="text"/>
-          <Button type="submit" text="Send message" large wide secondary/>
+          <TextInput label="Name *" name="name" type="text" />
+          <TextInput label="Email *" name="email" type="email" />
+          <TextArea label="Message *" name="message" type="text" />
+          <Button type="submit" text="Send message" large wide secondary />
         </FormikForm>
       </>
     );
-  }
+  };
 
   const Loader = () => {
     return (
-      <FormLoader 
-        $loading={submitting === true} 
+      <FormLoader
+        $loading={submitting === true}
         $success={success === true}
         $error={success === false}
-        loadingMsg={"Sending"}
-        errorMsg={"Something went wrong, please try again later"}
+        loadingMsg={'Sending'}
+        errorMsg={'Something went wrong, please try again later'}
         successMsg={"I'll be in touch within 24 hours"}
       />
-    )
-  }
-  
+    );
+  };
+
   useEffect(() => {
     initialValues.name = localStorage.getItem('form:name') || '';
     initialValues.email = localStorage.getItem('form:email') || '';
   }, []);
 
   const validationSchema = Yup.object({
-    name: Yup.string()
-      .required('Please enter your name')
-      .nullable(),
+    name: Yup.string().required('Please enter your name').nullable(),
     email: Yup.string()
       .email('Invalid email address')
       .required('Please enter your email')
       .nullable(),
-    message: Yup.string()
-      .required('Please enter your message')
-      .nullable(),
+    message: Yup.string().required('Please enter your message').nullable(),
   });
 
   const handleSubmit = (values) => {
@@ -93,43 +89,45 @@ export default function(props) {
       // setSubmitting(false);
       // setSuccess(true);
       // return;
-      emailjs.send(
-        'service_6wdvvxv', 
-        'template_e0doy5b',
-        {
+      emailjs
+        .send('service_6wdvvxv', 'template_e0doy5b', {
           from_name: values.name,
           reply_to: values.email,
-          message: values.message
-        }
-      ).then((response) => {
-        setSubmitting(false);
-        setSuccess(true);
-      }, (error) => {
-        setSubmitting(false);
-        setSuccess(false);
-        throw error;
-      });
+          message: values.message,
+        })
+        .then(
+          (response) => {
+            setSubmitting(false);
+            setSuccess(true);
+          },
+          (error) => {
+            setSubmitting(false);
+            setSuccess(false);
+            throw error;
+          }
+        );
     }, 1200);
   };
-  
+
   return (
     <>
       <Head>
         <title>{props.siteName} - Contact</title>
-        <meta name="description" content="Indulge yourself with some delicious home baked goods made with love in Dublin 8"/>
+        <meta
+          name="description"
+          content="Indulge yourself with some delicious home baked goods made with love in Dublin 8"
+        />
       </Head>
       <Layout>
-        <Section padding={"0 0 2rem 0"}>
-          <h1>
-            Contact
-          </h1>
+        <Section padding={'0 0 2rem 0'}>
+          <h1>Contact</h1>
           <Grid md={'50%'} lg={'50%'}>
             <Cta
               headline={[
-                <BsInstagram/> ,
+                <BsInstagram />,
                 <Anchor href="https://www.instagram.com/baked_goodes/" bold>
                   baked_goodes
-                </Anchor>
+                </Anchor>,
               ]}
               body="Check out my Instagram to see my most recent bakes. You can message me there to chat about an order. Or just use the contact form on this page."
               buttonText="Follow me"
@@ -142,17 +140,15 @@ export default function(props) {
                 validationSchema={validationSchema}
                 onSubmit={handleSubmit}
               >
-              <>
-                {
-                  (submitting || success != undefined) ? <Loader/> : <Form/> 
-                }
-              </>
+                <>
+                  {submitting || success != undefined ? <Loader /> : <Form />}
+                </>
               </Formik>
             </FormWrapper>
           </Grid>
           <Grid>
             <MapWrapper>
-              <Map/>
+              <Map />
             </MapWrapper>
           </Grid>
         </Section>

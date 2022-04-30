@@ -16,9 +16,7 @@ const Wrapper = styled.div`
 export default ({ title, products, excludeId }) => {
   return (
     <Wrapper>
-      <h2>
-        {title}
-      </h2>
+      <h2>{title}</h2>
       <Swiper
         modules={[Pagination, Autoplay]}
         spaceBetween={10}
@@ -29,40 +27,38 @@ export default ({ title, products, excludeId }) => {
         breakpoints={{
           [theme.breakpoints.xs]: {
             slidesPerView: 2,
-            spaceBetween: 10
+            spaceBetween: 10,
           },
           [theme.breakpoints.sm]: {
             slidesPerView: 2,
-            spaceBetween: 10
+            spaceBetween: 10,
           },
           [theme.breakpoints.md]: {
             slidesPerView: 3,
-            spaceBetween: 10
+            spaceBetween: 10,
           },
           [theme.breakpoints.lg]: {
             slidesPerView: 4,
-            spaceBetween: 10
+            spaceBetween: 10,
           },
           [theme.breakpoints.xl]: {
             slidesPerView: 4,
-            spaceBetween: 10
-          }
+            spaceBetween: 10,
+          },
         }}
       >
-      {
-        products.filter(product =>
-          product.id != excludeId
-        ).map(product => (
-          <SwiperSlide key={product.id}>
-            <ProductTile 
-              key={product.id}
-              path={product.meta.path}
-              title={product.meta.title}
-              src={product.meta.src}
-            />
-          </SwiperSlide>
-        ))
-      }
+        {products
+          .filter((product) => product.id != excludeId)
+          .map((product) => (
+            <SwiperSlide key={product.id}>
+              <ProductTile
+                key={product.id}
+                path={product.meta.path}
+                title={product.meta.title}
+                src={product.meta.src}
+              />
+            </SwiperSlide>
+          ))}
       </Swiper>
     </Wrapper>
   );
