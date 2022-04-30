@@ -8,7 +8,7 @@
     "build": "next build && next export && npx next-image-export-optimizer",
     "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prettier:check": "prettier --config .prettierrc --check \"{component,pages}/**/*.{ts,css,html}\""
+    "prettier:check": "prettier --config .prettierrc --check \"{components,pages}/**/*.{js,jsx,ts,css,html}\""
   },
   "author": "",
   "license": "ISC",
@@ -39,8 +39,11 @@
     "prettier": "^2.6.2"
   },
   "lint-staged": {
-    "{component,pages}/**/*.{ts,css,html}": [
+    "pages/**/*.{js,jsx,ts,css,html}": [
       "npm run prettier:check"
+    ],
+    "components/**/*.{js,jsx,ts,css,html}": [
+        "npm run prettier:check"
     ]
   },
   "husky": {
