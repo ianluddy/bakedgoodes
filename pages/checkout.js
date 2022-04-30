@@ -59,7 +59,7 @@ export default function(props) {
 
   const deliveryMap = {
     'Dublin 1': 8,
-    // 'Dublin 2': 8,
+    'Dublin 2': 8,
     'Dublin 4': 8,
     'Dublin 6': 8,
     'Dublin 6W': 8,
