@@ -68,7 +68,7 @@ export default function (props) {
     'Dublin 2': 8,
     'Dublin 4': 8,
     'Dublin 6': 8,
-            // 'Dublin 6W': 8,
+    // 'Dublin 6W': 8,
     'Dublin 7': 8,
 
     'Dublin 8': 5,
@@ -208,7 +208,7 @@ export default function (props) {
                 <br />I will respond within 24 hours to confirm your order and
                 arrange payment.
               </p>
-              <Formik              enableReinitialize
+              <Formik                enableReinitialize
                 initialValues={initialValues}
                 validationSchema={validationSchema}
                 onSubmit={handleSubmit}
