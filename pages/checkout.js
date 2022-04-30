@@ -70,6 +70,7 @@ export default function (props) {
     'Dublin 6': 8,
             // 'Dublin 6W': 8,
     'Dublin 7': 8,
+
     'Dublin 8': 5,
     'Dublin 9': 10,
     'Dublin 10': 10,
