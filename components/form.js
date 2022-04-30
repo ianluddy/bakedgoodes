@@ -203,6 +203,14 @@ export const DateInput = ({ label, ...props }) => {
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
   const [date, setDate] = useState(tomorrow);
+
+  useEffect(() => {
+    setDate(date);
+    setTimeout(() => { 
+      setFieldValue(props.name, date); }
+    , 10); // TODO - not this
+  }, []);
+
   return (
     <FieldWrapper>
       <div>
