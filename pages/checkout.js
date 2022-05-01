@@ -53,17 +53,7 @@ export default function (props) {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(null);
   const { orders, count, clearOrder } = useContext(OrderContext);
-
-  const initialValues = {
-    name: '',
-    email: '',
-    delivery: 'true',
-    date: new Date(),
-    phone: '',
-    notes: '',
-  };
-
-  const deliveryMap = {
+  const locations = {
     'Dublin 1': 8,
     'Dublin 2': 8,
     'Dublin 4': 8,
@@ -74,6 +64,16 @@ export default function (props) {
     'Dublin 10': 10,
     'Dublin 12': 8,
     'Dublin 14': 10,
+  };
+
+  const initialValues = {
+    name: '',
+    email: '',
+    delivery: 'false',
+    location: Object.keys(locations)[5],
+    date: new Date(),
+    phone: '',
+    notes: '',
   };
 
   const stringifyOrder = (data) => {
@@ -120,6 +120,7 @@ export default function (props) {
           from_name: values.name,
           reply_to: values.email,
           delivery: values.delivery === 'true' ? 'Delivery' : 'Collection',
+          location: values.delivery === 'true' ? values.location : '-',
           date: values.date.toDateString(),
           notes: values.notes || '-',
           phone: values.phone || '-',
@@ -217,6 +218,13 @@ export default function (props) {
                     <TextInput label="Name *" name="name" type="text" />
                     <TextInput label="Email *" name="email" type="email" />
                     <Radio name="delivery" type="radio" />
+                    {props.values.delivery == 'true' && (
+                      <Select
+                        label="Location *"
+                        name="location"
+                        options={Object.keys(locations)}
+                      />
+                    )}
                     <DateInput
                       label={
                         props.values.delivery == 'true'

@@ -15,7 +15,8 @@ const FieldWrapper = styled.div`
   margin-bottom: 1.5rem;
 
   input,
-  textarea {
+  textarea,
+  select {
     font-size: 1rem;
     width: calc(100% - 2rem);
     padding: 1rem;
@@ -31,6 +32,9 @@ const FieldWrapper = styled.div`
   }
   textarea {
     height: 120px;
+  }
+  select {
+    width: 100%;
   }
   .react-datepicker {
     font-family: ${theme.fontBody};
@@ -168,7 +172,6 @@ export const Radio = ({ ...props }) => {
             name={field.name}
             value="true"
             onChange={() => setFieldValue(field.name, 'true')}
-            defaultChecked
           />
           Delivery in Dublin
         </Label>
@@ -180,6 +183,7 @@ export const Radio = ({ ...props }) => {
             name={field.name}
             value="false"
             onChange={() => setFieldValue(field.name, 'false')}
+            defaultChecked
           />
           Collection from Inchicore
         </Label>
@@ -191,10 +195,17 @@ export const Radio = ({ ...props }) => {
 
 export const Select = ({ label, ...props }) => {
   const [field, meta] = useField(props);
+  const options = props.options.map((option, i) => (
+    <option key={i} value={option}>
+      {option}
+    </option>
+  ));
   return (
     <FieldWrapper>
       <Label htmlFor={props.id || props.name}>{label}</Label>
-      <select {...field} {...props} />
+      <select {...field} {...props}>
+        {options}
+      </select>
       {meta.touched && meta.error ? <Error>{meta.error}</Error> : null}
     </FieldWrapper>
   );
