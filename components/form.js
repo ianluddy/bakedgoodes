@@ -159,50 +159,18 @@ export const Checkbox = ({ children, ...props }) => {
   );
 };
 
-export const Radio = ({ ...props }) => {
-  // TODO - make this generic
-  const { setFieldValue } = useFormikContext();
-  const [field, meta] = useField(props);
-  return (
-    <FieldWrapper>
-      <RadioWrapper>
-        <Label>
-          <input
-            type="radio"
-            name={field.name}
-            value="true"
-            onChange={() => setFieldValue(field.name, 'true')}
-          />
-          Delivery in Dublin
-        </Label>
-      </RadioWrapper>
-      <RadioWrapper>
-        <Label>
-          <input
-            type="radio"
-            name={field.name}
-            value="false"
-            onChange={() => setFieldValue(field.name, 'false')}
-            defaultChecked
-          />
-          Collection from Inchicore
-        </Label>
-      </RadioWrapper>
-      {meta.touched && meta.error ? <Error>{meta.error}</Error> : null}
-    </FieldWrapper>
-  );
-};
-
 export const Select = ({ label, ...props }) => {
   const [field, meta] = useField(props);
+  const { setFieldValue } = useFormikContext();
   const options = props.options.map((option, i) => (
-    <option key={i} value={option}>
+    <option key={i} value={option} label={option}>
       {option}
     </option>
   ));
+
   return (
     <FieldWrapper>
-      <Label htmlFor={props.id || props.name}>{label}</Label>
+      {!props.hidden && <Label htmlFor={props.id || props.name}>{label}</Label>}
       <select {...field} {...props}>
         {options}
       </select>
@@ -244,6 +212,32 @@ export const DateInput = ({ label, ...props }) => {
         }}
         filterDate={isNotPast}
       />
+      {meta.touched && meta.error ? <Error>{meta.error}</Error> : null}
+    </FieldWrapper>
+  );
+};
+
+export const Radio = ({ options, ...props }) => {
+  const [field, meta] = useField(props);
+  const { setFieldValue } = useFormikContext();
+
+  const radios = options.map((option, i) => (
+    <RadioWrapper>
+      <Label>
+        <input
+          type="radio"
+          name={field.name}
+          value={option.value}
+          onChange={() => setFieldValue(field.name, option.value)}
+          defaultChecked={option.default}
+        />
+        {option.label}
+      </Label>
+    </RadioWrapper>
+  ));
+  return (
+    <FieldWrapper>
+      {radios}
       {meta.touched && meta.error ? <Error>{meta.error}</Error> : null}
     </FieldWrapper>
   );
