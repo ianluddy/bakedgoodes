@@ -2,7 +2,7 @@ import Head from 'next/head';
 import theme from '../themes/default';
 import styled from 'styled-components';
 import { useContext, useEffect, useState, useRef } from 'react';
-import { Formik, Form, useField } from 'formik';
+import { Formik, Form, useField, useFormikContext } from 'formik';
 import * as Yup from 'yup';
 import * as emailjs from '@emailjs/browser';
 
@@ -49,10 +49,10 @@ const FormWrapper = styled.div`
   }
 `;
 
-export default function (props) {
-  const [submitting, setSubmitting] = useState(false);
-  const [success, setSuccess] = useState(null);
-  const { orders, count, clearOrder } = useContext(OrderContext);
+const LocationSelect = (props) => {
+  const {
+    values: { location, delivery },
+  } = useFormikContext();
   const locations = {
     'Dublin 1': 8,
     'Dublin 2': 8,
@@ -66,11 +66,40 @@ export default function (props) {
     'Dublin 14': 10,
   };
 
+  return (
+    <Select
+      name="location"
+      label="Location *"
+      options={Object.keys(locations)}
+      {...props}
+    />
+  );
+};
+
+const DeliveryRadio = (props) => {
+  const {
+    values: { delivery },
+  } = useFormikContext();
+
+  const options = [
+    { label: 'Delivery in Dublin', value: true },
+    { label: 'Collection from Inchicore', value: false, default: true },
+  ];
+
+  return <Radio name="delivery" options={options} />;
+};
+
+export default function (props) {
+  const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState(null);
+  const { total, deliveryFee, orders, count, clearOrder } =
+    useContext(OrderContext);
+
   const initialValues = {
     name: '',
     email: '',
-    delivery: 'false',
-    location: Object.keys(locations)[5],
+    delivery: false,
+    location: 'Dublin 8',
     date: new Date(),
     phone: '',
     notes: '',
@@ -106,6 +135,17 @@ export default function (props) {
   });
 
   const handleSubmit = (values) => {
+    const emailValues = {
+      from_name: values.name,
+      reply_to: values.email,
+      delivery: values.delivery ? 'Delivery' : 'Collection',
+      location: values.delivery ? values.location : '-',
+      date: values.date.toDateString(),
+      notes: values.notes || '-',
+      phone: values.phone || '-',
+      order: stringifyOrder(orders),
+      total: total + deliveryFee,
+    };
     setSubmitting(true);
     window.scrollTo({
       top: 0,
@@ -115,37 +155,18 @@ export default function (props) {
       // setSubmitting(false);
       // setSuccess(true);
       // return;
-      emailjs
-        .send('service_6wdvvxv', 'template_uiuv1uu', {
-          from_name: values.name,
-          reply_to: values.email,
-          delivery: values.delivery === 'true' ? 'Delivery' : 'Collection',
-          location: values.delivery === 'true' ? values.location : '-',
-          date: values.date.toDateString(),
-          notes: values.notes || '-',
-          phone: values.phone || '-',
-          order: stringifyOrder(orders),
-          total:
-            (orders &&
-              orders.length &&
-              orders.reduce(
-                (prev, next) => prev + next.quantity * next.variant.price,
-                0
-              )) ||
-            0,
-        })
-        .then(
-          (response) => {
-            setSubmitting(false);
-            setSuccess(true);
-            clearOrder();
-          },
-          (error) => {
-            setSubmitting(false);
-            setSuccess(false);
-            throw error;
-          }
-        );
+      emailjs.send('service_6wdvvxv', 'template_uiuv1uu', emailValues).then(
+        (response) => {
+          setSubmitting(false);
+          setSuccess(true);
+          clearOrder();
+        },
+        (error) => {
+          setSubmitting(false);
+          setSuccess(false);
+          throw error;
+        }
+      );
     }, 1200);
   };
 
@@ -197,7 +218,7 @@ export default function (props) {
               <h2> Your order </h2>
               {orders ? orders.map((order, i) => Order(order, i)) : null}
               <TotalWrapper>
-                <OrderTotal />
+                <OrderTotal showDelivery />
               </TotalWrapper>
             </OrderWrapper>
             <FormWrapper>
@@ -217,17 +238,14 @@ export default function (props) {
                   <Form>
                     <TextInput label="Name *" name="name" type="text" />
                     <TextInput label="Email *" name="email" type="email" />
-                    <Radio name="delivery" type="radio" />
-                    {props.values.delivery == 'true' && (
-                      <Select
-                        label="Location *"
-                        name="location"
-                        options={Object.keys(locations)}
-                      />
-                    )}
+                    <DeliveryRadio {...props} />
+                    <LocationSelect
+                      hidden={props.values.delivery === false}
+                      {...props}
+                    />
                     <DateInput
                       label={
-                        props.values.delivery == 'true'
+                        props.values.delivery
                           ? 'Delivery Date *'
                           : 'Collection Date *'
                       }
