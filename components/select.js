@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
 
+// TODO - delete me
+
 const Select = styled.select`
   color: ${theme.darkGrey};
   border: 2px solid;
