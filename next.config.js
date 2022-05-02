@@ -8,13 +8,13 @@ const { withSentryConfig } = require('@sentry/nextjs');
 const moduleExports = {
   compiler: {
     // Enables the styled-components SWC transform
-    styledComponents: true
+    styledComponents: true,
   },
   images: {
-    loader: "custom",
+    loader: 'custom',
     nextImageExportOptimizer: {
-      imageFolderPath: "public/images",
-      exportFolderPath: "out",
+      imageFolderPath: 'public/images',
+      exportFolderPath: 'out',
       imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
       deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
       quality: 75,
@@ -39,4 +39,4 @@ const sentryWebpackPluginOptions = {
 
 // Make sure adding Sentry options is the last code to run before exporting, to
 // ensure that your source maps include changes from all other Webpack plugins
-module.exports = withSentryConfig(moduleExports, sentryWebpackPluginOptions);
+// module.exports = withSentryConfig(moduleExports, sentryWebpackPluginOptions);
