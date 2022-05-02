@@ -92,7 +92,7 @@ const DeliveryRadio = (props) => {
 export default function (props) {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(null);
-  const { total, deliveryFee, orders, count, clearOrder } =
+  const { total, delivery, orders, count, clearOrder, orderString } =
     useContext(OrderContext);
 
   const initialValues = {
@@ -103,21 +103,6 @@ export default function (props) {
     date: new Date(),
     phone: '',
     notes: '',
-  };
-
-  const stringifyOrder = (data) => {
-    let htmlString = '';
-    for (var item of data) {
-      htmlString += `
-        <div>
-          <div>${item.product.title}</div>
-          <div>${item.variant.title}</div>
-          <div>Quantity: ${item.quantity}</div>
-        </div>
-        <br/>
-      `;
-    }
-    return htmlString;
   };
 
   const validationSchema = Yup.object({
@@ -143,8 +128,8 @@ export default function (props) {
       date: values.date.toDateString(),
       notes: values.notes || '-',
       phone: values.phone || '-',
-      order: stringifyOrder(orders),
-      total: total + deliveryFee,
+      order: orderString,
+      total: total + delivery,
     };
     setSubmitting(true);
     window.scrollTo({
@@ -229,7 +214,6 @@ export default function (props) {
                 arrange payment.
               </p>
               <Formik
-                enableReinitialize
                 initialValues={initialValues}
                 validationSchema={validationSchema}
                 onSubmit={handleSubmit}
