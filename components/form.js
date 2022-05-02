@@ -101,9 +101,6 @@ const Label = styled.label`
 `;
 
 export const TextInput = ({ label, ...props }) => {
-  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
-  // which we can spread on <input>. We can use field meta to show an error
-  // message if the field is invalid and it has been touched (i.e. visited)
   const [field, meta] = useField(props);
 
   useEffect(() => {
@@ -127,9 +124,6 @@ export const TextInput = ({ label, ...props }) => {
 };
 
 export const TextArea = ({ label, ...props }) => {
-  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
-  // which we can spread on <input>. We can use field meta to show an error
-  // message if the field is invalid and it has been touched (i.e. visited)
   const [field, meta] = useField(props);
   return (
     <FieldWrapper>
@@ -143,10 +137,6 @@ export const TextArea = ({ label, ...props }) => {
 };
 
 export const Checkbox = ({ children, ...props }) => {
-  // React treats radios and checkbox inputs differently other input types, select, and textarea.
-  // Formik does this too! When you specify `type` to useField(), it will
-  // return the correct bag of props for you -- a `checked` prop will be included
-  // in `field` alongside `name`, `value`, `onChange`, and `onBlur`
   const [field, meta] = useField({ ...props, type: 'checkbox' });
   return (
     <FieldWrapper>
@@ -161,7 +151,7 @@ export const Checkbox = ({ children, ...props }) => {
 
 export const Select = ({ label, ...props }) => {
   const [field, meta] = useField(props);
-  const { setFieldValue } = useFormikContext();
+
   const options = props.options.map((option, i) => (
     <option key={i} value={option} label={option}>
       {option}
@@ -171,9 +161,35 @@ export const Select = ({ label, ...props }) => {
   return (
     <FieldWrapper>
       {!props.hidden && <Label htmlFor={props.id || props.name}>{label}</Label>}
-      <select {...field} {...props}>
+      <select {...field} hidden={props.hidden}>
         {options}
       </select>
+      {meta.touched && meta.error ? <Error>{meta.error}</Error> : null}
+    </FieldWrapper>
+  );
+};
+
+export const Radio = ({ options, ...props }) => {
+  const [field, meta] = useField(props);
+  const { setFieldValue } = useFormikContext();
+
+  const radios = options.map((option, i) => (
+    <RadioWrapper key={i}>
+      <Label>
+        <input
+          type="radio"
+          name={field.name}
+          value={option.value}
+          onChange={() => setFieldValue(field.name, option.value)}
+          defaultChecked={option.default}
+        />
+        {option.label}
+      </Label>
+    </RadioWrapper>
+  ));
+  return (
+    <FieldWrapper>
+      {radios}
       {meta.touched && meta.error ? <Error>{meta.error}</Error> : null}
     </FieldWrapper>
   );
@@ -212,32 +228,6 @@ export const DateInput = ({ label, ...props }) => {
         }}
         filterDate={isNotPast}
       />
-      {meta.touched && meta.error ? <Error>{meta.error}</Error> : null}
-    </FieldWrapper>
-  );
-};
-
-export const Radio = ({ options, ...props }) => {
-  const [field, meta] = useField(props);
-  const { setFieldValue } = useFormikContext();
-
-  const radios = options.map((option, i) => (
-    <RadioWrapper>
-      <Label>
-        <input
-          type="radio"
-          name={field.name}
-          value={option.value}
-          onChange={() => setFieldValue(field.name, option.value)}
-          defaultChecked={option.default}
-        />
-        {option.label}
-      </Label>
-    </RadioWrapper>
-  ));
-  return (
-    <FieldWrapper>
-      {radios}
       {meta.touched && meta.error ? <Error>{meta.error}</Error> : null}
     </FieldWrapper>
   );
