@@ -35,4 +35,4 @@ jobs:
          ftp-server: ftp.ianluddy.com/
          ftp-username: ci@ianluddy.com
          ftp-password: ${{ secrets.FTP_PASSWORD }}
-         local-dir: /home/runner/work/bakedgoodes/bakedgoodes/out/
+         local-dir: ./bakedgoodes/bakedgoodes/out/
