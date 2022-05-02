@@ -8,6 +8,7 @@ import Price from './price';
 const Wrapper = styled.h2`
   margin: 0;
   display: flex;
+  font-size: ${(props) => props.small && '1.1rem'};
 `;
 
 const Right = styled.div`
@@ -16,26 +17,28 @@ const Right = styled.div`
 
 const Left = styled.div``;
 
-export default function ({ children }) {
-  const { orders } = useContext(OrderContext);
+export default function ({ children, showDelivery }) {
+  const { delivery, total } = useContext(OrderContext);
   return (
-    <Wrapper>
-      <Left>Subtotal</Left>
-      <Right>
-        <Price
-          color={theme.secondary}
-          weight={600}
-          value={
-            (orders &&
-              orders.length &&
-              orders.reduce(
-                (prev, next) => prev + next.quantity * next.variant.price,
-                0
-              )) ||
-            0
-          }
-        />
-      </Right>
-    </Wrapper>
+    <>
+      {showDelivery && delivery > 0 && (
+        <Wrapper small>
+          <Left>Delivery</Left>
+          <Right>
+            <Price color={theme.secondary} weight={600} value={delivery} />
+          </Right>
+        </Wrapper>
+      )}
+      <Wrapper>
+        <Left>Total</Left>
+        <Right>
+          <Price
+            color={theme.secondary}
+            weight={600}
+            value={showDelivery ? total + delivery : total}
+          />
+        </Right>
+      </Wrapper>
+    </>
   );
 }

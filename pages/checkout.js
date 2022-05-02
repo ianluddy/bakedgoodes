@@ -49,10 +49,20 @@ const FormWrapper = styled.div`
   }
 `;
 
+const DeliveryFee = styled.div`
+  color: ${theme.secondary};
+  position: relative;
+  bottom: 1em;
+  text-align: left;
+  font-weight: 500;
+`;
+
 const LocationSelect = (props) => {
   const {
     values: { location, delivery },
   } = useFormikContext();
+  const { setDelivery } = useContext(OrderContext);
+
   const locations = {
     'Dublin 1': 8,
     'Dublin 2': 8,
@@ -66,13 +76,22 @@ const LocationSelect = (props) => {
     'Dublin 14': 10,
   };
 
+  useEffect(() => {
+    setDelivery(delivery ? locations[location] : 0);
+  });
+
   return (
-    <Select
-      name="location"
-      label="Location *"
-      options={Object.keys(locations)}
-      {...props}
-    />
+    <>
+      <Select
+        name="location"
+        label="Location *"
+        options={Object.keys(locations)}
+        {...props}
+      />
+      {delivery && (
+        <DeliveryFee> Delivery fee: €{locations[location]} </DeliveryFee>
+      )}
+    </>
   );
 };
 
