@@ -47,12 +47,12 @@ export default function (order, index) {
       </ImageWrapper>
       <Meta>
         <Title>{order.product.title}</Title>
-        <Variant>{order.variant.shortTitle}</Variant>
+        <Variant>{order.option.shortLabel}</Variant>
         <div>
           <Price
             weight={600}
             color={theme.secondary}
-            value={order.variant.price * order.quantity}
+            value={order.option.price * order.quantity}
           ></Price>
           <QuantityPicker order={order} index={index} />
         </div>

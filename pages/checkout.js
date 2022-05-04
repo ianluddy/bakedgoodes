@@ -64,20 +64,60 @@ const LocationSelect = (props) => {
   const { setDelivery } = useContext(OrderContext);
 
   const locations = {
-    'Dublin 1': 8,
-    'Dublin 2': 8,
-    'Dublin 4': 8,
-    'Dublin 6': 8,
-    'Dublin 7': 8,
-    'Dublin 8': 5,
-    'Dublin 9': 10,
-    'Dublin 10': 10,
-    'Dublin 12': 8,
-    'Dublin 14': 10,
+    1: {
+      label: 'Dublin 1',
+      value: 1,
+      fee: 8,
+    },
+    2: {
+      label: 'Dublin 2',
+      value: 2,
+      fee: 8,
+    },
+    4: {
+      label: 'Dublin 4',
+      value: 4,
+      fee: 8,
+    },
+    6: {
+      label: 'Dublin 6',
+      value: 6,
+      fee: 8,
+    },
+    7: {
+      label: 'Dublin 7',
+      value: 7,
+      fee: 8,
+    },
+    8: {
+      label: 'Dublin 8',
+      value: 8,
+      fee: 5,
+    },
+    9: {
+      label: 'Dublin 9',
+      value: 9,
+      fee: 10,
+    },
+    10: {
+      label: 'Dublin 10',
+      value: 10,
+      fee: 10,
+    },
+    12: {
+      label: 'Dublin 12',
+      value: 12,
+      fee: 8,
+    },
+    14: {
+      label: 'Dublin 14',
+      value: 14,
+      fee: 10,
+    },
   };
 
   useEffect(() => {
-    setDelivery(delivery ? locations[location] : 0);
+    setDelivery(delivery ? locations[location].fee : 0);
   });
 
   return (
@@ -85,11 +125,11 @@ const LocationSelect = (props) => {
       <Select
         name="location"
         label="Location *"
-        options={Object.keys(locations)}
+        options={Object.values(locations)}
         {...props}
       />
       {delivery && (
-        <DeliveryFee> Delivery fee: €{locations[location]} </DeliveryFee>
+        <DeliveryFee> Delivery fee: €{locations[location].fee} </DeliveryFee>
       )}
     </>
   );
@@ -118,7 +158,7 @@ export default function (props) {
     name: '',
     email: '',
     delivery: false,
-    location: 'Dublin 8',
+    location: '8',
     date: new Date(),
     phone: '',
     notes: '',
@@ -142,12 +182,15 @@ export default function (props) {
     const emailValues = {
       from_name: values.name,
       reply_to: values.email,
-      delivery: values.delivery ? 'Delivery' : 'Collection',
-      location: values.delivery ? values.location : '-',
-      date: values.date.toDateString(),
+      deliveryCollection: values.delivery
+        ? `Delivery to Dublin ${
+            values.location
+          } on ${values.date.toDateString()}`
+        : `Collection from Inchicore on ${values.date.toDateString()}`,
       notes: values.notes || '-',
       phone: values.phone || '-',
       order: orderString,
+      deliveryFee: values.delivery ? delivery : '-',
       total: total + delivery,
     };
     setSubmitting(true);

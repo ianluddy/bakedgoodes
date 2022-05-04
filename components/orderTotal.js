@@ -9,6 +9,7 @@ const Wrapper = styled.h2`
   margin: 0;
   display: flex;
   font-size: ${(props) => props.small && '1.1rem'};
+  color: ${(props) => props.color || 'inherit'};
 `;
 
 const Right = styled.div`
@@ -22,10 +23,10 @@ export default function ({ children, showDelivery }) {
   return (
     <>
       {showDelivery && delivery > 0 && (
-        <Wrapper small>
+        <Wrapper small color={theme.midGrey}>
           <Left>Delivery</Left>
           <Right>
-            <Price color={theme.secondary} weight={600} value={delivery} />
+            <Price color={theme.midGrey} weight={600} value={delivery} />
           </Right>
         </Wrapper>
       )}

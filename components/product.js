@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
+import { Formik, Form } from 'formik';
 
 import theme from '../themes/default';
 import Breadcrumbs from './breadcrumbs';
@@ -8,7 +9,7 @@ import Section from './section';
 import Price from './price';
 import Image from './image';
 import Button from './button';
-import Select from './select';
+import { Select } from './form';
 import Carousel from './carousel';
 import { OrderContext } from './orderProvider';
 import Grid from './grid';
@@ -68,8 +69,20 @@ const MetaWrapper = styled.div`
 `;
 
 export default function Post({ postData, postType }) {
-  const [variant, setVariant] = useState(postData.variants[0]);
   const { addOrder } = useContext(OrderContext);
+
+  const initialValues = {
+    option: Object.keys(postData.options)[0],
+  };
+
+  const handleSubmit = (values) => {
+    addOrder(
+      { id: postData.id, ...postData.meta },
+      postData.options[values.option],
+      1
+    );
+  };
+
   return (
     <Layout>
       <Section>
@@ -88,24 +101,25 @@ export default function Post({ postData, postType }) {
             <Desc>
               <p>{postData.meta.desc}</p>
             </Desc>
-            <div>
-              <Select
-                options={postData.variants}
-                selected={variant}
-                setSelected={setVariant}
-              />
-            </div>
-            <ButtonWrapper>
-              <Button
-                href="#"
-                text={'Add to basket'}
-                onClick={() =>
-                  addOrder({ id: postData.id, ...postData.meta }, variant, 1)
-                }
-                large
-                secondary
-              />
-            </ButtonWrapper>
+            <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+              {(props) => (
+                <Form>
+                  <Select
+                    name="option"
+                    label="Option"
+                    options={Object.values(postData.options)}
+                    {...props}
+                  />
+                  <Button
+                    type="submit"
+                    text="Add to basket"
+                    large
+                    secondary
+                    wide
+                  />
+                </Form>
+              )}
+            </Formik>
           </MetaWrapper>
         </Grid>
       </Section>

@@ -41,7 +41,7 @@ export default function ({ children }) {
   const getOrderTotal = (orders) => {
     return orders && orders.length
       ? orders.reduce(
-          (prev, next) => prev + next.quantity * next.variant.price,
+          (prev, next) => prev + next.quantity * next.option.price,
           0
         )
       : 0;
@@ -57,8 +57,9 @@ export default function ({ children }) {
         htmlString += `
           <div>
             <div>${item.product.title}</div>
-            <div>${item.variant.title}</div>
+            <div>${item.option.label}</div>
             <div>Quantity: ${item.quantity}</div>
+            <div>Subtotal: €${item.quantity * item.option.price}</div>
           </div>
           <br/>
         `;
@@ -67,9 +68,9 @@ export default function ({ children }) {
     return htmlString;
   };
 
-  const addOrder = (product, variant, quantity) => {
+  const addOrder = (product, option, quantity) => {
     setOrders((prevState) => {
-      return [...prevState, { product, variant, quantity }];
+      return [...prevState, { product, option, quantity }];
     });
   };
 

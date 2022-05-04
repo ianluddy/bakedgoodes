@@ -153,8 +153,8 @@ export const Select = ({ label, ...props }) => {
   const [field, meta] = useField(props);
 
   const options = props.options.map((option, i) => (
-    <option key={i} value={option} label={option}>
-      {option}
+    <option key={i} value={option.value} label={option.label}>
+      {option.label}
     </option>
   ));
 
