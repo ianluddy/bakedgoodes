@@ -12,6 +12,7 @@ import Button from '../components/button';
 import Map from '../components/map';
 import Cta from '../components/cta';
 import Section from '../components/section';
+import Instagram from '../components/instagram';
 import FormLoader from '../components/formLoader';
 import { Anchor, ButtonAnchor } from '../components/anchor';
 import Grid from '../components/grid';
@@ -19,7 +20,11 @@ import { TextArea, TextInput } from '../components/form';
 import Layout from '../components/layout';
 
 const MapWrapper = styled.div`
+  text-align: center;
   padding: 1rem 0 2rem 0;
+  p {
+    padding-bottom: 1.5rem;
+  }
 `;
 
 const FormWrapper = styled.div`
@@ -120,19 +125,16 @@ export default function (props) {
       </Head>
       <Layout>
         <Section padding={'0 0 2rem 0'}>
-          <h1>Contact</h1>
+          <Grid align={'center'}>
+            <h1>Contact</h1>
+            <p>
+              Check out my Instagram to see my most recent bakes. You can
+              message me there to chat about an order. Or just use the contact
+              form on this page
+            </p>
+          </Grid>
           <Grid md={'50%'} lg={'50%'}>
-            <Cta
-              headline={[
-                <BsInstagram />,
-                <Anchor href="https://www.instagram.com/baked_goodes/" bold>
-                  baked_goodes
-                </Anchor>,
-              ]}
-              body="Check out my Instagram to see my most recent bakes. You can message me there to chat about an order. Or just use the contact form on this page."
-              buttonText="Follow me"
-              buttonLink="https://www.instagram.com/baked_goodes/"
-            />
+            <Instagram hideSubtitle />
             <FormWrapper>
               <Formik
                 enableReinitialize
@@ -146,8 +148,14 @@ export default function (props) {
               </Formik>
             </FormWrapper>
           </Grid>
-          <Grid>
+          <Grid align={'center'}>
             <MapWrapper>
+              <h2> Click and collect </h2>
+              <p>
+                {' '}
+                Click and collect is available from Inchicore, choose collection
+                at checkout.
+              </p>
               <Map />
             </MapWrapper>
           </Grid>

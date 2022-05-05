@@ -12,7 +12,6 @@ import {
 import Carousel from '../components/carousel';
 import Cta from '../components/cta';
 import Map from '../components/map';
-import Image from '../components/image';
 import Grid from '../components/grid';
 
 import { data as cakes } from '../lib/cakes';
