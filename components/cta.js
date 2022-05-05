@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
 import { ButtonAnchor } from './anchor';
+import Map from './map';
 
 const CTAWrapper = styled.div`
   padding: ${(props) => props.padding};
@@ -34,12 +35,15 @@ export default function (props) {
     <CTAWrapper {...props}>
       <h2>{props.headline}</h2>
       <p>{props.body}</p>
-      <ButtonAnchor
-        href={props.buttonLink}
-        text={props.buttonText}
-        secondary
-        large
-      />
+      {props.buttonLink && (
+        <ButtonAnchor
+          href={props.buttonLink}
+          text={props.buttonText}
+          secondary
+          large
+        />
+      )}
+      {props.map && <Map />}
     </CTAWrapper>
   );
 }

@@ -90,25 +90,6 @@ const Categories = () => {
   );
 };
 
-const Delivery = () => {
-  return (
-    <Grid sm={'100%'} md={'50%'} lg={'50%'}>
-      <div>
-        <Cta
-          padding="3rem 0"
-          headline="Delivery"
-          body="Delivery is available in Dublin, or you can collect from Inchicore. Get in touch to find out about availability."
-          buttonText="Shop now"
-          buttonLink="/cakes"
-        />
-      </div>
-      <div>
-        <Map />
-      </div>
-    </Grid>
-  );
-};
-
 const Bio = () => {
   return (
     <Grid align={'center'}>
@@ -155,10 +136,14 @@ export default function (props) {
               <Bio />
             </Section>
             <Section>
-              <Delivery />
+              <Categories />
             </Section>
             <Section>
-              <Categories />
+              <Cta
+                headline="Click and collect"
+                body="Click and collect is available from Inchicore, choose collection at checkout."
+                map
+              />
             </Section>
             <Section>
               <Cta
