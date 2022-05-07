@@ -154,11 +154,13 @@ export default function (props) {
               </Formik>
             </FormWrapper>
           </Grid>
-          <Cta
-            headline="Click and collect"
-            body="Click and collect is available from Inchicore, choose collection at checkout."
-            map
-          />
+          <Grid align={'center'} delay={'0'}>
+            <Cta
+              headline="Click and collect"
+              body="Click and collect is available from Inchicore, choose collection at checkout."
+              map
+            />
+          </Grid>
         </Section>
       </Layout>
     </>

@@ -124,11 +124,13 @@ export default function Post({ postData, postType }) {
         </Grid>
       </Section>
       <Section>
-        <Carousel
-          title={'Also available'}
-          products={productData[postType]}
-          excludeId={postData.id}
-        />
+        <Grid delay={'0'}>
+          <Carousel
+            title={'Also available'}
+            products={productData[postType]}
+            excludeId={postData.id}
+          />
+        </Grid>
       </Section>
     </Layout>
   );

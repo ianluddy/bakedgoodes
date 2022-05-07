@@ -39,12 +39,14 @@ export default function (props) {
           <GridWithSidebar sidebar={<Sidebar />} grid={<Products />} />
         </Section>
         <Section>
-          <Cta
-            headline="Fancy something else?"
-            body="Plenty of options available, get in touch!"
-            buttonText="Contact me"
-            buttonLink="/contact"
-          />
+          <Grid delay={'0'}>
+            <Cta
+              headline="Fancy something else?"
+              body="Plenty of options available, get in touch!"
+              buttonText="Contact me"
+              buttonLink="/contact"
+            />
+          </Grid>
         </Section>
       </Layout>
     </>

@@ -23,19 +23,21 @@ const Wrapper = styled.div`
 
 const BestSellers = () => {
   return (
-    <Carousel
-      title={'Best Sellers'}
-      products={[
-        cakes[1],
-        cakes[2],
-        cakes[3],
-        cakes[4],
-        cupcakes[3],
-        cupcakes[1],
-        cupcakes[2],
-        cupcakes[4],
-      ]}
-    />
+    <Grid>
+      <Carousel
+        title={'Best Sellers'}
+        products={[
+          cakes[1],
+          cakes[2],
+          cakes[3],
+          cakes[4],
+          cupcakes[3],
+          cupcakes[1],
+          cupcakes[2],
+          cupcakes[4],
+        ]}
+      />
+    </Grid>
   );
 };
 
@@ -62,7 +64,7 @@ const CakeTypes = () => {
 
 const Categories = () => {
   return (
-    <>
+    <Grid align={'center'}>
       <h2>Shop by Category</h2>
       <Grid align={'center'} sm={'33%'} md={'33%'} lg={'33%'}>
         <ProductTile
@@ -86,7 +88,7 @@ const Categories = () => {
           buttonText="Enquire now"
         />
       </Grid>
-    </>
+    </Grid>
   );
 };
 
@@ -139,12 +141,14 @@ export default function (props) {
               <Categories />
             </Section>
             <Section>
-              <Cta
-                headline="Fancy something special?"
-                body="Get in touch and we can discuss a bespoke bake for your special occasion"
-                buttonText="Contact me"
-                buttonLink="/contact"
-              />
+              <Grid>
+                <Cta
+                  headline="Fancy something special?"
+                  body="Get in touch and we can discuss a bespoke bake for your special occasion"
+                  buttonText="Contact me"
+                  buttonLink="/contact"
+                />
+              </Grid>
             </Section>
           </Wrapper>
         </Layout>

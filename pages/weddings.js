@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Cta from '../components/cta';
 import Layout from '../components/layout';
 import Section from '../components/section';
+import Grid from '../components/grid';
 
 export default function (props) {
   return (
@@ -15,15 +16,19 @@ export default function (props) {
       </Head>
       <Layout>
         <Section padding={'0 0 2rem 0'}>
-          <h1>Weddings</h1>
+          <Grid align={'center'} delay={'0'}>
+            <h1>Weddings</h1>
+          </Grid>
         </Section>
         <Section>
-          <Cta
-            headline="Fancy something else?"
-            body="Plenty of options available, get in touch!"
-            buttonText="Contact me"
-            buttonLink="/contact"
-          />
+          <Grid align={'center'} delay={'0'}>
+            <Cta
+              headline="Fancy something else?"
+              body="Plenty of options available, get in touch!"
+              buttonText="Contact me"
+              buttonLink="/contact"
+            />
+          </Grid>
         </Section>
       </Layout>
     </>

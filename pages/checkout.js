@@ -234,7 +234,9 @@ export default function (props) {
           hide={submitting || success != undefined || count == 0}
           padding={'0'}
         >
-          <h1>Checkout</h1>
+          <Grid>
+            <h1>Checkout</h1>
+          </Grid>
         </Section>
         <Section
           hide={(count && count != 0) || submitting || success != undefined}
@@ -260,7 +262,7 @@ export default function (props) {
           />
         </Section>
         <Section hide={!count || submitting || success != undefined}>
-          <Grid md={'50%'} lg={'50%'}>
+          <Grid md={'50%'} lg={'50%'} delay={'0'}>
             <OrderWrapper>
               <h2> Your order </h2>
               {orders ? orders.map((order, i) => Order(order, i)) : null}
