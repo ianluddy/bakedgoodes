@@ -16,6 +16,12 @@ const AnchorWrapper = styled.a`
   }
 `;
 
+const SidebarAnchorWrapper = styled(AnchorWrapper)`
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: ${(props) => (props.active ? theme.primary : theme.midGrey)};
+`;
+
 const NavAnchorWrapper = styled(AnchorWrapper)`
   font-weight: 700;
   font-family: ${theme.fontNav};
@@ -46,13 +52,26 @@ export function Anchor({ href, children, color, bold, onClick }) {
   );
 }
 
-export function PrimaryNavAnchor({ href, active, children }) {
+export function SidebarAnchor({ href, children }) {
   const router = useRouter();
   return (
     <Link href={href}>
+      <SidebarAnchorWrapper active={router.pathname == href}>
+        {children}
+      </SidebarAnchorWrapper>
+    </Link>
+  );
+}
+
+export function PrimaryNavAnchor({ href, active, children, hrefList = [] }) {
+  const router = useRouter();
+  const isActive =
+    router.pathname == href || hrefList.indexOf(router.pathname) != -1;
+  return (
+    <Link href={href}>
       <NavAnchorWrapper
-        active={router.pathname == href}
-        color={router.pathname == href ? theme.primary : theme.lightGrey}
+        active={isActive}
+        color={isActive ? theme.primary : theme.lightGrey}
       >
         {children}
       </NavAnchorWrapper>
@@ -60,13 +79,15 @@ export function PrimaryNavAnchor({ href, active, children }) {
   );
 }
 
-export function SecondaryNavAnchor({ href, active, children }) {
+export function SecondaryNavAnchor({ href, active, children, hrefList = [] }) {
   const router = useRouter();
+  const isActive =
+    router.pathname == href || hrefList.indexOf(router.pathname) != -1;
   return (
     <Link href={href}>
       <NavAnchorWrapper
-        active={router.pathname == href}
-        color={router.pathname == href ? theme.darkGrey : theme.body}
+        active={isActive}
+        color={isActive ? theme.darkGrey : theme.body}
       >
         {children}
       </NavAnchorWrapper>

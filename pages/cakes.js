@@ -3,8 +3,26 @@ import { data as cakes } from '../lib/cakes';
 import Layout from '../components/layout';
 import Section from '../components/section';
 import { Small as ProductTile } from '../components/productTile';
-import Grid from '../components/grid';
+import Grid, { GridWithSidebar } from '../components/grid';
 import Cta from '../components/cta';
+import Sidebar from '../components/productSidebar';
+
+const Products = (props) => {
+  return (
+    <Grid sm={'50%'} md={'33%'} lg={'33%'}>
+      {cakes.map((cake) => (
+        <ProductTile
+          key={cake.id}
+          path={`/cakes/${cake.id}`}
+          title={cake.meta.title}
+          src={cake.meta.src}
+          buttonText="Order"
+          large
+        />
+      ))}
+    </Grid>
+  );
+};
 
 export default function (props) {
   return (
@@ -18,18 +36,7 @@ export default function (props) {
       </Head>
       <Layout>
         <Section>
-          <Grid sm={'50%'} md={'33%'} lg={'33%'}>
-            {cakes.map((cake) => (
-              <ProductTile
-                key={cake.id}
-                path={`/cakes/${cake.id}`}
-                title={cake.meta.title}
-                src={cake.meta.src}
-                buttonText="Order"
-                large
-              />
-            ))}
-          </Grid>
+          <GridWithSidebar sidebar={<Sidebar />} grid={<Products />} />
         </Section>
         <Section>
           <Cta

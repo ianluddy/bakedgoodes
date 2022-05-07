@@ -2,6 +2,28 @@ import styled from 'styled-components';
 import theme from '../themes/default';
 import FadeIn from 'react-fade-in';
 
+const GridWithSidebarWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  > div {
+    flex-grow: 1;
+  }
+  > div:first-of-type {
+    width: 100%;
+  }
+  > div:last-of-type {
+    width: 100%;
+  }
+  @media (${theme.devices.md}) {
+    > div:first-of-type {
+      width: 25%;
+    }
+    > div:last-of-type {
+      width: 75%;
+    }
+  }
+`;
+
 const Grid = styled(FadeIn)`
   flex-wrap: wrap;
   display: ${(props) => (props.hide ? 'none' : 'flex')};
@@ -32,8 +54,17 @@ const Grid = styled(FadeIn)`
 
 export default function (props) {
   return (
-    <Grid delay="120" {...props}>
+    <Grid delay={props.delay || 120} {...props}>
       {props.children}
     </Grid>
   );
 }
+
+export const GridWithSidebar = (props) => {
+  return (
+    <GridWithSidebarWrapper>
+      <div>{props.sidebar}</div>
+      <div>{props.grid}</div>
+    </GridWithSidebarWrapper>
+  );
+};

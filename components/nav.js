@@ -106,8 +106,9 @@ export function SecondaryNav({ setOpen }) {
           }}
         >
           <SecondaryNavAnchor href="/">Home</SecondaryNavAnchor>
-          <SecondaryNavAnchor href="/cakes">Cakes</SecondaryNavAnchor>
-          <SecondaryNavAnchor href="/cupcakes">Cupcakes</SecondaryNavAnchor>
+          <SecondaryNavAnchor href="/cakes" hrefList={['/cakes', '/cupcakes']}>
+            Shop
+          </SecondaryNavAnchor>
           <SecondaryNavAnchor href="/weddings">Weddings</SecondaryNavAnchor>
           <SecondaryNavAnchor href="/contact">Contact</SecondaryNavAnchor>
         </SecondaryInner>
@@ -128,10 +129,9 @@ export function PrimaryNav() {
             <PrimaryNavAnchor href="/">Home</PrimaryNavAnchor>
           </NavLink>
           <NavLink>
-            <PrimaryNavAnchor href="/cakes">Cakes</PrimaryNavAnchor>
-          </NavLink>
-          <NavLink>
-            <PrimaryNavAnchor href="/cupcakes">Cupcakes</PrimaryNavAnchor>
+            <PrimaryNavAnchor href="/cakes" hrefList={['/cakes', '/cupcakes']}>
+              Shop
+            </PrimaryNavAnchor>
           </NavLink>
           <NavLink>
             <PrimaryNavAnchor href="/weddings">Weddings</PrimaryNavAnchor>
