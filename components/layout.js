@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext, useRef } from 'react';
 import styled from 'styled-components';
-import FadeIn from 'react-fade-in';
 import { BsFillBasket2Fill } from 'react-icons/bs';
 
 import theme from '../themes/default';
@@ -92,9 +91,7 @@ export default function ({ children }) {
         <LeftDrawerOpen setOpen={setLeftDrawerOpen} />
         <Counter />
         <PrimaryNav />
-        <Page>
-          <FadeIn>{children}</FadeIn>
-        </Page>
+        <Page>{children}</Page>
         <Scroller />
         <Footer />
       </Layout>

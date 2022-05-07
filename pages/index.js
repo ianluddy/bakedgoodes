@@ -140,13 +140,6 @@ export default function (props) {
             </Section>
             <Section>
               <Cta
-                headline="Click and collect"
-                body="Click and collect is available from Inchicore, choose collection at checkout."
-                map
-              />
-            </Section>
-            <Section>
-              <Cta
                 headline="Fancy something special?"
                 body="Get in touch and we can discuss a bespoke bake for your special occasion"
                 buttonText="Contact me"

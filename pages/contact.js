@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Formik, Form as FormikForm, useField } from 'formik';
 import * as Yup from 'yup';
 import * as emailjs from '@emailjs/browser';
-import FadeIn from 'react-fade-in';
 import { BsInstagram } from 'react-icons/bs';
 import { useEffect, useState } from 'react';
 
@@ -125,15 +124,22 @@ export default function (props) {
       </Head>
       <Layout>
         <Section padding={'0 0 2rem 0'}>
-          <Grid align={'center'}>
+          <Grid align={'center'} delay={'0'}>
             <h1>Contact</h1>
             <p>
-              Check out my Instagram to see my most recent bakes. You can
-              message me there to chat about an order. Or just use the contact
-              form on this page
+              Check out my{' '}
+              <Anchor
+                href="https://www.instagram.com/baked_goodes/"
+                color={theme.primary}
+                bold
+              >
+                Instagram
+              </Anchor>{' '}
+              to see my most recent bakes. You can message me there to chat
+              about an order. Or just use the contact form below.
             </p>
           </Grid>
-          <Grid md={'50%'} lg={'50%'}>
+          <Grid md={'50%'} lg={'50%'} delay={'0'}>
             <Instagram hideSubtitle />
             <FormWrapper>
               <Formik
