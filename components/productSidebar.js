@@ -5,10 +5,16 @@ import Link from 'next/link';
 import { SidebarAnchor } from './anchor';
 
 const Wrapper = styled.div`
-  margin: 0.5rem 0.5rem 0 0;
-  padding: 1rem 1rem 2rem 1rem;
-  background-color: #f5f5f5;
+  margin: 0rem 0.5rem 0 0;
+  padding: 0rem 1rem 2rem 1rem;
   border-radius: ${theme.borderRadius};
+  text-align: center;
+  h3 {
+    margin-top: 0.5rem;
+  }
+  @media (${theme.devices.lg}) {
+    text-align: left;
+  }
 `;
 
 const LinkWrapper = styled.div``;

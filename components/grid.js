@@ -14,12 +14,12 @@ const GridWithSidebarWrapper = styled.div`
   > div:last-of-type {
     width: 100%;
   }
-  @media (${theme.devices.md}) {
+  @media (${theme.devices.lg}) {
     > div:first-of-type {
-      width: 25%;
+      width: 20%;
     }
     > div:last-of-type {
-      width: 75%;
+      width: 80%;
     }
   }
 `;
