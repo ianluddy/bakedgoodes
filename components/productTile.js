@@ -80,7 +80,7 @@ export const Large = (props) => {
             padding={'0.5rem'}
             alt={props.title}
             title={props.title}
-            {...props}
+            src={props.src}
           />
           <ImageCTA>
             <h3>{props.title}</h3>
@@ -99,7 +99,7 @@ export const LargeWithCTA = (props) => {
           padding={'0.5rem'}
           alt={props.title}
           title={props.title}
-          {...props}
+          src={props.src}
         />
       </Link>
       <Cta

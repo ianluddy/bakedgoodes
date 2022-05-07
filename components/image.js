@@ -15,13 +15,13 @@ const Wrapper = styled.div`
   }
 `;
 
-export default function (props) {
+export default function ({ src, alt, width, borderRadius, padding }) {
   return (
-    <Wrapper {...props}>
+    <Wrapper borderRadius={borderRadius} padding={padding}>
       <ExportedImage
-        src={props.src}
-        alt={props.alt}
-        width={props.width}
+        src={src}
+        alt={alt}
+        width={width}
         layout="fill"
         objectFit="cover"
       />
