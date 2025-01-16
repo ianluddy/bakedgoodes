@@ -7,7 +7,7 @@ import {
 import styled from 'styled-components';
 
 const marker = { lat: 53.338, lng: -6.323 };
-const key = 'AIzaSyCSQYFzAOXRSA3QmdjtiKtsKwM4uE3KXrM';
+const key = 'API KEY GOES HERE';
 
 const mapStyles = [
   {
