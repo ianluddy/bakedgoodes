@@ -1,4 +1,4 @@
-NextJS site for BakedGoodes bakery.
+### NextJS site for BakedGoodes bakery ###
 
 
 npm i && npm run dev
