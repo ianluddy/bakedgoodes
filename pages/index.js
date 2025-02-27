@@ -76,7 +76,7 @@ const Categories = () => {
         />
         <ProductTile
           path="/cupcakes"
-          src="images/cupcakes/1.png"
+          src="images/cupcakes/1.jpg"
           title="Cupcakes"
           buttonText="Shop now"
         />
