@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react';
 
 import theme from '../themes/default';
 import Button from '../components/button';
-import Map from '../components/map';
 import Cta from '../components/cta';
 import Section from '../components/section';
 import Instagram from '../components/instagram';

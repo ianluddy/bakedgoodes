@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import theme from '../themes/default';
 import { ButtonAnchor } from './anchor';
-import Map from './map';
 
 const CTAWrapper = styled.div`
   padding: ${(props) => props.padding};
@@ -43,7 +42,6 @@ export default function (props) {
           large
         />
       )}
-      {props.map && <Map />}
     </CTAWrapper>
   );
 }
