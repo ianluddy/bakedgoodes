@@ -32,11 +32,3 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - if: github.event_name == 'push'
-        uses: SamKirkland/FTP-Deploy-Action@3.1.1
-        with:
-         ftp-server: ftp.ianluddy.com/
-         ftp-username: ci@ianluddy.com
-         ftp-password: ${{ secrets.FTP_PASSWORD }}
-         local-dir: out
-         git-ftp-args: --insecure 
