@@ -28,13 +28,7 @@ export default function (props) {
         <SidebarAnchor href="/cakes"> Occasion Cakes </SidebarAnchor>
       </LinkWrapper>
       <LinkWrapper>
-        <SidebarAnchor href="/wedding-cakes"> Wedding Cakes </SidebarAnchor>
-      </LinkWrapper>
-      <LinkWrapper>
         <SidebarAnchor href="/cupcakes"> Cupcakes </SidebarAnchor>
-      </LinkWrapper>
-      <LinkWrapper>
-        <SidebarAnchor href="/more"> Everything Else </SidebarAnchor>
       </LinkWrapper>
     </Wrapper>
   );
